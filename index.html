@@ -12,11 +12,11 @@
 <style>
   :root {
     --white: #ffffff;
-    --soft: rgba(255,255,255,0.78);
-    --faint: rgba(255,255,255,0.56);
-    --rule: rgba(255,255,255,0.12);
-    --blush: #ff7ccf;
-    --base: #0d0416;
+    --soft: rgba(255,255,255,0.86);
+    --faint: rgba(255,255,255,0.66);
+    --rule: rgba(255,255,255,0.18);
+    --blush: #ffb8e2;
+    --base: #5a1a9a;
     --plum: #2a0a45;
   }
   * { box-sizing: border-box; }
@@ -30,10 +30,13 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background:
-      radial-gradient(900px 700px at 100% 1300px, rgba(150, 60, 255, 0.16), transparent 70%),
-      radial-gradient(900px 800px at 0% 2300px, rgba(255, 60, 170, 0.12), transparent 70%),
-      radial-gradient(800px 600px at 80% 3300px, rgba(150, 60, 255, 0.12), transparent 70%),
-      var(--base);
+      radial-gradient(1200px 900px at 95% 0px, rgba(255, 95, 185, 0.75), transparent 60%),
+      radial-gradient(900px 600px at 60% 750px, rgba(255, 90, 180, 0.28), transparent 65%),
+      radial-gradient(1100px 900px at 0% 700px, rgba(110, 45, 225, 0.65), transparent 60%),
+      radial-gradient(1100px 900px at 100% 1900px, rgba(225, 65, 165, 0.45), transparent 60%),
+      radial-gradient(1100px 900px at 0% 3000px, rgba(120, 55, 235, 0.50), transparent 60%),
+      radial-gradient(1100px 900px at 100% 3900px, rgba(225, 65, 165, 0.40), transparent 60%),
+      linear-gradient(180deg, #45138c 0%, #5a1a9a 40%, #6e1c9b 75%, #7f2098 100%);
     background-color: var(--base);
   }
   a { color: var(--white); }
@@ -55,14 +58,11 @@
   /* Hero */
   .hero {
     position: relative; overflow: hidden; text-align: left;
-    padding: calc(90px + 10vh) 0 34vh; border-bottom: 0;
-    background:
-      radial-gradient(900px 600px at 85% 15%, rgba(255, 70, 170, 0.55), transparent 65%),
-      radial-gradient(800px 600px at 10% 30%, rgba(120, 40, 230, 0.55), transparent 65%),
-      linear-gradient(150deg, #160530 0%, #2e0a5c 40%, #5a1488 70%, #a01d8f 100%);
+    padding: calc(90px + 10vh) 0 30vh; border-bottom: 0;
+    background: transparent;
   }
-  .hero-waves, .hero-shapes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-  .hero-waves { height: calc(100% + 2px); }
+  .hero-waves { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-waves { height: 100%; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
   .hero-inner { position: relative; z-index: 1; max-width: none; padding-left: max(28px, calc((100vw - 1120px) / 2 - 52px)); padding-right: 28px; }
   .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
   .nowrap { white-space: nowrap; }
@@ -189,29 +189,13 @@
     <svg class="hero-waves" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <pattern id="stripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="2" height="14" fill="#ffffff" fill-opacity="0.10"/>
+          <rect width="2" height="14" fill="#ffffff" fill-opacity="0.07"/>
         </pattern>
       </defs>
-      <path d="M0 260 C 260 140 520 110 820 230 S 1260 380 1440 290 L1440 900 L0 900 Z" fill="#7a2fd6" fill-opacity="0.28"/>
-      <path d="M0 640 C 300 560 560 540 860 620 S 1280 720 1440 660 L1440 900 L0 900 Z" fill="#c23aa8" fill-opacity="0.30"/>
-      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="#ff5fb4" fill-opacity="0.26"/>
+      <path d="M0 260 C 260 140 520 110 820 230 S 1260 380 1440 290 L1440 900 L0 900 Z" fill="#ffffff" fill-opacity="0.05"/>
+      <path d="M0 640 C 300 560 560 540 860 620 S 1280 720 1440 660 L1440 900 L0 900 Z" fill="#ff9ad6" fill-opacity="0.08"/>
+      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="#ffffff" fill-opacity="0.06"/>
       <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="url(#stripes)"/>
-      <path d="M0 830 C 360 770 720 780 1060 840 S 1340 880 1440 860 L1440 900 L0 900 Z" fill="#0d0416"/>
-    </svg>
-    <svg class="hero-shapes" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
-          <circle cx="3" cy="3" r="1.6" fill="#ffffff" fill-opacity="0.35"/>
-        </pattern>
-      </defs>
-      <circle cx="1180" cy="760" r="60" fill="url(#dots)"/>
-      <g fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5">
-        <rect x="1300" y="380" width="34" height="34"/>
-        <polygon points="1150,600 1174,586 1198,600 1198,628 1174,642 1150,628"/>
-        <polygon points="1380,640 1396,614 1412,640"/>
-        <circle cx="1240" cy="690" r="14"/>
-      </g>
-      <circle cx="1290" cy="520" r="44" fill="#ff7ccf" fill-opacity="0.14"/>
     </svg>
     <div class="wrap hero-inner">
       <h1 id="hero-title"><span class="nowrap">The Source of Truth</span><br>for MCA</h1>
