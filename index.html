@@ -130,18 +130,14 @@
   .brands p { color: var(--faint); font-size: 0.9rem; margin: 0; }
   .brand-row { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
   .brand-row li + li { border-left: 1px solid var(--rule); }
-  .brand-row a { display: flex; align-items: center; justify-content: center; height: 88px; padding: 16px; text-decoration: none; font-weight: 600; }
+  .brand-row a { display: flex; align-items: center; justify-content: center; height: 100px; padding: 16px; text-decoration: none; font-weight: 600; }
   .brand-row a:hover { background: rgba(255,255,255,0.08); }
   .brand-row a { gap: 10px; }
   .brand-row .brand-full { height: 28px; width: auto; max-width: 100%; }
-  .brand-row .brand-icon { width: 30px; height: 30px; object-fit: contain; }
+  .brand-row .brand-badge { width: 68px; height: 68px; object-fit: contain; }
   .brand-name { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; white-space: nowrap; }
   .brand-name sup { font-size: 0.55em; font-weight: 500; }
-  .brand-findex {
-    font-size: 1.5rem; letter-spacing: -0.02em;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.28) 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  }
+  .brand-findex { font-size: 1.5rem; letter-spacing: -0.02em; color: #ffffff; }
   footer { padding: 32px 0 48px; color: var(--faint); font-size: 0.85rem; }
   footer p { margin: 0 0 8px; max-width: 72ch; }
 
@@ -164,7 +160,7 @@
     .btn { width: 100%; text-align: center; }
     .brand-row a { padding: 12px 8px; gap: 7px; height: 76px; }
     .brand-row .brand-full { height: 20px; }
-    .brand-row .brand-icon { width: 22px; height: 22px; }
+    .brand-row .brand-badge { width: 56px; height: 56px; }
     .brand-name { font-size: 0.92rem; }
     .brand-findex { font-size: 1.2rem; }
   }
@@ -298,8 +294,8 @@
       <p>Supporting data protection, transparency, and accountability in commercial finance.</p>
       <ul class="brand-row" id="brand-row">
         <li><a href="https://aquamark.io" aria-label="Aquamark homepage"><img class="brand-full" src="logos/aquamark.png" alt="Aquamark"></a></li>
-        <li><a href="https://securebroker.org" aria-label="Secure Broker homepage"><img class="brand-icon" src="logos/secure-broker-icon.png" alt=""><span class="brand-name">Secure Broker<sup>&trade;</sup></span></a></li>
-        <li><a href="https://securefunder.org" aria-label="Secure Funder homepage"><img class="brand-icon" src="logos/secure-funder-icon.png" alt=""><span class="brand-name">Secure Funder<sup>&trade;</sup></span></a></li>
+        <li><a href="https://securebroker.org" aria-label="Secure Broker homepage"><img class="brand-badge" src="logos/secure-broker-badge.png" alt="Secure Broker certified badge"></a></li>
+        <li><a href="https://securefunder.org" aria-label="Secure Funder homepage"><img class="brand-badge" src="logos/secure-funder-badge.png" alt="Secure Funder certified badge"></a></li>
         <li><a href="https://joinfindex.com" aria-label="FinDex homepage"><span class="brand-name brand-findex">FinDex</span></a></li>
       </ul>
     </section>
