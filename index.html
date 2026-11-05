@@ -12,10 +12,11 @@
 <style>
   :root {
     --white: #ffffff;
-    --soft: rgba(255,255,255,0.92);
-    --faint: rgba(255,255,255,0.8);
-    --rule: rgba(255,255,255,0.35);
-    --blush: #3d0033;
+    --soft: rgba(255,255,255,0.78);
+    --faint: rgba(255,255,255,0.56);
+    --rule: rgba(255,255,255,0.12);
+    --blush: #ff7ccf;
+    --base: #0d0416;
     --plum: #2a0a45;
   }
   * { box-sizing: border-box; }
@@ -29,8 +30,11 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background:
-      linear-gradient(180deg, #e6007a 0, #e6007a 1200px, #c40066 100%);
-    background-color: #e6007a;
+      radial-gradient(900px 700px at 100% 1300px, rgba(150, 60, 255, 0.16), transparent 70%),
+      radial-gradient(900px 800px at 0% 2300px, rgba(255, 60, 170, 0.12), transparent 70%),
+      radial-gradient(800px 600px at 80% 3300px, rgba(150, 60, 255, 0.12), transparent 70%),
+      var(--base);
+    background-color: var(--base);
   }
   a { color: var(--white); }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
@@ -52,7 +56,10 @@
   .hero {
     position: relative; overflow: hidden; text-align: left;
     padding: calc(90px + 10vh) 0 34vh; border-bottom: 0;
-    background: linear-gradient(160deg, #ff0a85 0%, #ff1a8c 100%);
+    background:
+      radial-gradient(900px 600px at 85% 15%, rgba(255, 70, 170, 0.55), transparent 65%),
+      radial-gradient(800px 600px at 10% 30%, rgba(120, 40, 230, 0.55), transparent 65%),
+      linear-gradient(150deg, #160530 0%, #2e0a5c 40%, #5a1488 70%, #a01d8f 100%);
   }
   .hero-waves, .hero-shapes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hero-waves { height: calc(100% + 2px); }
@@ -107,7 +114,10 @@
     font-weight: 600;
     max-width: 22ch;
   }
-  .statement p span { color: var(--blush); }
+  .statement p span {
+    background: linear-gradient(90deg, #ff7ccf 0%, #b383ff 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
   .statement .small { font-size: 1rem; letter-spacing: 0; font-weight: 400; color: var(--soft); margin-top: 28px; max-width: 60ch; line-height: 1.6; }
 
   /* Programs */
@@ -131,7 +141,7 @@
   .brand-row { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
   .brand-row li + li { border-left: 1px solid var(--rule); }
   .brand-row a { display: flex; align-items: center; justify-content: center; height: 100px; padding: 16px; text-decoration: none; font-weight: 600; }
-  .brand-row a:hover { background: rgba(255,255,255,0.08); }
+  .brand-row a:hover { background: rgba(255,255,255,0.05); }
   .brand-row a { gap: 10px; }
   .brand-row .brand-full { height: 28px; width: auto; max-width: 100%; }
   .brand-row .brand-badge { width: 68px; height: 68px; object-fit: contain; }
@@ -179,29 +189,29 @@
     <svg class="hero-waves" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <pattern id="stripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="5" height="14" fill="#ffffff" fill-opacity="0.18"/>
+          <rect width="2" height="14" fill="#ffffff" fill-opacity="0.10"/>
         </pattern>
       </defs>
-      <path d="M0 260 C 260 140 520 110 820 230 S 1260 380 1440 290 L1440 900 L0 900 Z" fill="#ff268f"/>
-      <path d="M0 640 C 300 560 560 540 860 620 S 1280 720 1440 660 L1440 900 L0 900 Z" fill="#ff4aa4"/>
-      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="#ff7dbe"/>
+      <path d="M0 260 C 260 140 520 110 820 230 S 1260 380 1440 290 L1440 900 L0 900 Z" fill="#7a2fd6" fill-opacity="0.28"/>
+      <path d="M0 640 C 300 560 560 540 860 620 S 1280 720 1440 660 L1440 900 L0 900 Z" fill="#c23aa8" fill-opacity="0.30"/>
+      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="#ff5fb4" fill-opacity="0.26"/>
       <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="url(#stripes)"/>
-      <path d="M0 830 C 360 770 720 780 1060 840 S 1340 880 1440 860 L1440 900 L0 900 Z" fill="#e6007a"/>
+      <path d="M0 830 C 360 770 720 780 1060 840 S 1340 880 1440 860 L1440 900 L0 900 Z" fill="#0d0416"/>
     </svg>
     <svg class="hero-shapes" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
-          <circle cx="3" cy="3" r="2.2" fill="#ffffff" fill-opacity="0.55"/>
+          <circle cx="3" cy="3" r="1.6" fill="#ffffff" fill-opacity="0.35"/>
         </pattern>
       </defs>
       <circle cx="1180" cy="760" r="60" fill="url(#dots)"/>
-      <g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2">
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5">
         <rect x="1300" y="380" width="34" height="34"/>
         <polygon points="1150,600 1174,586 1198,600 1198,628 1174,642 1150,628"/>
         <polygon points="1380,640 1396,614 1412,640"/>
         <circle cx="1240" cy="690" r="14"/>
       </g>
-      <circle cx="1290" cy="520" r="44" fill="#ffffff" fill-opacity="0.16"/>
+      <circle cx="1290" cy="520" r="44" fill="#ff7ccf" fill-opacity="0.14"/>
     </svg>
     <div class="wrap hero-inner">
       <h1 id="hero-title"><span class="nowrap">The Source of Truth</span><br>for MCA</h1>
