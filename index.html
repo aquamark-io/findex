@@ -29,22 +29,28 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background:
-      radial-gradient(1100px 700px at 85% -10%, #ff4fa8 0%, transparent 60%),
-      radial-gradient(900px 700px at 0% 45%, #d4006a 0%, transparent 65%),
-      linear-gradient(175deg, #f0137f 0%, #e6006f 45%, #cc0063 100%);
-    background-color: #e6006f;
+      radial-gradient(900px 700px at 100% 30%, #ff2f97 0%, transparent 65%),
+      linear-gradient(180deg, #e6007a 0%, #d6006f 60%, #c40066 100%);
+    background-color: #e6007a;
   }
   a { color: var(--white); }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
 
   /* Top bar */
+  .topwrap { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
   .top { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
   .wordmark { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em; text-decoration: none; }
   .wordmark span { color: var(--blush); }
   .top-note { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--soft); }
 
   /* Hero */
-  .hero { padding: 14vh 0 16vh; border-bottom: 1px solid var(--rule); text-align: center; }
+  .hero {
+    position: relative; overflow: hidden; text-align: center;
+    padding: calc(90px + 10vh) 0 34vh; border-bottom: 0;
+    background: linear-gradient(160deg, #ff0a85 0%, #ff1a8c 100%);
+  }
+  .hero-waves, .hero-shapes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-inner { position: relative; z-index: 1; }
   .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
   .nowrap { white-space: nowrap; }
   h1 {
@@ -119,7 +125,7 @@
   footer p { margin: 0 0 8px; max-width: 72ch; }
 
   @media (max-width: 860px) {
-    .hero { padding: 8vh 0 10vh; }
+    .hero { padding: calc(80px + 8vh) 0 22vh; }
     section { padding: 64px 0; }
     .grid { grid-template-columns: 1fr; }
     .item, .item:not(:nth-child(3n+1)) { padding: 28px 0 32px; border-left: 0; }
@@ -140,7 +146,7 @@
 </head>
 <body>
 
-<div class="wrap">
+<div class="wrap topwrap">
   <header class="top">
     <a href="/" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
     <span class="top-note">Founding access opening soon</span>
@@ -148,12 +154,44 @@
 </div>
 
 <main>
-  <div class="wrap">
-    <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" aria-labelledby="hero-title">
+    <svg class="hero-waves" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="stripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="5" height="14" fill="#ffffff" fill-opacity="0.18"/>
+        </pattern>
+      </defs>
+      <path d="M0 260 C 260 140 520 110 820 230 S 1260 380 1440 290 L1440 900 L0 900 Z" fill="#ff268f"/>
+      <path d="M0 640 C 300 560 560 540 860 620 S 1280 720 1440 660 L1440 900 L0 900 Z" fill="#ff4aa4"/>
+      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="#ff7dbe"/>
+      <path d="M0 730 C 320 660 640 660 960 740 S 1320 810 1440 770 L1440 900 L0 900 Z" fill="url(#stripes)"/>
+      <path d="M0 830 C 360 770 720 780 1060 840 S 1340 880 1440 860 L1440 900 L0 900 Z" fill="#e6007a"/>
+    </svg>
+    <svg class="hero-shapes" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+          <circle cx="3" cy="3" r="2.2" fill="#ffffff" fill-opacity="0.55"/>
+        </pattern>
+      </defs>
+      <circle cx="1180" cy="230" r="110" fill="url(#dots)"/>
+      <circle cx="230" cy="560" r="70" fill="url(#dots)"/>
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2">
+        <circle cx="300" cy="250" r="16"/>
+        <rect x="1300" y="380" width="34" height="34"/>
+        <polygon points="1060,560 1084,546 1108,560 1108,588 1084,602 1060,588"/>
+        <polygon points="160,430 176,404 192,430"/>
+        <circle cx="1240" cy="690" r="14"/>
+      </g>
+      <circle cx="1150" cy="470" r="48" fill="#ffffff" fill-opacity="0.16"/>
+    </svg>
+    <div class="wrap hero-inner">
       <h1 id="hero-title">MCA’s<br><span class="nowrap">Source of Truth</span></h1>
       <p class="tagline">No scores. No blacklists. No recommendations.</p>
       <p class="lead">FinDex is a reporting database for brokers and funders. Verified members submit documented reports. FinDex reviews the evidence. The person or business reported has the opportunity to respond before anything is published.</p>
-    </section>
+    </div>
+  </section>
+
+  <div class="wrap">
 
     <section aria-labelledby="standards-title">
       <p class="section-label">The standard</p>
