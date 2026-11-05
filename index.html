@@ -44,24 +44,24 @@
 
   /* Hero */
   .hero {
-    position: relative; overflow: hidden; text-align: center;
+    position: relative; overflow: hidden; text-align: left;
     padding: calc(90px + 10vh) 0 34vh; border-bottom: 0;
     background: linear-gradient(160deg, #ff0a85 0%, #ff1a8c 100%);
   }
   .hero-waves, .hero-shapes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hero-waves { height: calc(100% + 2px); }
-  .hero-inner { position: relative; z-index: 1; }
+  .hero-inner { position: relative; z-index: 1; max-width: none; padding-left: max(28px, calc((100vw - 1120px) / 2 + 28px)); padding-right: 28px; }
   .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
   .nowrap { white-space: nowrap; }
   h1 {
     margin: 0;
-    font-size: clamp(1.8rem, 9.9vw, 7.4rem);
+    font-size: clamp(1.8rem, 9.6vw, 9rem);
     line-height: 0.95;
     text-wrap: balance;
     font-weight: 700;
     letter-spacing: -0.045em;
   }
-  .tagline { font-size: clamp(1.35rem, 2.8vw, 2.1rem); font-weight: 500; margin: 40px 0 0; letter-spacing: -0.01em; }
+  .tagline { font-size: clamp(1.45rem, 3.2vw, 2.75rem); line-height: 1.25; font-weight: 500; margin: 40px 0 0; max-width: 30ch; letter-spacing: -0.01em; }
   .lead { font-size: 1.1rem; color: var(--soft); max-width: 58ch; margin: 0 0 44px; }
   .hero .lead { margin: 0 auto; }
   .hero .cta-row { justify-content: center; }
@@ -173,13 +173,11 @@
           <circle cx="3" cy="3" r="2.2" fill="#ffffff" fill-opacity="0.55"/>
         </pattern>
       </defs>
-      <circle cx="1350" cy="160" r="70" fill="url(#dots)"/>
-      <circle cx="230" cy="560" r="70" fill="url(#dots)"/>
+      <circle cx="1180" cy="760" r="60" fill="url(#dots)"/>
       <g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2">
-        <circle cx="110" cy="210" r="16"/>
         <rect x="1300" y="380" width="34" height="34"/>
         <polygon points="1150,600 1174,586 1198,600 1198,628 1174,642 1150,628"/>
-        <polygon points="160,430 176,404 192,430"/>
+        <polygon points="1380,640 1396,614 1412,640"/>
         <circle cx="1240" cy="690" r="14"/>
       </g>
       <circle cx="1290" cy="520" r="44" fill="#ffffff" fill-opacity="0.16"/>
