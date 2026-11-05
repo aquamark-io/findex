@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinDex | Source of Truth</title>
+<meta name="description" content="FinDex is an evidence-reviewed reporting database for commercial finance brokers and funders. Founding access opens soon.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --soft: rgba(255,255,255,0.78);
+    --faint: rgba(255,255,255,0.58);
+    --rule: rgba(255,255,255,0.22);
+    --blush: #ffc8e4;
+    --plum: #2a0a45;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--white);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(1100px 700px at 85% -10%, #ff5fae 0%, transparent 60%),
+      radial-gradient(900px 700px at 0% 40%, #8a1fb8 0%, transparent 65%),
+      radial-gradient(1000px 800px at 100% 55%, rgba(226,68,143,0.55) 0%, transparent 65%),
+      linear-gradient(175deg, #3a0b63 0%, #6d138f 30%, #a0157f 62%, #d23a8a 100%);
+  }
+  a { color: var(--white); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* Top bar */
+  .top { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+  .wordmark { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em; text-decoration: none; }
+  .wordmark span { color: var(--blush); }
+  .top-note { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--soft); }
+
+  /* Hero */
+  .hero { padding: 12vh 0 14vh; border-bottom: 1px solid var(--rule); }
+  .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
+  h1 {
+    margin: 0;
+    font-size: clamp(3.6rem, 13vw, 10.5rem);
+    line-height: 0.92;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+  }
+  .tagline { font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 500; margin: 40px 0 16px; letter-spacing: -0.01em; }
+  .lead { font-size: 1.1rem; color: var(--soft); max-width: 58ch; margin: 0 0 44px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    font: inherit; font-size: 0.95rem; font-weight: 600;
+    padding: 15px 26px; border-radius: 0; border: 1px solid var(--white);
+  }
+  .btn-solid { background: var(--white); color: #6d138f; cursor: default; }
+  .btn-line { background: transparent; color: var(--white); cursor: default; }
+  .cta-note { font-size: 0.85rem; color: var(--faint); margin-top: 16px; }
+
+  /* Highlights */
+  section { padding: 96px 0; border-bottom: 1px solid var(--rule); }
+  .section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 14px; }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; margin: 0 0 56px; max-width: 20ch; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
+  .item { padding: 36px 32px 40px 0; border-bottom: 1px solid var(--rule); }
+  .item:not(:nth-child(3n+1)) { padding-left: 32px; border-left: 1px solid var(--rule); }
+  .item-no { font-size: 0.8rem; color: var(--blush); font-weight: 600; letter-spacing: 0.08em; }
+  .item h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; margin: 14px 0 12px; line-height: 1.25; }
+  .item p { margin: 0; color: var(--soft); font-size: 0.96rem; }
+  .item p strong { color: var(--white); font-weight: 600; }
+
+  /* Statement */
+  .statement p {
+    margin: 0;
+    font-size: clamp(1.8rem, 4.4vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    max-width: 22ch;
+  }
+  .statement p span { color: var(--blush); }
+  .statement .small { font-size: 1rem; letter-spacing: 0; font-weight: 400; color: var(--soft); margin-top: 28px; max-width: 60ch; line-height: 1.6; }
+
+  /* Programs */
+  .programs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
+  .program { padding: 36px 40px 8px 0; }
+  .program + .program { padding-left: 40px; border-left: 1px solid var(--rule); }
+  .program h3 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .program .sub { color: var(--blush); font-size: 0.95rem; margin: 0 0 22px; }
+  .program dl { margin: 0; }
+  .program dt { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); font-weight: 600; margin-top: 18px; }
+  .program dd { margin: 6px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); color: var(--soft); font-size: 0.96rem; }
+  .program dd strong { color: var(--white); font-weight: 600; }
+
+  /* Founding */
+  .founding-copy { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.4; letter-spacing: -0.01em; max-width: 40ch; margin: 0 0 40px; font-weight: 500; }
+
+  /* Brands + footer */
+  .brands { padding: 56px 0; }
+  .brands h2 { font-size: 1.05rem; letter-spacing: 0; margin: 0 0 6px; }
+  .brands p { color: var(--faint); font-size: 0.9rem; margin: 0; }
+  .brand-row { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .brand-row li + li { border-left: 1px solid var(--rule); }
+  .brand-row a { display: flex; align-items: center; justify-content: center; height: 88px; padding: 16px; text-decoration: none; font-weight: 600; }
+  .brand-row a:hover { background: rgba(255,255,255,0.08); }
+  .brand-row img { max-height: 34px; max-width: 150px; }
+  footer { padding: 32px 0 48px; color: var(--faint); font-size: 0.85rem; }
+  footer p { margin: 0 0 8px; max-width: 72ch; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 8vh 0 10vh; }
+    section { padding: 64px 0; }
+    .grid { grid-template-columns: 1fr; }
+    .item, .item:not(:nth-child(3n+1)) { padding: 28px 0 32px; border-left: 0; }
+    .programs { grid-template-columns: 1fr; }
+    .program, .program + .program { padding: 32px 0 8px; border-left: 0; }
+    .program + .program { border-top: 1px solid var(--rule); }
+    .brand-row { grid-template-columns: 1fr 1fr; }
+    .brand-row li + li { border-left: 0; }
+    .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
+    .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .top-note { display: none; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    .btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a href="/" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
+    <span class="top-note">Founding access opening soon</span>
+  </header>
+</div>
+
+<main>
+  <div class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Evidence-based reporting for commercial finance.</p>
+      <h1 id="hero-title">Source<br>of Truth.</h1>
+      <p class="tagline">Know the Truth Before You Hire or Fund.</p>
+      <p class="lead">FinDex is a reporting database for brokers and funders. Verified members submit documented reports. FinDex reviews the evidence. The person or business reported has the opportunity to respond before anything is published.</p>
+      <div class="cta-row">
+        <button class="btn btn-solid" type="button" aria-disabled="true">Apply for founding access &middot; Coming soon</button>
+        <button class="btn btn-line" type="button" aria-disabled="true">Member sign in &middot; Coming soon</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="standards-title">
+      <p class="section-label">The standard</p>
+      <h2 id="standards-title">Built to be trusted by everyone on the record.</h2>
+      <div class="grid">
+        <div class="item">
+          <span class="item-no">01</span>
+          <h3>Membership requires approval</h3>
+          <p>Every broker and funder is <strong>verified before any search or submission</strong>: official business registration, a business email that matches the company website, and an authorized account owner. No personal email accounts.</p>
+        </div>
+        <div class="item">
+          <span class="item-no">02</span>
+          <h3>Evidence, not accusations</h3>
+          <p>A report needs <strong>documentation, not just a statement</strong>. Each allegation is linked to the records behind it, and FinDex reviews them before anything moves forward.</p>
+        </div>
+        <div class="item">
+          <span class="item-no">03</span>
+          <h3>Notice and the right to respond</h3>
+          <p>The person or business reported is notified and has <strong>10 business days to respond</strong>, with or without documents. A reviewer decides. <strong>Silence never publishes a report.</strong></p>
+        </div>
+        <div class="item">
+          <span class="item-no">04</span>
+          <h3>Built around the FCRA</h3>
+          <p>The employment reporting program is designed around the <strong>Fair Credit Reporting Act</strong>: permissible purpose, candidate authorization, accuracy, free file access, disputes and corrections.</p>
+        </div>
+        <div class="item">
+          <span class="item-no">05</span>
+          <h3>Authorized search only</h3>
+          <p>Members search published records for a <strong>stated, permitted purpose</strong>. Uncertain identity matches release nothing. No bulk lists, no scraping, no redistribution.</p>
+        </div>
+        <div class="item">
+          <span class="item-no">06</span>
+          <h3>Free for the people on record</h3>
+          <p>Responding, requesting your record and disputing information are <strong>free and need no account</strong>. Inaccurate or unverifiable information is corrected or removed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <p>No scores. No blacklists. <span>No recommendations.</span></p>
+      <p class="small">FinDex shows the facts, the dates, the evidence reviewed and whether a response was received. Members make their own hiring and funding decisions. FinDex is not a court and does not guarantee complete histories.</p>
+    </section>
+
+    <section aria-labelledby="programs-title">
+      <p class="section-label">Two programs</p>
+      <h2 id="programs-title">One standard for people and businesses.</h2>
+      <div class="programs">
+        <article class="program">
+          <h3>Individuals</h3>
+          <p class="sub">Documented misconduct, for hiring decisions</p>
+          <dl>
+            <dt>Who reports and searches</dt>
+            <dd>Verified brokers and funders.</dd>
+            <dt>Categories</dt>
+            <dd><strong>Theft</strong> of money, property, company or merchant data.<br><strong>Misleading merchants</strong> with materially false statements.</dd>
+          </dl>
+        </article>
+        <article class="program">
+          <h3>Merchants</h3>
+          <p class="sub">Contractual defaults, for funding decisions</p>
+          <dl>
+            <dt>Who reports</dt>
+            <dd>Verified funders.</dd>
+            <dt>Who searches</dt>
+            <dd>Verified brokers and funders.</dd>
+            <dt>Standard</dt>
+            <dd><strong>The merchant's own agreement defines default.</strong> Records are updated for cure, repayment, settlement and modification.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="founding-title">
+      <p class="section-label">Founding access</p>
+      <h2 id="founding-title">Join at the start.</h2>
+      <p class="founding-copy">Founding access is available at no cost while we build the FinDex database. Business verification is required. Any future pricing will be communicated in advance, with no automatic enrollment in a paid plan.</p>
+      <div class="cta-row">
+        <button class="btn btn-solid" type="button" aria-disabled="true">Apply for founding access &middot; Coming soon</button>
+      </div>
+      <p class="cta-note">No credit card required.</p>
+    </section>
+
+    <section class="brands" aria-labelledby="brands-title">
+      <h2 id="brands-title">Our Brands</h2>
+      <p>Supporting data protection, transparency, and accountability in commercial finance.</p>
+      <ul class="brand-row" id="brand-row">
+        <li><a href="https://aquamark.io" aria-label="Aquamark homepage">Aquamark</a></li>
+        <li><a href="https://securebroker.org" aria-label="Secure Broker homepage">Secure Broker</a></li>
+        <li><a href="https://securefunder.org" aria-label="Secure Funder homepage">Secure Funder</a></li>
+        <li><a href="https://joinfindex.com" aria-label="FinDex homepage">FinDex</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 FinDex</p>
+  </div>
+</footer>
+
+</body>
+</html>
