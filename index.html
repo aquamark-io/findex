@@ -44,17 +44,20 @@
   .top-note { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--soft); }
 
   /* Hero */
-  .hero { padding: 12vh 0 14vh; border-bottom: 1px solid var(--rule); }
+  .hero { padding: 14vh 0 16vh; border-bottom: 1px solid var(--rule); text-align: center; }
   .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
   h1 {
     margin: 0;
-    font-size: clamp(3.6rem, 13vw, 10.5rem);
-    line-height: 0.92;
+    font-size: clamp(2.2rem, 12vw, 7.5rem);
+    line-height: 0.95;
+    white-space: nowrap;
     font-weight: 700;
     letter-spacing: -0.045em;
   }
   .tagline { font-size: clamp(1.25rem, 2.4vw, 1.75rem); font-weight: 500; margin: 40px 0 16px; letter-spacing: -0.01em; }
   .lead { font-size: 1.1rem; color: var(--soft); max-width: 58ch; margin: 0 0 44px; }
+  .hero .lead { margin-left: auto; margin-right: auto; }
+  .hero .cta-row { justify-content: center; }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
   .btn {
     font: inherit; font-size: 0.95rem; font-weight: 600;
@@ -147,8 +150,8 @@
   <div class="wrap">
     <section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow">Evidence-based reporting for commercial finance.</p>
-      <h1 id="hero-title">Source<br>of Truth.</h1>
-      <p class="tagline">Know the Truth Before You Hire or Fund.</p>
+      <h1 id="hero-title">Source of Truth.</h1>
+      <p class="tagline">No scores. No blacklists. No recommendations.</p>
       <p class="lead">FinDex is a reporting database for brokers and funders. Verified members submit documented reports. FinDex reviews the evidence. The person or business reported has the opportunity to respond before anything is published.</p>
       <div class="cta-row">
         <button class="btn btn-solid" type="button" aria-disabled="true">Apply for founding access &middot; Coming soon</button>
