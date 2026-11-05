@@ -29,7 +29,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background:
-      linear-gradient(180deg, #e6007a 0%, #d6006f 60%, #c40066 100%);
+      linear-gradient(180deg, #e6007a 0, #e6007a 1200px, #c40066 100%);
     background-color: #e6007a;
   }
   a { color: var(--white); }
@@ -49,12 +49,13 @@
     background: linear-gradient(160deg, #ff0a85 0%, #ff1a8c 100%);
   }
   .hero-waves, .hero-shapes { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-waves { height: calc(100% + 2px); }
   .hero-inner { position: relative; z-index: 1; }
   .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
   .nowrap { white-space: nowrap; }
   h1 {
     margin: 0;
-    font-size: clamp(2.2rem, 12vw, 9rem);
+    font-size: clamp(1.8rem, 9.9vw, 7.4rem);
     line-height: 0.95;
     text-wrap: balance;
     font-weight: 700;
@@ -172,10 +173,10 @@
           <circle cx="3" cy="3" r="2.2" fill="#ffffff" fill-opacity="0.55"/>
         </pattern>
       </defs>
-      <circle cx="1180" cy="230" r="110" fill="url(#dots)"/>
+      <circle cx="1350" cy="160" r="70" fill="url(#dots)"/>
       <circle cx="230" cy="560" r="70" fill="url(#dots)"/>
       <g fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2">
-        <circle cx="300" cy="250" r="16"/>
+        <circle cx="110" cy="210" r="16"/>
         <rect x="1300" y="380" width="34" height="34"/>
         <polygon points="1150,600 1174,586 1198,600 1198,628 1174,642 1150,628"/>
         <polygon points="160,430 176,404 192,430"/>
@@ -184,7 +185,7 @@
       <circle cx="1290" cy="520" r="44" fill="#ffffff" fill-opacity="0.16"/>
     </svg>
     <div class="wrap hero-inner">
-      <h1 id="hero-title">MCA’s<br><span class="nowrap">Source of Truth</span></h1>
+      <h1 id="hero-title"><span class="nowrap">The Source of Truth</span><br>for MCA</h1>
       <p class="tagline">No scores. No blacklists. No recommendations.</p>
     </div>
   </section>
