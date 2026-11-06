@@ -115,12 +115,11 @@
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
   .req-card {
-    padding: 34px 34px 18px; border-radius: 20px;
+    padding: 16px 34px; border-radius: 20px;
     background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
     border: 1px solid #ebdff9;
     box-shadow: 0 30px 60px -40px rgba(70, 20, 140, 0.45);
   }
-  .req-label { margin: 0 0 8px; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a3fb8; }
   .req-list { list-style: none; margin: 0; padding: 0; }
   .req-list li { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
   .req-list li + li { border-top: 1px solid #e6d9f6; }
@@ -154,7 +153,7 @@
     .hero { padding: calc(110px + 8vh) 0 14vh; }
     .content { padding: 72px 0 80px; }
     .access { grid-template-columns: 1fr; gap: 40px; }
-    .req-card { padding: 26px 22px 10px; }
+    .req-card { padding: 10px 22px; }
     .brands { padding: 56px 0 40px; }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .brand-row li + li { border-left: 0; }
@@ -217,8 +216,7 @@
           <h2 id="access-title" class="section-title">Access Is Restricted</h2>
           <p class="section-lead">FinDex is a business-only platform. Access is limited to verified organizations, with one account per company and no personal accounts. All registrations are subject to approval.</p>
         </div>
-        <div class="req-card">
-          <p class="req-label">Requirements</p>
+        <div class="req-card" aria-label="Requirements">
           <ul class="req-list">
             <li>
               <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
