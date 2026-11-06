@@ -131,6 +131,7 @@
   .categories { margin-top: 140px; }
   .cat-table { margin: 0; padding: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
   .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
+  .cat-row .pipe { margin: 0 0.35em; color: #c4b2dc; }
   .cat-row + .cat-row { border-top: 1px solid #ddd2ea; }
   .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
@@ -320,9 +321,9 @@
       <section class="parties" aria-labelledby="parties-title">
         <h2 id="parties-title" class="section-title practices-title">Reportable Parties</h2>
         <dl class="cat-table">
-          <div class="cat-row"><dt>Individuals</dt><dd>Employees and contractors</dd></div>
-          <div class="cat-row"><dt>Companies</dt><dd>Brokers, funders, lenders, software and lead providers</dd></div>
-          <div class="cat-row"><dt>Merchants</dt><dd>Business payment performance</dd></div>
+          <div class="cat-row"><dt>Individuals</dt><dd>Employees <span class="pipe">|</span> Contractors</dd></div>
+          <div class="cat-row"><dt>Companies</dt><dd>Brokers <span class="pipe">|</span> Providers <span class="pipe">|</span> Software <span class="pipe">|</span> Leads</dd></div>
+          <div class="cat-row"><dt>Merchants</dt><dd>Customers <span class="pipe">|</span> Small Businesses</dd></div>
         </dl>
       </section>
     </div>
