@@ -129,14 +129,13 @@
   .duo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 
   .categories { margin-top: 140px; }
-  .cat-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
-  .cat-col { padding-top: 22px; position: relative; }
-  .cat-col::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; border-radius: 2px;
-    background: linear-gradient(90deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%); }
-  .cat-col h3 { margin: 0 0 18px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
-  .cat-col ul { list-style: none; margin: 0; padding: 0; }
-  .cat-col li { position: relative; padding: 0 0 0 20px; margin: 0 0 12px; font-size: 1.05rem; line-height: 1.45; color: #4b3d63; }
-  .cat-col li::before { content: ""; position: absolute; left: 2px; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: #b47fdc; }
+  .hcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  .hcard { border-radius: 20px; overflow: hidden; border: 1px solid #ebdff9; background: #ffffff; box-shadow: 0 24px 50px -40px rgba(70, 20, 140, 0.45); }
+  .hcard h3 { margin: 0; padding: 20px 26px; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: #ffffff;
+    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%); }
+  .hcard ul { list-style: none; margin: 0; padding: 6px 26px 12px; }
+  .hcard li { padding: 13px 0; font-size: 1.05rem; color: #4b3d63; }
+  .hcard li + li { border-top: 1px solid #efe6f8; }
   .cat-table { margin: 0; padding: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
   .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
   .cat-row dd.cols { display: grid; grid-template-columns: repeat(5, 160px); white-space: nowrap; }
@@ -199,7 +198,9 @@
     .practices { margin-top: 88px; }
     .search-report { margin-top: 88px; }
     .categories { margin-top: 88px; }
-    .cat-cols { grid-template-columns: 1fr; gap: 36px; }
+    .hcards { grid-template-columns: 1fr; gap: 14px; }
+    .hcard h3 { padding: 16px 22px; }
+    .hcard ul { padding: 4px 22px 8px; }
     .parties { margin-top: 88px; }
     .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .cat-row dd.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 6px; }
@@ -332,19 +333,19 @@
 
       <section class="categories" aria-labelledby="cat-title">
         <h2 id="cat-title" class="section-title practices-title">Reportable Categories</h2>
-        <div class="cat-cols">
-          <div class="cat-col">
+        <div class="hcards">
+          <article class="hcard">
             <h3>Employees</h3>
             <ul><li>Theft</li><li>Fraud</li><li>Merchant Deception</li></ul>
-          </div>
-          <div class="cat-col">
+          </article>
+          <article class="hcard">
             <h3>Partners</h3>
             <ul><li>Theft</li><li>Fraud</li><li>Data Mishandling</li><li>Contract Breach</li></ul>
-          </div>
-          <div class="cat-col">
+          </article>
+          <article class="hcard">
             <h3>Merchants</h3>
             <ul><li>Fraud</li><li>Slow Pay</li><li>Missed Payments</li><li>Default</li></ul>
-          </div>
+          </article>
         </div>
       </section>
 
