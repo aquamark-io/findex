@@ -42,7 +42,7 @@
 
   /* Top bar */
   .topwrap { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
-  .top { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 28px 0; }
   .wordmark { font-weight: 700; font-size: 2.25rem; letter-spacing: -0.02em; text-decoration: none; }
   .wordmark {
     color: #ffffff;
@@ -51,6 +51,17 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-btn {
+    display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+    padding: 11px 22px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.005em;
+    text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .nav-btn-ghost { color: #ffffff; border: 1px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .nav-btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.7); }
+  .nav-btn-solid { color: #3d0f7a; background: #ffffff; border: 1px solid #ffffff; box-shadow: 0 8px 24px -10px rgba(30, 0, 60, 0.55); }
+  .nav-btn-solid:hover { transform: translateY(-1px); }
 
   /* Hero */
   .hero {
@@ -111,12 +122,19 @@
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
   @media (max-width: 480px) {
+    .wordmark { font-size: 1.75rem; }
+    .nav-actions { gap: 6px; }
+    .nav-btn { padding: 8px 13px; font-size: 0.8rem; }
     .wrap { padding: 0 18px; }
     .brand-row a { padding: 12px 8px; gap: 7px; height: 76px; }
     .brand-row .brand-full { height: 20px; }
     .brand-row .brand-badge { width: 56px; height: 56px; }
     .brand-name { font-size: 0.92rem; }
     .brand-findex { font-size: 1.2rem; }
+  }
+  @media (max-width: 360px) {
+    .wordmark { font-size: 1.5rem; }
+    .nav-btn { padding: 7px 11px; font-size: 0.75rem; }
   }
 </style>
 </head>
@@ -125,6 +143,10 @@
 <div class="wrap topwrap">
   <header class="top">
     <a href="/" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
+    <nav class="nav-actions" aria-label="Account">
+      <a class="nav-btn nav-btn-ghost" href="#">Sign In</a>
+      <a class="nav-btn nav-btn-solid" href="#">Request Access</a>
+    </nav>
   </header>
 </div>
 
