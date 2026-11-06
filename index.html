@@ -125,6 +125,9 @@
   .practice h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
 
+  .search-report { margin-top: 140px; }
+  .duo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
   .req-card {
@@ -167,6 +170,8 @@
     .content { padding: 72px 0 80px; }
     .access { grid-template-columns: 1fr; gap: 40px; }
     .practices { margin-top: 88px; }
+    .search-report { margin-top: 88px; }
+    .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
     .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
     .practice { padding: 24px 22px; }
@@ -275,6 +280,20 @@
             <p>Outdated, incomplete and unverifiable reports not published.</p>
           </li>
         </ol>
+      </section>
+
+      <section class="search-report" aria-labelledby="sr-title">
+        <h2 id="sr-title" class="section-title practices-title">Search &amp; Report</h2>
+        <ul class="duo">
+          <li class="practice">
+            <h3>Search</h3>
+            <p>Authorized companies can conduct due diligence. Individuals and merchants can request access to reports about themselves.</p>
+          </li>
+          <li class="practice">
+            <h3>Report</h3>
+            <p>Authorized companies only. Documented evidence required.</p>
+          </li>
+        </ul>
       </section>
     </div>
   </div>
