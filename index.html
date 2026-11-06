@@ -40,10 +40,10 @@
     background-color: var(--base);
   }
   a { color: var(--white); }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .wrap { --edge: max(28px, calc((100vw - 1120px) / 2 - 52px)); max-width: none; margin: 0; padding: 0 var(--edge); }
 
   /* Top bar */
-  .topwrap { position: absolute; top: 0; left: 0; right: 0; z-index: 2; max-width: none; padding-left: max(28px, calc((100vw - 1120px) / 2 - 52px)); padding-right: 28px; }
+  .topwrap { position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
   .top { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
   .wordmark { font-weight: 700; font-size: 2.25rem; letter-spacing: -0.02em; text-decoration: none; }
   .wordmark {
@@ -53,18 +53,16 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .top-note { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--soft); }
 
   /* Hero */
   .hero {
     position: relative; overflow: hidden; text-align: left;
-    padding: calc(140px + 12vh) 0 30vh; border-bottom: 0;
+    padding: calc(140px + 12vh) 0 16vh; border-bottom: 0;
     background: transparent;
   }
   .hero-waves { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hero-waves { height: 100%; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
-  .hero-inner { position: relative; z-index: 1; max-width: none; padding-left: max(28px, calc((100vw - 1120px) / 2 - 52px)); padding-right: 28px; }
-  .eyebrow { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 28px; }
+  .hero-inner { position: relative; z-index: 1; padding-right: 28px; }
   .nowrap { white-space: nowrap; }
   h1 {
     margin: 0;
@@ -81,77 +79,21 @@
     padding-bottom: 0.08em;
   }
   .tagline { font-size: clamp(1.45rem, 3.2vw, 2.75rem); line-height: 1.25; font-weight: 500; margin: 40px 0 0; max-width: 40ch; text-wrap: balance; letter-spacing: -0.01em; }
-  .lead { font-size: 1.1rem; color: var(--soft); max-width: 58ch; margin: 0 0 44px; }
-  .hero .lead { margin: 0 auto; }
-  .hero .cta-row { justify-content: center; }
-  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-  .btn {
-    font: inherit; font-size: 0.95rem; font-weight: 600;
-    padding: 15px 26px; border-radius: 0; border: 1px solid var(--white);
-  }
-  .btn-solid { background: var(--white); color: #6d138f; cursor: default; }
-  .btn-line { background: transparent; color: var(--white); cursor: default; }
-  .cta-note { font-size: 0.85rem; color: var(--faint); margin-top: 16px; }
 
-  /* Highlights */
   section { padding: 96px 0; border-bottom: 1px solid var(--rule); }
-  .section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 14px; }
-  h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; margin: 0 0 56px; max-width: 20ch; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
-  .item { padding: 36px 32px 40px 0; border-bottom: 1px solid var(--rule); }
-  .item:not(:nth-child(3n+1)) { padding-left: 32px; border-left: 1px solid var(--rule); }
-  .item-no { font-size: 0.8rem; color: var(--blush); font-weight: 600; letter-spacing: 0.08em; }
-  .item h3 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; margin: 14px 0 12px; line-height: 1.25; }
-  .item p { margin: 0; color: var(--soft); font-size: 0.96rem; }
-  .item p strong { color: var(--white); font-weight: 600; }
 
-  /* How it works */
-  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-  .step {
-    position: relative; padding: 34px 32px 26px; border-radius: 22px;
-    background: linear-gradient(160deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 100%);
-    border: 1px solid rgba(255,255,255,0.18);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 24px 60px -30px rgba(20, 0, 50, 0.6);
-    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-  }
-  .step-no { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; color: var(--blush); }
-  .step h3 {
-    font-size: clamp(2.2rem, 3.6vw, 3rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1; margin: 14px 0 14px;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 45%, rgba(255,255,255,0.45) 100%);
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; padding: 40px 0 120px; }
+  .pillar h3 {
+    margin: 0 0 14px; font-size: clamp(2.6rem, 5vw, 4.25rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, rgba(255,255,255,0.4) 100%);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
-  .step-lead { color: var(--soft); font-size: 1rem; margin: 0 0 22px; }
-  .step-list { margin: 0; }
-  .step-list div { padding: 14px 0; border-top: 1px solid var(--rule); }
-  .step-list dt { font-weight: 600; font-size: 1rem; margin: 0 0 2px; }
-  .step-list dd { margin: 0; color: var(--soft); font-size: 0.92rem; }
-  .step-list dd strong { color: var(--white); font-weight: 600; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px !important; }
-  .tags span { font-size: 0.82rem; font-weight: 500; color: var(--white); padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); }
-  .steps-note { margin: 28px 0 0; color: var(--soft); font-size: 0.98rem; }
-  .steps-note strong { color: var(--white); font-weight: 600; }
-
-  /* Statement */
-  .statement p {
-    margin: 0;
-    font-size: clamp(1.8rem, 4.4vw, 3.4rem);
-    line-height: 1.12;
-    letter-spacing: -0.035em;
-    font-weight: 600;
-    max-width: 22ch;
-  }
-  .statement p span {
-    background: linear-gradient(90deg, #ff7ccf 0%, #b383ff 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .statement .small { font-size: 1rem; letter-spacing: 0; font-weight: 400; color: var(--soft); margin-top: 28px; max-width: 60ch; line-height: 1.6; }
-
-  /* Founding */
-  .founding-copy { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.4; letter-spacing: -0.01em; max-width: 40ch; margin: 0 0 40px; font-weight: 500; }
+  .pillar p { margin: 0; color: var(--soft); font-size: 1.1rem; }
 
   /* Brands + footer */
   .brands { padding: 56px 0; }
-  .brands h2 { font-size: 1.05rem; letter-spacing: 0; margin: 0 0 6px; }
+  .brands h2 { font-weight: 600; line-height: 1.2; font-size: 1.05rem; letter-spacing: 0; margin: 0 0 6px; }
   .brands p { color: var(--faint); font-size: 0.9rem; margin: 0; }
   .brand-row { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
   .brand-row li + li { border-left: 1px solid var(--rule); }
@@ -167,21 +109,16 @@
   footer p { margin: 0 0 8px; max-width: 72ch; }
 
   @media (max-width: 860px) {
-    .hero { padding: calc(110px + 8vh) 0 22vh; }
+    .hero { padding: calc(110px + 8vh) 0 12vh; }
     section { padding: 64px 0; }
-    .grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .step { padding: 28px 24px 18px; }
-    .item, .item:not(:nth-child(3n+1)) { padding: 28px 0 32px; border-left: 0; }
+    .pillars { grid-template-columns: 1fr; gap: 32px; padding: 24px 0 72px; }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .brand-row li + li { border-left: 0; }
     .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
-    .top-note { display: none; }
   }
   @media (max-width: 480px) {
     .wrap { padding: 0 18px; }
-    .btn { width: 100%; text-align: center; }
     .brand-row a { padding: 12px 8px; gap: 7px; height: 76px; }
     .brand-row .brand-full { height: 20px; }
     .brand-row .brand-badge { width: 56px; height: 56px; }
@@ -219,87 +156,10 @@
 
   <div class="wrap">
 
-    <section class="coverage" aria-label="Search, report, appeal">
-      <div class="steps">
-        <article class="step">
-          <span class="step-no">01</span>
-          <h3>Search</h3>
-          <p class="step-lead">For verified companies only.</p>
-          <dl class="step-list">
-            <div><dt>Misconduct</dt><dd>Individuals and companies</dd><dd class="tags"><span>Backdooring</span><span>Merchant deception</span></dd></div>
-            <div><dt>Repayment history</dt><dd>Merchants</dd><dd class="tags"><span>Slow pay</span><span>Default</span><span>Stacking</span></dd></div>
-          </dl>
-        </article>
-        <article class="step">
-          <span class="step-no">02</span>
-          <h3>Report</h3>
-          <p class="step-lead">For verified companies only.</p>
-          <dl class="step-list">
-            <div><dt>Misconduct</dt><dd>Any member can report</dd></div>
-            <div><dt>Repayment history</dt><dd><strong>Funder members only</strong></dd></div>
-          </dl>
-        </article>
-        <article class="step">
-          <span class="step-no">03</span>
-          <h3>Appeal</h3>
-          <p class="step-lead">Public access. Dispute or appeal.</p>
-          <dl class="step-list">
-            <div><dt>Individuals</dt><dd>Employees at brokerages and funders</dd></div>
-            <div><dt>Companies</dt><dd>Brokerages and funders</dd></div>
-            <div><dt>Merchants</dt><dd>Businesses that received funding</dd></div>
-          </dl>
-        </article>
-      </div>
-      <p class="steps-note"><strong>Members are brokerages and funders</strong>: companies, not individuals. Every member is verified before searching or reporting.</p>
-    </section>
-
-    <section aria-labelledby="standards-title">
-      <p class="section-label">The standard</p>
-      <h2 id="standards-title">Built to be trusted by everyone on the record.</h2>
-      <div class="grid">
-        <div class="item">
-          <span class="item-no">01</span>
-          <h3>Membership requires approval</h3>
-          <p>Every broker and funder is <strong>verified before any search or submission</strong>: official business registration, a business email that matches the company website, and an authorized account owner. No personal email accounts.</p>
-        </div>
-        <div class="item">
-          <span class="item-no">02</span>
-          <h3>Evidence, not accusations</h3>
-          <p>A report needs <strong>documentation, not just a statement</strong>. Each allegation is linked to the records behind it, and FinDex reviews them before anything moves forward.</p>
-        </div>
-        <div class="item">
-          <span class="item-no">03</span>
-          <h3>Notice and the right to respond</h3>
-          <p>The person or business reported is notified and has <strong>10 business days to respond</strong>, with or without documents. A reviewer decides. <strong>Silence never publishes a report.</strong></p>
-        </div>
-        <div class="item">
-          <span class="item-no">04</span>
-          <h3>Built around the FCRA</h3>
-          <p>The employment reporting program is designed around the <strong>Fair Credit Reporting Act</strong>: permissible purpose, candidate authorization, accuracy, free file access, disputes and corrections.</p>
-        </div>
-        <div class="item">
-          <span class="item-no">05</span>
-          <h3>Authorized search only</h3>
-          <p>Members search published records for a <strong>stated, permitted purpose</strong>. Uncertain identity matches release nothing. No bulk lists, no scraping, no redistribution.</p>
-        </div>
-        <div class="item">
-          <span class="item-no">06</span>
-          <h3>Free for the people on record</h3>
-          <p>Responding, requesting your record and disputing information are <strong>free and need no account</strong>. Inaccurate or unverifiable information is corrected or removed.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="statement">
-      <p>No scores. No blacklists. <span>No recommendations.</span></p>
-      <p class="small">FinDex shows the facts, the dates, the evidence reviewed and whether a response was received. Members make their own hiring and funding decisions. FinDex is not a court and does not guarantee complete histories.</p>
-    </section>
-
-    <section aria-labelledby="founding-title">
-      <p class="section-label">Founding access</p>
-      <h2 id="founding-title">Join at the start.</h2>
-      <p class="founding-copy">Founding access is available at no cost while we build the FinDex database. Business verification is required. Any future pricing will be communicated in advance, with no automatic enrollment in a paid plan.</p>
-      <p class="cta-note">No credit card required.</p>
+    <section class="pillars" aria-label="Search, report, appeal">
+      <div class="pillar"><h3>Search</h3><p>For verified companies only.</p></div>
+      <div class="pillar"><h3>Report</h3><p>For verified companies only.</p></div>
+      <div class="pillar"><h3>Appeal</h3><p>Public access. Dispute or appeal.</p></div>
     </section>
 
     <section class="brands" aria-labelledby="brands-title">
