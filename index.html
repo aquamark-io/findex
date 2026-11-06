@@ -131,7 +131,7 @@
   .categories { margin-top: 140px; }
   .cat-table { margin: 0; padding: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
   .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
-  .cat-row dd.cols { display: grid; grid-template-columns: repeat(4, 160px); white-space: nowrap; }
+  .cat-row dd.cols { display: grid; grid-template-columns: repeat(5, 160px); white-space: nowrap; }
   .cat-row dd.cols span + span { border-left: 1px solid #c4b2dc; padding-left: 16px; }
   .cat-row + .cat-row { border-top: 1px solid #ddd2ea; }
   .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
@@ -176,6 +176,14 @@
   .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; }
   .copy .sep { margin: 0 0.6em; opacity: 0.6; }
 
+  @media (max-width: 1180px) and (min-width: 861px) {
+    .cat-row dd.cols { grid-template-columns: repeat(5, 132px); }
+    .cat-row dd.cols span + span { padding-left: 12px; }
+  }
+  @media (max-width: 1000px) and (min-width: 861px) {
+    .cat-row { grid-template-columns: 170px 1fr; }
+    .cat-row dd.cols { grid-template-columns: repeat(5, 118px); font-size: 0.95rem; }
+  }
   @media (max-width: 860px) {
     .hero { padding: calc(110px + 8vh) 0 14vh; }
     .content { padding: 72px 0 80px; }
@@ -325,7 +333,7 @@
         <h2 id="parties-title" class="section-title practices-title">Reportable Parties</h2>
         <dl class="cat-table">
           <div class="cat-row"><dt>Individuals</dt><dd class="cols"><span>Employees</span><span>Contractors</span></dd></div>
-          <div class="cat-row"><dt>Companies</dt><dd class="cols"><span>Brokers</span><span>Providers</span><span>Software</span><span>Leads</span></dd></div>
+          <div class="cat-row"><dt>Companies</dt><dd class="cols"><span>Brokers</span><span>Lenders</span><span>Funders</span><span>Software</span><span>Leads</span></dd></div>
           <div class="cat-row"><dt>Merchants</dt><dd class="cols"><span>Customers</span><span>Small Businesses</span></dd></div>
         </dl>
       </section>
