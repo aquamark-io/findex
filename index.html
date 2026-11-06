@@ -136,15 +136,17 @@
   .hcard ul { list-style: none; margin: 0; padding: 6px 26px 12px; }
   .hcard li { padding: 13px 0; font-size: 1.05rem; color: #4b3d63; }
   .hcard li + li { border-top: 1px solid #efe6f8; }
-  .cat-table { margin: 0; padding: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
-  .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
-  .cat-row dd.cols { display: grid; grid-template-columns: repeat(5, 160px); white-space: nowrap; }
-  .cat-row dd.cols span + span { border-left: 1px solid #c4b2dc; padding-left: 16px; }
-  .cat-row + .cat-row { border-top: 1px solid #ddd2ea; }
-  .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
-  .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
 
   .parties { margin-top: 140px; }
+  .party-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .party {
+    display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: center; padding: 22px 24px; border-radius: 18px;
+    background: #ffffff; border: 1px solid #ebdff9; box-shadow: 0 20px 40px -34px rgba(70, 20, 140, 0.5);
+  }
+  .party h3 { margin: 0 0 4px; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .party p { margin: 0; font-size: 1rem; line-height: 1.5; color: #4b3d63; }
+  .party .nw { white-space: nowrap; }
+  .party .dot { color: #c4a4e0; }
 
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
@@ -183,14 +185,6 @@
   .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; }
   .copy .sep { margin: 0 0.6em; opacity: 0.6; }
 
-  @media (max-width: 1180px) and (min-width: 861px) {
-    .cat-row dd.cols { grid-template-columns: repeat(5, 132px); }
-    .cat-row dd.cols span + span { padding-left: 12px; }
-  }
-  @media (max-width: 1000px) and (min-width: 861px) {
-    .cat-row { grid-template-columns: 170px 1fr; }
-    .cat-row dd.cols { grid-template-columns: repeat(5, 118px); font-size: 0.95rem; }
-  }
   @media (max-width: 860px) {
     .hero { padding: calc(110px + 8vh) 0 14vh; }
     .content { padding: 72px 0 80px; }
@@ -202,10 +196,9 @@
     .hcard h3 { padding: 16px 22px; }
     .hcard ul { padding: 4px 22px 8px; }
     .parties { margin-top: 88px; }
-    .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
-    .cat-row dd.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 6px; }
-    .cat-row dd.cols span:nth-child(odd) { border-left: 0; padding-left: 0; }
-    .duo { grid-template-columns: 1fr; gap: 14px; }
+    .party-list { grid-template-columns: 1fr; gap: 12px; }
+    .party { padding: 18px 20px; }
+          .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
     .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
     .practice { padding: 24px 22px; }
@@ -217,8 +210,7 @@
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
   @media (max-width: 480px) {
-    .cat-row dd.cols { white-space: normal; }
-    .wordmark { font-size: 1.75rem; }
+      .wordmark { font-size: 1.75rem; }
     .nav-actions { gap: 6px; }
     .nav-btn { padding: 8px 13px; font-size: 0.8rem; }
     .wrap { padding: 0 18px; }
@@ -347,11 +339,20 @@
 
       <section class="parties" aria-labelledby="parties-title">
         <h2 id="parties-title" class="section-title practices-title">Reportable Parties</h2>
-        <dl class="cat-table">
-          <div class="cat-row"><dt>Individuals</dt><dd class="cols"><span>Employees</span><span>Contractors</span></dd></div>
-          <div class="cat-row"><dt>Companies</dt><dd class="cols"><span>Brokers</span><span>Lenders</span><span>Funders</span><span>Software</span><span>Leads</span></dd></div>
-          <div class="cat-row"><dt>Merchants</dt><dd class="cols"><span>Customers</span><span>Small Businesses</span></dd></div>
-        </dl>
+        <ul class="party-list">
+          <li class="party">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <div><h3>Individuals</h3><p><span class="nw">Employees</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Contractors</span></p></div>
+          </li>
+          <li class="party">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
+            <div><h3>Companies</h3><p><span class="nw">Brokers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Lenders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Funders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Software</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Leads</span></p></div>
+          </li>
+          <li class="party">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
+            <div><h3>Merchants</h3><p><span class="nw">Customers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Small Businesses</span></p></div>
+          </li>
+        </ul>
       </section>
     </div>
   </div>
