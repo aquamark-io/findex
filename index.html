@@ -136,8 +136,6 @@
   .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
 
   .parties { margin-top: 140px; }
-  .practice.outline { background: transparent; border: 1px solid #d9c8ee; }
-  .trio { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
@@ -184,7 +182,6 @@
     .search-report { margin-top: 88px; }
     .categories { margin-top: 88px; }
     .parties { margin-top: 88px; }
-    .trio { grid-template-columns: 1fr; gap: 14px; }
     .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
@@ -322,20 +319,11 @@
 
       <section class="parties" aria-labelledby="parties-title">
         <h2 id="parties-title" class="section-title practices-title">Reportable Parties</h2>
-        <ul class="trio">
-          <li class="practice outline">
-            <h3>Individuals</h3>
-            <p>Employees and contractors</p>
-          </li>
-          <li class="practice outline">
-            <h3>Companies</h3>
-            <p>Brokers, funders, lenders, software and lead providers</p>
-          </li>
-          <li class="practice outline">
-            <h3>Merchants</h3>
-            <p>Business payment performance</p>
-          </li>
-        </ul>
+        <dl class="cat-table">
+          <div class="cat-row"><dt>Individuals</dt><dd>Employees and contractors</dd></div>
+          <div class="cat-row"><dt>Companies</dt><dd>Brokers, funders, lenders, software and lead providers</dd></div>
+          <div class="cat-row"><dt>Merchants</dt><dd>Business payment performance</dd></div>
+        </dl>
       </section>
     </div>
   </div>
