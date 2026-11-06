@@ -105,6 +105,28 @@
   .item p { margin: 0; color: var(--soft); font-size: 0.96rem; }
   .item p strong { color: var(--white); font-weight: 600; }
 
+  /* Coverage */
+  .cover-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .cover-card {
+    padding: 36px 36px 28px; border-radius: 22px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 100%);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 24px 60px -30px rgba(20, 0, 50, 0.6);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  }
+  .cover-kicker { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--blush); font-weight: 600; margin: 0 0 10px; }
+  .cover-card h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 20px; }
+  .tags { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags li { font-size: 0.9rem; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); }
+  .cover-facts { margin: 0; }
+  .cover-facts div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .cover-facts dt { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); font-weight: 600; padding-top: 3px; }
+  .cover-facts dd { margin: 0; color: var(--soft); font-size: 0.96rem; }
+  .cover-facts dd strong, .cover-strip strong { color: var(--white); font-weight: 600; }
+  .cover-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
+  .cover-strip > div { padding: 26px 36px; border-radius: 22px; border: 1px solid rgba(255,255,255,0.18); }
+  .cover-strip p:last-child { margin: 0; color: var(--soft); font-size: 0.98rem; }
+
   /* Statement */
   .statement p {
     margin: 0;
@@ -119,17 +141,6 @@
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
   .statement .small { font-size: 1rem; letter-spacing: 0; font-weight: 400; color: var(--soft); margin-top: 28px; max-width: 60ch; line-height: 1.6; }
-
-  /* Programs */
-  .programs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--rule); }
-  .program { padding: 36px 40px 8px 0; }
-  .program + .program { padding-left: 40px; border-left: 1px solid var(--rule); }
-  .program h3 { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 6px; }
-  .program .sub { color: var(--blush); font-size: 0.95rem; margin: 0 0 22px; }
-  .program dl { margin: 0; }
-  .program dt { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); font-weight: 600; margin-top: 18px; }
-  .program dd { margin: 6px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); color: var(--soft); font-size: 0.96rem; }
-  .program dd strong { color: var(--white); font-weight: 600; }
 
   /* Founding */
   .founding-copy { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.4; letter-spacing: -0.01em; max-width: 40ch; margin: 0 0 40px; font-weight: 500; }
@@ -155,10 +166,11 @@
     .hero { padding: calc(110px + 8vh) 0 22vh; }
     section { padding: 64px 0; }
     .grid { grid-template-columns: 1fr; }
+    .cover-grid, .cover-strip { grid-template-columns: 1fr; }
+    .cover-card { padding: 28px 24px 20px; }
+    .cover-strip > div { padding: 22px 24px; }
+    .cover-facts div { grid-template-columns: 1fr; gap: 4px; }
     .item, .item:not(:nth-child(3n+1)) { padding: 28px 0 32px; border-left: 0; }
-    .programs { grid-template-columns: 1fr; }
-    .program, .program + .program { padding: 32px 0 8px; border-left: 0; }
-    .program + .program { border-top: 1px solid var(--rule); }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .brand-row li + li { border-left: 0; }
     .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
@@ -199,11 +211,48 @@
     </svg>
     <div class="wrap hero-inner">
       <h1 id="hero-title"><span class="nowrap">The Source of Truth</span><br>for MCA</h1>
-      <p class="tagline">FCRA-compliant reporting. Backdooring, Merchant Deception, Merchant Defaults, State Compliance.</p>
+      <p class="tagline">FCRA-compliant reporting</p>
     </div>
   </section>
 
   <div class="wrap">
+
+    <section class="coverage" aria-labelledby="coverage-title">
+      <p class="section-label">What we report</p>
+      <h2 id="coverage-title">Two kinds of records. One verified membership.</h2>
+      <div class="cover-grid">
+        <article class="cover-card">
+          <p class="cover-kicker">Misconduct</p>
+          <h3>Individuals and companies</h3>
+          <ul class="tags"><li>Backdooring</li><li>Merchant deception</li></ul>
+          <dl class="cover-facts">
+            <div><dt>Who's covered</dt><dd>Employees at brokerages and funders, and the brokerages and funders themselves.</dd></div>
+            <div><dt>Who can search</dt><dd>All members.</dd></div>
+            <div><dt>Who can report</dt><dd>All members.</dd></div>
+          </dl>
+        </article>
+        <article class="cover-card">
+          <p class="cover-kicker">Repayment history</p>
+          <h3>Merchants</h3>
+          <ul class="tags"><li>Slow pay</li><li>Default</li><li>Stacking</li></ul>
+          <dl class="cover-facts">
+            <div><dt>Who's covered</dt><dd>Merchants that received funding.</dd></div>
+            <div><dt>Who can search</dt><dd>All members.</dd></div>
+            <div><dt>Who can report</dt><dd><strong>Funder members only.</strong></dd></div>
+          </dl>
+        </article>
+      </div>
+      <div class="cover-strip">
+        <div>
+          <p class="cover-kicker">Members</p>
+          <p><strong>Brokerages and funders.</strong> Membership is for companies, not individuals, and every member is verified before searching or reporting.</p>
+        </div>
+        <div>
+          <p class="cover-kicker">Disputes and appeals</p>
+          <p><strong>Anyone on record can respond.</strong> Individuals, companies and merchants can dispute or appeal a record about them, free and without an account.</p>
+        </div>
+      </div>
+    </section>
 
     <section aria-labelledby="standards-title">
       <p class="section-label">The standard</p>
@@ -245,35 +294,6 @@
     <section class="statement">
       <p>No scores. No blacklists. <span>No recommendations.</span></p>
       <p class="small">FinDex shows the facts, the dates, the evidence reviewed and whether a response was received. Members make their own hiring and funding decisions. FinDex is not a court and does not guarantee complete histories.</p>
-    </section>
-
-    <section aria-labelledby="programs-title">
-      <p class="section-label">Two programs</p>
-      <h2 id="programs-title">One standard for people and businesses.</h2>
-      <div class="programs">
-        <article class="program">
-          <h3>Individuals</h3>
-          <p class="sub">Documented misconduct, for hiring decisions</p>
-          <dl>
-            <dt>Who reports and searches</dt>
-            <dd>Verified brokers and funders.</dd>
-            <dt>Categories</dt>
-            <dd><strong>Theft</strong> of money, property, company or merchant data.<br><strong>Misleading merchants</strong> with materially false statements.</dd>
-          </dl>
-        </article>
-        <article class="program">
-          <h3>Merchants</h3>
-          <p class="sub">Contractual defaults, for funding decisions</p>
-          <dl>
-            <dt>Who reports</dt>
-            <dd>Verified funders.</dd>
-            <dt>Who searches</dt>
-            <dd>Verified brokers and funders.</dd>
-            <dt>Standard</dt>
-            <dd><strong>The merchant's own agreement defines default.</strong> Records are updated for cure, repayment, settlement and modification.</dd>
-          </dl>
-        </article>
-      </div>
     </section>
 
     <section aria-labelledby="founding-title">
