@@ -78,7 +78,8 @@
     -webkit-text-fill-color: transparent;
     padding-bottom: 0.08em;
   }
-  .tagline { font-size: clamp(1.45rem, 2.6vw, 2.35rem); line-height: 1.25; font-weight: 500; margin: 40px 0 0; max-width: 46ch; text-wrap: balance; letter-spacing: -0.01em; }
+  .tagline { font-size: clamp(1.45rem, 2.6vw, 2.35rem); line-height: 1.25; font-weight: 500; margin: 40px 0 0; letter-spacing: -0.01em; }
+  @media (min-width: 861px) { .tagline .tl { display: block; white-space: nowrap; } }
 
 
   section { padding: 96px 0; border-bottom: 1px solid var(--rule); }
@@ -171,7 +172,7 @@
     </svg>
     <div class="wrap hero-inner">
       <h1 id="hero-title"><span class="nowrap">The Source of Truth</span><br>for FinTech</h1>
-      <p class="tagline">FCRA-compliant reporting. Verified intelligence on individuals, businesses, and transactions.</p>
+      <p class="tagline"><span class="tl">FCRA-compliant reporting. Verified intelligence on individuals,</span> <span class="tl">businesses, and transactions.</span></p>
     </div>
   </section>
 
