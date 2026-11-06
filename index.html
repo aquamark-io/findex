@@ -139,6 +139,25 @@
 
   .parties { margin-top: 140px; }
   .standards { margin-top: 140px; }
+  .early { margin-top: 140px; scroll-margin-top: 110px; }
+  .early-panel {
+    position: relative; overflow: hidden; text-align: center; color: #ffffff;
+    padding: 88px 32px 80px; border-radius: 28px; background: var(--brand-bg);
+    box-shadow: 0 40px 80px -50px rgba(60, 10, 120, 0.7);
+  }
+  .early-title {
+    margin: 0 0 14px; font-size: clamp(2.6rem, 5vw, 4.25rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 45%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .early-sub { margin: 0 0 34px; font-size: clamp(1.15rem, 1.8vw, 1.4rem); font-weight: 500; color: rgba(255,255,255,0.9); }
+  .early-btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 16px 34px; border-radius: 12px;
+    font-size: 1.05rem; font-weight: 600; text-decoration: none; color: #3d0f7a; background: #ffffff;
+    box-shadow: 0 14px 30px -12px rgba(20, 0, 50, 0.6); transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .early-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(20, 0, 50, 0.7); }
+  .early-note { margin: 18px 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.72); }
   .std-table { margin: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
   .std-row { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
   .std-row + .std-row { border-top: 1px solid #ddd2ea; }
@@ -203,6 +222,8 @@
     .hcard ul { padding: 4px 22px 8px; }
     .parties { margin-top: 88px; }
     .standards { margin-top: 88px; }
+    .early { margin-top: 88px; scroll-margin-top: 90px; }
+    .early-panel { padding: 60px 22px 56px; border-radius: 22px; }
     .std-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .party-list { grid-template-columns: 1fr; gap: 12px; }
     .party { padding: 18px 20px; }
@@ -240,7 +261,7 @@
   <header class="top">
     <a href="/" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
     <nav class="nav-actions" aria-label="Account">
-      <a class="nav-btn nav-btn-solid" href="#">Request Access</a>
+      <a class="nav-btn nav-btn-solid" href="#early-access">Request Access</a>
       <a class="nav-btn nav-btn-ghost" href="#">Sign In</a>
     </nav>
   </header>
@@ -340,7 +361,7 @@
           </article>
           <article class="hcard">
             <h3>Merchants</h3>
-            <ul><li>Fraud</li><li>Slow Pay</li><li>Missed Payments</li><li>Default</li></ul>
+            <ul><li>Fraud</li><li>Slow Pay</li><li>Missed Payments &amp; Defaults</li></ul>
           </article>
         </div>
       </section>
@@ -370,6 +391,15 @@
           <div class="std-row"><dt>Verified Information</dt><dd>Inaccurate, incomplete, or unverifiable information is not published.</dd></div>
           <div class="std-row"><dt>Record Integrity</dt><dd>Disputed reports are unpublished during review.</dd></div>
         </dl>
+      </section>
+
+      <section class="early" id="early-access" aria-labelledby="early-title">
+        <div class="early-panel">
+          <h2 id="early-title" class="early-title">Early Access</h2>
+          <p class="early-sub">No cost to approved organizations</p>
+          <a class="early-btn" href="#early-access">Request Access</a>
+          <p class="early-note">Business verification and approval required</p>
+        </div>
       </section>
     </div>
   </div>
