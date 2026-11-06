@@ -116,20 +116,14 @@
 
   /* Practices */
   .practices { margin-top: 140px; }
-  .step-line { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; position: relative; }
-  .step:not(:last-child)::after {
-    content: ""; position: absolute; top: 23px; left: 56px; right: -8px; height: 2px; border-radius: 2px;
-    background: linear-gradient(90deg, #a77fd8 0%, #e2a6cf 100%); opacity: 0.7;
+  .practice-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .practice {
+    padding: 28px 32px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
   }
-  .step { position: relative; padding-right: 8px; }
-  .step-num {
-    position: relative; z-index: 1; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
-    font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; color: #ffffff;
-    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%);
-    box-shadow: 0 0 0 6px #ffffff, 0 10px 20px -10px rgba(120, 30, 160, 0.7);
-  }
-  .step h3 { margin: 22px 0 8px; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
-  .step p { margin: 0; font-size: 1rem; line-height: 1.55; color: #4b3d63; }
+  .practice h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
 
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
@@ -168,22 +162,13 @@
   .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; }
   .copy .sep { margin: 0 0.6em; opacity: 0.6; }
 
-  @media (max-width: 1100px) and (min-width: 861px) {
-    .step h3 { font-size: 1.1rem; }
-    .step p { font-size: 0.95rem; }
-  }
   @media (max-width: 860px) {
     .hero { padding: calc(110px + 8vh) 0 14vh; }
     .content { padding: 72px 0 80px; }
     .access { grid-template-columns: 1fr; gap: 40px; }
     .practices { margin-top: 88px; }
     .practices-title { margin-bottom: 28px; }
-    .step-line { grid-template-columns: 1fr; gap: 28px; }
-    .step:not(:last-child)::after { top: 56px; bottom: -20px; left: 23px; right: auto; width: 2px; height: auto;
-      background: linear-gradient(180deg, #a77fd8 0%, #e2a6cf 100%); }
-    .step { padding: 0 0 0 68px; min-height: 48px; }
-    .step-num { position: absolute; left: 0; top: 0; }
-    .step h3 { margin: 10px 0 6px; }
+    .practice { padding: 24px 22px; }
     .req-card { padding: 10px 22px; }
     .brands { padding: 56px 0 40px; }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -267,29 +252,24 @@
 
       <section class="practices" aria-labelledby="practices-title">
         <h2 id="practices-title" class="section-title practices-title">FCRA-Compliant</h2>
-        <ol class="step-line">
-          <li class="step">
-            <span class="step-num" aria-hidden="true">01</span>
+        <ol class="practice-list">
+          <li class="practice">
             <h3>Permissible Purpose</h3>
             <p>Underwriting, employment screening, partner diligence.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">02</span>
+          <li class="practice">
             <h3>Accuracy</h3>
             <p>Supporting documentation required and independently reviewed.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">03</span>
+          <li class="practice">
             <h3>Notice</h3>
             <p>Individuals and businesses are notified before publication.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">04</span>
+          <li class="practice">
             <h3>Appeal</h3>
             <p>Reported parties have an opportunity to dispute at no&#8209;cost.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">05</span>
+          <li class="practice">
             <h3>Independent</h3>
             <p>Outdated, incomplete and unverifiable reports not published.</p>
           </li>
