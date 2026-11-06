@@ -129,17 +129,14 @@
   .duo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 
   .categories { margin-top: 140px; }
-  .cat-table {
-    margin: 0; padding: 8px 32px; border-radius: 20px;
-    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
-    border: 1px solid #ebdff9;
-  }
-  .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 24px 0; }
-  .cat-row + .cat-row { border-top: 1px solid #e6d9f6; }
+  .cat-table { margin: 0; padding: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
+  .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
+  .cat-row + .cat-row { border-top: 1px solid #ddd2ea; }
   .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
 
   .parties { margin-top: 140px; }
+  .practice.outline { background: transparent; border: 1px solid #d9c8ee; }
   .trio { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 
   /* Access */
@@ -188,7 +185,6 @@
     .categories { margin-top: 88px; }
     .parties { margin-top: 88px; }
     .trio { grid-template-columns: 1fr; gap: 14px; }
-    .cat-table { padding: 4px 22px; }
     .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
@@ -327,15 +323,15 @@
       <section class="parties" aria-labelledby="parties-title">
         <h2 id="parties-title" class="section-title practices-title">Reportable Parties</h2>
         <ul class="trio">
-          <li class="practice">
+          <li class="practice outline">
             <h3>Individuals</h3>
             <p>Employees and contractors</p>
           </li>
-          <li class="practice">
+          <li class="practice outline">
             <h3>Companies</h3>
             <p>Brokers, funders, lenders, software and lead providers</p>
           </li>
-          <li class="practice">
+          <li class="practice outline">
             <h3>Merchants</h3>
             <p>Business payment performance</p>
           </li>
