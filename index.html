@@ -138,6 +138,12 @@
   .hcard li + li { border-top: 1px solid #efe6f8; }
 
   .parties { margin-top: 140px; }
+  .standards { margin-top: 140px; }
+  .std-table { margin: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
+  .std-row { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
+  .std-row + .std-row { border-top: 1px solid #ddd2ea; }
+  .std-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .std-row dd { margin: 0; font-size: 1.1rem; line-height: 1.55; color: #4b3d63; }
   .party-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   .party {
     display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: start; padding: 22px 24px; border-radius: 18px;
@@ -196,6 +202,8 @@
     .hcard h3 { padding: 16px 22px; }
     .hcard ul { padding: 4px 22px 8px; }
     .parties { margin-top: 88px; }
+    .standards { margin-top: 88px; }
+    .std-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .party-list { grid-template-columns: 1fr; gap: 12px; }
     .party { padding: 18px 20px; }
           .duo { grid-template-columns: 1fr; gap: 14px; }
@@ -353,6 +361,15 @@
             <div><h3>Merchants</h3><p><span class="nw">Customers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Small Businesses</span></p></div>
           </li>
         </ul>
+      </section>
+
+      <section class="standards" aria-labelledby="std-title">
+        <h2 id="std-title" class="section-title practices-title">Reporting Standards</h2>
+        <dl class="std-table">
+          <div class="std-row"><dt>Eligibility</dt><dd>Incidents within the past 7 years. Documented evidence required.</dd></div>
+          <div class="std-row"><dt>Verified Information</dt><dd>Inaccurate, incomplete, or unverifiable information is not published.</dd></div>
+          <div class="std-row"><dt>Record Integrity</dt><dd>Disputed reports are unpublished during review.</dd></div>
+        </dl>
       </section>
     </div>
   </div>
