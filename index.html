@@ -133,6 +133,7 @@
   .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
   .cat-row dd.cols { display: grid; grid-template-columns: repeat(5, 160px); white-space: nowrap; }
   .cat-row dd.cols span + span { border-left: 1px solid #c4b2dc; padding-left: 16px; }
+  .categories .cat-row dd.cols { grid-template-columns: repeat(4, 200px); }
   .cat-row + .cat-row { border-top: 1px solid #ddd2ea; }
   .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
@@ -179,10 +180,13 @@
   @media (max-width: 1180px) and (min-width: 861px) {
     .cat-row dd.cols { grid-template-columns: repeat(5, 132px); }
     .cat-row dd.cols span + span { padding-left: 12px; }
+    .categories .cat-row dd.cols { grid-template-columns: repeat(4, 168px); }
   }
   @media (max-width: 1000px) and (min-width: 861px) {
     .cat-row { grid-template-columns: 170px 1fr; }
     .cat-row dd.cols { grid-template-columns: repeat(5, 118px); font-size: 0.95rem; }
+    .categories .cat-row { grid-template-columns: 150px 1fr; }
+    .categories .cat-row dd.cols { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 720px; }
   }
   @media (max-width: 860px) {
     .hero { padding: calc(110px + 8vh) 0 14vh; }
@@ -193,7 +197,7 @@
     .categories { margin-top: 88px; }
     .parties { margin-top: 88px; }
     .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
-    .cat-row dd.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 6px; }
+    .cat-row dd.cols, .categories .cat-row dd.cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 6px; }
     .cat-row dd.cols span:nth-child(odd) { border-left: 0; padding-left: 0; }
     .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
@@ -207,6 +211,7 @@
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
   @media (max-width: 480px) {
+    .cat-row dd.cols { white-space: normal; }
     .wordmark { font-size: 1.75rem; }
     .nav-actions { gap: 6px; }
     .nav-btn { padding: 8px 13px; font-size: 0.8rem; }
@@ -323,9 +328,9 @@
       <section class="categories" aria-labelledby="cat-title">
         <h2 id="cat-title" class="section-title practices-title">Reportable Categories</h2>
         <dl class="cat-table">
-          <div class="cat-row"><dt>Employee Misconduct</dt><dd>Theft, misleading merchants.</dd></div>
-          <div class="cat-row"><dt>Partner Misconduct</dt><dd>Theft, data mishandling, contract breaches.</dd></div>
-          <div class="cat-row"><dt>Merchant Performance</dt><dd>Slow pay, missed payments, defaults.</dd></div>
+          <div class="cat-row"><dt>Employees</dt><dd class="cols"><span>Theft</span><span>Fraud</span><span>Merchant Deception</span></dd></div>
+          <div class="cat-row"><dt>Partners</dt><dd class="cols"><span>Theft</span><span>Fraud</span><span>Data Mishandling</span><span>Contract Breach</span></dd></div>
+          <div class="cat-row"><dt>Merchants</dt><dd class="cols"><span>Fraud</span><span>Slow Pay</span><span>Missed Payments</span><span>Default</span></dd></div>
         </dl>
       </section>
 
