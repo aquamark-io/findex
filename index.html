@@ -112,6 +112,19 @@
   }
   .section-lead { margin: 0; max-width: 44ch; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; color: #4b3d63; }
 
+  .section-title-md { font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.12; letter-spacing: -0.035em; max-width: 26ch; margin-bottom: 48px; }
+
+  /* Practices */
+  .practices { margin-top: 140px; }
+  .practice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .practice {
+    padding: 32px 32px 30px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
+  }
+  .practice h3 { margin: 22px 0 10px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
+
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
   .req-card {
@@ -153,6 +166,10 @@
     .hero { padding: calc(110px + 8vh) 0 14vh; }
     .content { padding: 72px 0 80px; }
     .access { grid-template-columns: 1fr; gap: 40px; }
+    .practices { margin-top: 88px; }
+    .section-title-md { margin-bottom: 32px; }
+    .practice-grid { grid-template-columns: 1fr; gap: 14px; }
+    .practice { padding: 26px 22px 24px; }
     .req-card { padding: 10px 22px; }
     .brands { padding: 56px 0 40px; }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -233,6 +250,32 @@
           </ul>
         </div>
       </section>
+
+      <section class="practices" aria-labelledby="practices-title">
+        <h2 id="practices-title" class="section-title section-title-md">FinDex is built around responsible reporting practices and in accordance with the FCRA.</h2>
+        <div class="practice-grid">
+          <article class="practice">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></span>
+            <h3>Permissible Purpose</h3>
+            <p>Every search requires a stated, authorized purpose, such as underwriting, employment screening, or qualifying business due diligence.</p>
+          </article>
+          <article class="practice">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="m9 14 2 2 4-4"/></svg></span>
+            <h3>Evidence-Based Reporting</h3>
+            <p>Every submission requires supporting documentation, such as records, communications, or recordings, and is independently reviewed before publication.</p>
+          </article>
+          <article class="practice">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+            <h3>Notice</h3>
+            <p>Individuals and businesses are notified of reports submitted about them before publication.</p>
+          </article>
+          <article class="practice">
+            <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7 2 14a3 3 0 0 0 6 0z"/><path d="m19 7-3 7a3 3 0 0 0 6 0z"/><path d="M8 21h8"/></svg></span>
+            <h3>Right to Dispute</h3>
+            <p>Reported parties can challenge the accuracy of information. Disputed reports are temporarily withheld while under review.</p>
+          </article>
+        </div>
+      </section>
     </div>
   </div>
 </main>
@@ -260,6 +303,7 @@
     var update = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
     update();
     window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('load', update);
   })();
 </script>
 </body>
