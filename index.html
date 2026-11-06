@@ -104,7 +104,33 @@
 
 
   /* Content (white) */
-  .content { min-height: 40vh; padding: 96px 0; background: #ffffff; color: var(--ink); }
+  .content { padding: 120px 0 128px; background: #ffffff; color: var(--ink); }
+  .section-title {
+    margin: 0 0 22px; font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.02;
+    background: linear-gradient(100deg, #3a0f7a 0%, #6a1fb0 55%, #c2338f 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .section-lead { margin: 0; max-width: 44ch; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; color: #4b3d63; }
+
+  /* Access */
+  .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+  .req-card {
+    padding: 34px 34px 18px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
+    box-shadow: 0 30px 60px -40px rgba(70, 20, 140, 0.45);
+  }
+  .req-label { margin: 0 0 8px; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a3fb8; }
+  .req-list { list-style: none; margin: 0; padding: 0; }
+  .req-list li { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
+  .req-list li + li { border-top: 1px solid #e6d9f6; }
+  .req-icon {
+    flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; color: #ffffff;
+    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%);
+    box-shadow: 0 10px 20px -10px rgba(120, 30, 160, 0.7);
+  }
+  .req-icon svg { width: 24px; height: 24px; }
+  .req-text { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
 
   /* Brands + footer */
   .site-foot { position: relative; color: var(--white); background: var(--brand-bg); }
@@ -126,7 +152,9 @@
 
   @media (max-width: 860px) {
     .hero { padding: calc(110px + 8vh) 0 14vh; }
-    .content { padding: 64px 0; }
+    .content { padding: 72px 0 80px; }
+    .access { grid-template-columns: 1fr; gap: 40px; }
+    .req-card { padding: 26px 22px 10px; }
     .brands { padding: 56px 0 40px; }
     .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .brand-row li + li { border-left: 0; }
@@ -182,8 +210,32 @@
     </div>
   </section>
 
-  <div class="content" aria-label="Page content">
-    <div class="wrap"></div>
+  <div class="content">
+    <div class="wrap">
+      <section class="access" aria-labelledby="access-title">
+        <div class="access-copy">
+          <h2 id="access-title" class="section-title">Access Is Restricted</h2>
+          <p class="section-lead">FinDex is a business-only platform. Access is limited to verified organizations, with one account per company and no personal accounts. All registrations are subject to approval.</p>
+        </div>
+        <div class="req-card">
+          <p class="req-label">Requirements</p>
+          <ul class="req-list">
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
+              <span class="req-text">Registered Business</span>
+            </li>
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></span>
+              <span class="req-text">Company Website</span>
+            </li>
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <span class="req-text">Business Email Address</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </div>
 </main>
 
