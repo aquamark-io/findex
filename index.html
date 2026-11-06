@@ -128,6 +128,17 @@
   .search-report { margin-top: 140px; }
   .duo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 
+  .categories { margin-top: 140px; }
+  .cat-table {
+    margin: 0; padding: 8px 32px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
+  }
+  .cat-row { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 24px; align-items: baseline; padding: 24px 0; }
+  .cat-row + .cat-row { border-top: 1px solid #e6d9f6; }
+  .cat-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .cat-row dd { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #4b3d63; }
+
   /* Access */
   .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
   .req-card {
@@ -171,6 +182,9 @@
     .access { grid-template-columns: 1fr; gap: 40px; }
     .practices { margin-top: 88px; }
     .search-report { margin-top: 88px; }
+    .categories { margin-top: 88px; }
+    .cat-table { padding: 4px 22px; }
+    .cat-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
     .duo { grid-template-columns: 1fr; gap: 14px; }
     .practices-title { margin-bottom: 28px; }
     .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
@@ -294,6 +308,15 @@
             <p>Authorized companies only. Documented evidence required.</p>
           </li>
         </ul>
+      </section>
+
+      <section class="categories" aria-labelledby="cat-title">
+        <h2 id="cat-title" class="section-title practices-title">Reporting Categories</h2>
+        <dl class="cat-table">
+          <div class="cat-row"><dt>Employee Misconduct</dt><dd>Theft, misleading merchants.</dd></div>
+          <div class="cat-row"><dt>Partner Misconduct</dt><dd>Theft, data mishandling, contract breaches.</dd></div>
+          <div class="cat-row"><dt>Merchant Performance</dt><dd>Slow pay, missed payments, defaults.</dd></div>
+        </dl>
       </section>
     </div>
   </div>
