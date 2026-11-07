@@ -53,7 +53,7 @@ If you dispute a report, appeal, or request a copy of reports about you, we coll
 
 ### 3.5 Website visitors
 
-Our website is a static site. **[Confirm: we do not use analytics or advertising cookies.]** The site loads fonts from Google Fonts, which means your browser connects to Google's servers and Google may receive your IP address.
+Our website is a static site. **[Confirm: we do not use analytics or advertising cookies.]** Fonts and other site assets are served from our own site; the site does not load third-party fonts or scripts. Our website host may log basic technical information, such as IP address and browser type, to deliver and secure the site.
 
 **Review note:** confirm whether any analytics, cookies, or form tools will be added before launch, and update this section.
 
