@@ -219,6 +219,7 @@
   .faq-item summary:focus-visible { outline: 2px solid #6a1fb0; outline-offset: 3px; border-radius: 16px; }
   .faq-a { padding: 0 24px 22px; color: #4b3d63; font-size: 1.02rem; line-height: 1.65; }
   .faq-a p { margin: 0; }
+  .faq-a p + p { margin-top: 12px; }
   .faq-a ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
   .faq-a strong { color: var(--ink); }
 
@@ -596,45 +597,45 @@
       <section class="faq" aria-labelledby="faq-title">
         <h2 id="faq-title" class="section-title practices-title">FAQ</h2>
         <div class="faq-list">
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Why is FinDex free?</summary>
             <div class="faq-a"><p>FinDex is the first evidence-based reporting database built for FinTech, and a reliable record has to be built from the start. Free access lets every verified organization contribute documented, independently reviewed reports, instead of unverified attestations. Checking, disputing, and appealing your own record will always be free.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Who can search FinDex?</summary>
             <div class="faq-a"><p>Verified organizations in FinTech (brokers, funders, lenders, software and lead providers) with a permissible purpose: underwriting, employment screening, or partner diligence. One account per company.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Can I see what&rsquo;s been reported about me?</summary>
             <div class="faq-a"><p>Yes, at no cost. Create a free account and verify your identity, and you&rsquo;ll see only reports about you or your business.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Will I be told if I&rsquo;m reported?</summary>
             <div class="faq-a"><p>Yes. Companies must provide your email address when they report an incident. You&rsquo;ll receive an email naming the company that submitted the report, and you&rsquo;ll have 10&nbsp;days to respond before it&rsquo;s published.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>How do I dispute a report?</summary>
             <div class="faq-a"><p>Sign in and dispute it at no cost. Disputed reports are withheld while we review the evidence, and inaccurate or unverifiable information is corrected or removed.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>What can be reported?</summary>
             <div class="faq-a"><ul><li><strong>Individuals</strong> (employees and contractors): backdooring and other forms of data theft, intentionally deceiving merchants, and fraud such as manipulated transaction documents or data.</li><li><strong>Partners</strong>: the same as individuals, plus mishandling of your data.</li><li><strong>Funded businesses</strong>: repayment incidents such as slow pay, missed payments, and defaults. Only funders can report these.</li></ul></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Can I report incidents from the past?</summary>
             <div class="faq-a"><p>Yes, if the incident happened within the past 7&nbsp;years. Supporting evidence is still required.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>How long are records kept?</summary>
-            <div class="faq-a"><p>Seven years. After that, records and evidence are permanently deleted.</p></div>
+            <div class="faq-a"><p>Seven years. After that, records and evidence are permanently deleted (unless actively in dispute).</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>Is my information secure?</summary>
             <div class="faq-a"><p>Identity details are encrypted, personal information is redacted from evidence before it&rsquo;s stored, and evidence is kept on SOC&nbsp;2 Type&nbsp;II infrastructure.</p></div>
           </details>
-          <details class="faq-item">
+          <details class="faq-item" name="faq">
             <summary>What does &ldquo;independently administered by Aquamark&rdquo; mean?</summary>
-            <div class="faq-a"><p>FinDex is an Aquamark initiative. Every report is reviewed against FinDex&rsquo;s published reporting standards, not on behalf of any member.</p></div>
+            <div class="faq-a"><p>Aquamark is responsible for operating FinDex, establishing reporting standards, reviewing submitted evidence, verifying participating organizations, and overseeing the accuracy and integrity of records.</p><p>FinDex operates under its own policies and procedures, with reporting decisions based on documented evidence rather than unverified allegations or attestations.</p></div>
           </details>
         </div>
       </section>
@@ -777,6 +778,16 @@
     });
     var onChange = function () { if (!mq.matches) setOpen(false); };
     if (mq.addEventListener) mq.addEventListener('change', onChange); else mq.addListener(onChange);
+  })();
+  (function () {
+    // Only one FAQ answer open at a time (fallback for browsers without <details name>).
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        items.forEach(function (o) { if (o !== d && o.open) o.open = false; });
+      });
+    });
   })();
 </script>
 </body>
