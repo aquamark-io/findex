@@ -99,16 +99,18 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .nav-actions { display: flex; align-items: center; gap: 10px; }
-  .nav-btn {
-    display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
-    padding: 11px 22px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.005em;
-    text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  .nav-actions { display: flex; align-items: center; gap: 30px; }
+  .nav-link {
+    position: relative; white-space: nowrap; padding: 6px 0;
+    color: rgba(255,255,255,0.86); font-size: 0.98rem; font-weight: 600; letter-spacing: -0.005em;
+    text-decoration: none; transition: color 0.2s ease;
   }
-  .nav-btn-ghost { color: #ffffff; border: 1px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-  .nav-btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.7); }
-  .nav-btn-solid { color: #3d0f7a; background: #ffffff; border: 1px solid #ffffff; box-shadow: 0 8px 24px -10px rgba(30, 0, 60, 0.55); }
-  .nav-btn-solid:hover { transform: translateY(-1px); }
+  .nav-link::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px;
+    background: #ffffff; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease;
+  }
+  .nav-link:hover, .nav-link:focus-visible { color: #ffffff; }
+  .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
 
   /* Hero */
   .hero {
@@ -297,10 +299,20 @@
     .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
+  @media (max-width: 560px) {
+    /* Three nav links don't fit beside the wordmark on phones: give them their own row. */
+    .top { flex-wrap: wrap; row-gap: 6px; padding: 22px 0 14px; }
+    .topwrap.is-scrolled .top { padding: 12px 0 10px; }
+    .nav-actions { width: 100%; gap: 22px; }
+    .nav-link { font-size: 0.9rem; padding: 4px 0; }
+    .hero { padding-top: calc(140px + var(--announce-h) + 6vh); }
+  }
+  @media (max-width: 360px) {
+    .nav-actions { gap: 16px; }
+    .nav-link { font-size: 0.84rem; }
+  }
   @media (max-width: 480px) {
       .wordmark { font-size: 1.75rem; }
-    .nav-actions { gap: 6px; }
-    .nav-btn { padding: 8px 13px; font-size: 0.8rem; }
     .wrap { padding: 0 18px; }
     .brand-row a { padding: 12px 8px; gap: 7px; height: 76px; }
     .brand-row .brand-full { height: 20px; }
@@ -314,7 +326,6 @@
   }
   @media (max-width: 360px) {
     .wordmark { font-size: 1.5rem; }
-    .nav-btn { padding: 7px 11px; font-size: 0.75rem; }
   }
 </style>
 </head>
@@ -326,8 +337,9 @@
   <header class="top">
     <a href="./" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
     <nav class="nav-actions" aria-label="Account">
-      <a class="nav-btn nav-btn-solid" href="#early-access">Request Access</a>
-      <a class="nav-btn nav-btn-ghost" href="#">Sign In</a>
+      <a class="nav-link" href="#">Check My Record</a>
+      <a class="nav-link" href="#early-access">Request Access</a>
+      <a class="nav-link" href="#">Sign In</a>
     </nav>
   </header>
 </div>
