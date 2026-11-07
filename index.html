@@ -258,9 +258,9 @@
   .brand-name { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; white-space: nowrap; }
   .brand-name sup { font-size: 0.55em; font-weight: 500; }
   .brand-findex { font-size: 1.5rem; letter-spacing: -0.02em; color: #ffffff; }
-  .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; }
+  .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
   .copy .sep { margin: 0 0.6em; opacity: 0.6; }
-  .copy a { color: inherit; text-decoration: none; }
+  .copy a { color: inherit; text-decoration: none; white-space: nowrap; }
   .copy a:hover { color: #ffffff; text-decoration: underline; }
 
   @media (max-width: 860px) {
@@ -504,7 +504,7 @@
         <li><a href="https://joinfindex.com" aria-label="FinDex homepage"><span class="brand-name brand-findex">FinDex</span></a></li>
       </ul>
     </section>
-    <p class="copy">&copy; 2026 FinDex<span class="sep">|</span>San Francisco, CA<span class="sep">|</span><a href="privacy.html">Privacy &amp; Security</a></p>
+    <div class="copy"><span>&copy; 2026 FinDex<span class="sep">|</span>San Francisco, CA<span class="sep">|</span><a href="privacy.html">Privacy &amp; Security</a></span><span>Independently administered by <a href="https://aquamark.io" target="_blank" rel="noopener noreferrer">Aquamark</a></span></div>
   </div>
 </footer>
 
