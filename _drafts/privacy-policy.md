@@ -71,16 +71,64 @@ We use information to:
 
 We do not sell personal information.
 
-## 5. Permissible purpose and FCRA
+## 5. FCRA compliance
 
-FinDex is built around responsible reporting practices and in accordance with the Fair Credit Reporting Act (FCRA).
+FinDex is built around responsible reporting practices and in accordance with the Fair Credit Reporting Act (FCRA), 15 U.S.C. § 1681 et seq. The FCRA protects individuals whose information appears in reports used for decisions such as employment.
 
-- **Permissible purpose.** Every search requires a stated, authorized purpose, such as underwriting, employment screening, or partner due diligence. Searches without a permissible purpose are not allowed.
-- **Consent for employment searches.** Searches on individuals for hiring purposes require the individual's signed consent.
-- **Accuracy.** Reports require supporting documentation and are independently reviewed before publication. Inaccurate, incomplete, or unverifiable information is not published.
-- **Notice.** Individuals and businesses are notified of reports about them before publication.
+**Review note:** the FCRA generally applies to reports about individuals ("consumers"), not reports about businesses or merchants. Counsel should confirm which FinDex records are consumer reports, whether FinDex operates as a consumer reporting agency for those records, and adjust this section to match.
 
-**Review note:** counsel should confirm (a) whether and how FinDex operates as a consumer reporting agency for individual records, (b) member obligations such as certifications of permissible purpose and adverse action notices, and (c) required FCRA disclosures and the "Summary of Your Rights Under the FCRA."
+### 5.1 Permissible purpose
+
+Members may search FinDex only for a permissible purpose under the FCRA and our terms, such as:
+
+- Evaluating an individual for employment, with the individual's written authorization
+- Underwriting or evaluating a business transaction
+- Due diligence on a prospective business partner
+
+Members must state the purpose of each search and certify that they will use the information only for that purpose. Searches without a permissible purpose are prohibited, and we may suspend members who misuse FinDex.
+
+### 5.2 Employment screening
+
+Before searching an individual for employment purposes, a member must:
+
+- Give the individual a clear, written disclosure, in a document consisting solely of the disclosure, that a report may be obtained
+- Obtain the individual's written authorization
+- Certify to FinDex that it has done so and will comply with applicable equal employment opportunity laws
+
+If a member intends to take adverse action based in whole or in part on a FinDex report, such as not hiring someone, the member must first give the individual a copy of the report and the "Summary of Your Rights Under the Fair Credit Reporting Act," and then provide an adverse action notice after the decision.
+
+**Review note:** confirm the member certification process, how FinDex delivers the required notices to members ("Notice to Users of Consumer Reports"), and any state law requirements (for example, California's ICRAA).
+
+### 5.3 Accuracy
+
+We follow reasonable procedures to ensure maximum possible accuracy of the information we report:
+
+- Every report requires supporting documentation and is independently reviewed before publication
+- Inaccurate, incomplete, or unverifiable information is not published
+- Records are updated or removed when information changes or cannot be verified
+
+### 5.4 Notice before publication
+
+Individuals and businesses are notified of reports submitted about them before publication and have an opportunity to respond.
+
+### 5.5 Your rights under the FCRA
+
+If you are an individual with a record in FinDex, you have the right to:
+
+- **Know what is in your file.** You may request the information FinDex holds about you, free of charge.
+- **Dispute inaccurate or incomplete information.** We will investigate your dispute, generally within 30 days, unless it is frivolous. Disputed reports are unpublished during review.
+- **Have inaccurate, incomplete, or unverifiable information corrected or deleted.**
+- **Be told if information in your file was used against you** for employment or another adverse decision. The person or company that took the action must tell you and give you our contact information.
+- **Limit access to your file.** Only members with a permissible purpose may access it.
+- **Require your consent for employment reports.** A member may not obtain a report about you for employment purposes without your written authorization.
+- **Have outdated information excluded.** Reports are limited to incidents within the past 7 years.
+- **Seek damages** from those who violate the FCRA.
+
+You can find a full "Summary of Your Rights Under the Fair Credit Reporting Act" from the Consumer Financial Protection Bureau at consumerfinance.gov. You may have additional rights under state law.
+
+To request your file or start a dispute, contact **[disputes email]**.
+
+**Review note:** confirm the reinvestigation timeline, identity verification for file requests, whether FinDex must provide the CFPB summary directly with file disclosures, and any state-specific rights.
 
 ## 6. How evidence is handled
 
