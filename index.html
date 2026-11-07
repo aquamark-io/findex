@@ -181,6 +181,7 @@
     border: 1px solid #ebdff9;
     box-shadow: 0 30px 60px -40px rgba(70, 20, 140, 0.45);
   }
+  .req-title { margin: 14px 0 4px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .req-list { list-style: none; margin: 0; padding: 0; }
   .req-list li { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
   .req-list li + li { border-top: 1px solid #e6d9f6; }
@@ -294,7 +295,8 @@
           <h2 id="access-title" class="section-title">Restricted Access</h2>
           <p class="section-lead">Business-only platform. Access is limited to verified organizations. One account per company.</p>
         </div>
-        <div class="req-card" aria-label="Requirements">
+        <div class="req-card">
+          <h3 class="req-title">Requirements</h3>
           <ul class="req-list">
             <li>
               <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
@@ -361,7 +363,7 @@
           </article>
           <article class="hcard">
             <h3>Merchants</h3>
-            <ul><li>Fraud</li><li>Slow Pay</li><li>Missed Payments &amp; Defaults</li></ul>
+            <ul><li>Fraud</li><li>Slow Pay</li><li>Defaults</li></ul>
           </article>
         </div>
       </section>
