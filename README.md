@@ -12,7 +12,9 @@ Pre-launch landing page. The Request Access and Sign In buttons are not yet conn
 - `privacy.html`: privacy policy (draft, marked as such on the page; `noindex`)
 - `_drafts/privacy-policy.md`: source draft with internal review notes (not published)
 - `fonts/`: self-hosted Inter font
-- `favicon.svg`: site icon
+- `favicon.svg`: site icon (browser tab)
+- `apple-touch-icon.png`, `icon-192.png`: home-screen / app icons (gradient with white FinDex wordmark)
+- `og-image.png`: 1200x630 link-preview image used by iMessage, Google, Slack, LinkedIn, X, etc. (Open Graph / Twitter tags in each page's `<head>`)
 - `logos/`: brand logos used in the Family of Brands footer (white versions)
 
 ## Family of Brands
