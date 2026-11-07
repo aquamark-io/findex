@@ -264,6 +264,8 @@
 
   @media (max-width: 860px) {
     .hero { padding: calc(110px + var(--announce-h) + 8vh) 0 14vh; }
+    /* Lighter hero background on mobile makes the headline fade read weaker, so fade further. */
+    h1 { background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, rgba(255,255,255,0.12) 100%); }
     .content { padding: 72px 0 80px; }
     .access { grid-template-columns: 1fr; gap: 40px; }
     .practices { margin-top: 88px; }
