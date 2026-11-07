@@ -176,6 +176,29 @@
     .menu-bars span, .nav-actions, .nav-link, .topwrap.menu-open .nav-link { transition: none !important; transition-delay: 0s !important; }
   }
 
+  /* Check Your Record: numbered steps */
+  .steps { list-style: none; margin: 52px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .step { position: relative; }
+  .step:not(:last-child)::after {
+    content: ""; position: absolute; top: 27px; left: 76px; right: -16px; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, #b48ae8 0%, #f0a6d4 100%);
+  }
+  .step-num {
+    display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+    font-size: 1.35rem; font-weight: 700; color: #5a1a9a; font-variant-numeric: tabular-nums;
+    border: 2px solid transparent;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%) border-box;
+    box-shadow: 0 12px 24px -14px rgba(120, 30, 160, 0.6);
+  }
+  .step h3 { margin: 22px 0 6px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .step p { margin: 0; max-width: 30ch; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: 1fr; gap: 28px; margin-top: 36px; }
+    .step { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; align-items: start; }
+    .step:not(:last-child)::after { top: 64px; bottom: -22px; left: 27px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, #b48ae8 0%, #f0a6d4 100%); }
+    .step h3 { margin: 12px 0 4px; }
+  }
+
   /* Hero */
   .hero {
     position: relative; overflow: hidden; text-align: left;
@@ -446,28 +469,14 @@
           </ul>
         </div>
       </section>
-      <section class="access record" id="check-record" aria-labelledby="record-title">
-        <div class="access-copy">
-          <h2 id="record-title" class="section-title">Check Your Record</h2>
-          <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at no cost.</p>
-        </div>
-        <div class="req-card">
-          <h3 class="req-title">How It Works</h3>
-          <ul class="req-list">
-            <li>
-              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="4"/><path d="M2 21a8 8 0 0 1 13.3-6"/><path d="M19 15v6M16 18h6"/></svg></span>
-              <span class="req-text">Free Account</span>
-            </li>
-            <li>
-              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.3 8.3-8 9-4.7-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
-              <span class="req-text">Identity Verification</span>
-            </li>
-            <li>
-              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <span class="req-text">Your Records Only</span>
-            </li>
-          </ul>
-        </div>
+      <section class="record" id="check-record" aria-labelledby="record-title">
+        <h2 id="record-title" class="section-title">Check Your Record</h2>
+        <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at no cost.</p>
+        <ol class="steps" aria-label="How it works">
+          <li class="step"><span class="step-num" aria-hidden="true">1</span><div><h3>Free Account</h3><p>Sign up as an individual, company, or funded business.</p></div></li>
+          <li class="step"><span class="step-num" aria-hidden="true">2</span><div><h3>Identity Verification</h3><p>We confirm who you are before granting access.</p></div></li>
+          <li class="step"><span class="step-num" aria-hidden="true">3</span><div><h3>Your Records Only</h3><p>You see only reports about you or your business.</p></div></li>
+        </ol>
       </section>
 
       <section class="practices" aria-labelledby="practices-title">
@@ -533,7 +542,7 @@
           </li>
           <li class="party">
             <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
-            <div><h3>Companies</h3><p><span class="nw">Brokers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Lenders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Funders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Software</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Leads</span></p></div>
+            <div><h3>Partners</h3><p><span class="nw">Brokers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Lenders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Funders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Software</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Leads</span></p></div>
           </li>
           <li class="party">
             <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
