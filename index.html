@@ -506,6 +506,65 @@
 </footer>
 
 <script>
+  /* Hero waves: on narrower screens the text sits in a different part of the hero than on
+     desktop, so remap each wave's vertical position to keep the same wave/text relationships
+     the desktop layout has (e.g. "for FinTech" resting just above the pink wave). */
+  (function () {
+    var hero = document.querySelector('.hero');
+    var h1 = document.getElementById('hero-title');
+    var tag = hero && hero.querySelector('.tagline');
+    var svg = hero && hero.querySelector('.hero-waves');
+    var line1 = h1 && h1.querySelector('.nowrap');
+    var paths = svg ? svg.querySelectorAll('path') : [];
+    if (!hero || !h1 || !line1 || !tag || !paths.length) return;
+    var VIEWBOX = svg.getAttribute('viewBox');
+    // Reference anchors (viewBox units, 0-900) measured from the desktop layout:
+    // top, headline top, headline bottom, tagline top, tagline bottom, bottom.
+    var REF = [0, 280, 592, 626, 720, 900];
+    // Horizontal span (viewBox units) behind "The Source of Truth" on desktop.
+    var REF_X = [261, 1217];
+    var mq = window.matchMedia('(max-width: 860px)');
+    for (var i = 0; i < paths.length; i++) paths[i].setAttribute('data-d', paths[i].getAttribute('d'));
+    var remap = function (y, cur) {
+      for (var k = 1; k < REF.length; k++) {
+        if (y <= REF[k] || k === REF.length - 1) {
+          var t = (y - REF[k - 1]) / (REF[k] - REF[k - 1]);
+          return cur[k - 1] + t * (cur[k] - cur[k - 1]);
+        }
+      }
+      return y;
+    };
+    var update = function () {
+      var n, j;
+      if (!mq.matches) {
+        svg.setAttribute('viewBox', VIEWBOX);
+        for (j = 0; j < paths.length; j++) paths[j].setAttribute('d', paths[j].getAttribute('data-d'));
+        return;
+      }
+      var H = hero.getBoundingClientRect(), a = h1.getBoundingClientRect(), b = tag.getBoundingClientRect();
+      var l = line1.getBoundingClientRect();
+      if (l.width > 0) {
+        var sc = (REF_X[1] - REF_X[0]) / l.width;
+        var vw = Math.min(1440, H.width * sc);
+        var x0 = Math.max(0, Math.min(1440 - vw, REF_X[0] - (l.left - H.left) * sc));
+        svg.setAttribute('viewBox', x0.toFixed(1) + ' 0 ' + vw.toFixed(1) + ' 900');
+      }
+      var u = function (v) { return (v - H.top) / H.height * 900; };
+      var cur = [0, u(a.top), u(a.bottom), u(b.top), u(b.bottom), 900];
+      for (j = 1; j < cur.length; j++) if (cur[j] <= cur[j - 1]) return;
+      for (j = 0; j < paths.length; j++) {
+        n = 0;
+        paths[j].setAttribute('d', paths[j].getAttribute('data-d').replace(/-?\d*\.?\d+/g, function (m) {
+          return (n++ % 2) ? remap(parseFloat(m), cur).toFixed(1) : m;
+        }));
+      }
+    };
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);
+  })();
+
   (function () {
     var nav = document.querySelector('.topwrap');
     if (!nav) return;
