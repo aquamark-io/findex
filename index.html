@@ -176,6 +176,12 @@
     .menu-bars span, .nav-actions, .nav-link, .topwrap.menu-open .nav-link { transition: none !important; transition-delay: 0s !important; }
   }
 
+  .no-cost {
+    font-weight: 700; white-space: nowrap;
+    background: linear-gradient(100deg, #6a1fb0 0%, #c2338f 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    box-shadow: inset 0 -0.38em 0 rgba(226, 72, 154, 0.16);
+  }
   /* Check Your Record: numbered steps */
   .steps { list-style: none; margin: 52px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
   .step { position: relative; }
@@ -470,8 +476,8 @@
         </div>
       </section>
       <section class="record" id="check-record" aria-labelledby="record-title">
-        <h2 id="record-title" class="section-title">Check Your Record</h2>
-        <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at no cost.</p>
+        <h2 id="record-title" class="section-title">Check Your Own Record</h2>
+        <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at <strong class="no-cost">no&nbsp;cost</strong>.</p>
         <ol class="steps" aria-label="How it works">
           <li class="step"><span class="step-num" aria-hidden="true">1</span><div><h3>Free Account</h3><p>Sign up as an individual, company, or funded business.</p></div></li>
           <li class="step"><span class="step-num" aria-hidden="true">2</span><div><h3>Identity Verification</h3><p>We confirm who you are before granting access.</p></div></li>
