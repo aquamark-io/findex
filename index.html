@@ -141,13 +141,14 @@
   /* Content (white) */
   .content { padding: 120px 0 128px; background: #ffffff; color: var(--ink); }
   .section-title {
-    margin: 0 0 22px; font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.02;
+    margin: 0 0 calc(22px - 0.12em); font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.02;
+    padding-bottom: 0.12em; /* room for descenders (g, p) inside the gradient-clipped box */
     background: linear-gradient(100deg, #3a0f7a 0%, #6a1fb0 55%, #c2338f 100%) 0 0 / 1300px 100% no-repeat;
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
   .section-lead { margin: 0; max-width: 44ch; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; color: #4b3d63; }
 
-  .practices-title { margin-bottom: 44px; }
+  .practices-title { margin-bottom: calc(44px - 0.12em); }
 
   /* Practices */
   .practices { margin-top: 140px; }
@@ -286,7 +287,7 @@
     .party-list { grid-template-columns: 1fr; gap: 12px; }
     .party { padding: 18px 20px; }
           .duo { grid-template-columns: 1fr; gap: 14px; }
-    .practices-title { margin-bottom: 28px; }
+    .practices-title { margin-bottom: calc(28px - 0.12em); }
     .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
     .practice { padding: 24px 22px; }
     .req-card { padding: 10px 22px; }
