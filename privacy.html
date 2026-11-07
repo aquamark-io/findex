@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | FinDex</title>
+<meta name="description" content="How FinDex collects, uses, shares and protects information.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+    src: url("fonts/inter-latin-var.woff2") format("woff2");
+  }
+  :root {
+    --white: #ffffff;
+    --soft: rgba(255,255,255,0.86);
+    --faint: rgba(255,255,255,0.66);
+    --rule: rgba(255,255,255,0.18);
+    --blush: #ffb8e2;
+    --base: #5a1a9a;
+    --ink: #1c0f2e;
+    --brand-bg:
+      radial-gradient(1200px 900px at 95% 0%, rgba(255, 95, 185, 0.75), transparent 60%),
+      radial-gradient(900px 600px at 60% 100%, rgba(255, 90, 180, 0.28), transparent 65%),
+      radial-gradient(1100px 900px at 0% 80%, rgba(110, 45, 225, 0.65), transparent 60%),
+      linear-gradient(180deg, #45138c 0%, #5a1a9a 100%);
+    --plum: #2a0a45;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background: #ffffff;
+  }
+  a { color: inherit; }
+  .wrap { --edge: max(28px, calc((100vw - 1120px) / 2 - 52px)); max-width: none; margin: 0; padding: 0 var(--edge); }
+
+  /* Top bar */
+  .topwrap {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .topwrap.is-scrolled {
+    background-color: rgba(58, 16, 122, 0.66);
+    -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 30px -18px rgba(30, 0, 60, 0.6);
+  }
+  .topwrap .top { transition: padding 0.3s ease; }
+  .topwrap.is-scrolled .top { padding: 14px 0; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 28px 0; }
+  .wordmark { font-weight: 700; font-size: 2.25rem; letter-spacing: -0.02em; text-decoration: none; }
+  .wordmark {
+    color: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.28) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .nav-btn {
+    display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+    padding: 11px 22px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.005em;
+    text-decoration: none; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .nav-btn-ghost { color: #ffffff; border: 1px solid rgba(255,255,255,0.45); background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .nav-btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.7); }
+  .nav-btn-solid { color: #3d0f7a; background: #ffffff; border: 1px solid #ffffff; box-shadow: 0 8px 24px -10px rgba(30, 0, 60, 0.55); }
+  .nav-btn-solid:hover { transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden; text-align: left;
+    padding: calc(140px + 12vh) 0 18vh; border-bottom: 0;
+    color: var(--white); background: var(--brand-bg);
+  }
+  .hero-waves { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero-waves { height: calc(100% + 2px); }
+  .hero-inner { position: relative; z-index: 1; padding-right: 28px; }
+  .nowrap { white-space: nowrap; }
+  h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 9.6vw, 9rem);
+    line-height: 0.95;
+    text-wrap: balance;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    color: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.28) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.08em;
+  }
+  .tagline { font-size: clamp(1.45rem, 2.6vw, 2.35rem); line-height: 1.25; font-weight: 500; margin: 40px 0 0; letter-spacing: -0.01em; }
+  @media (min-width: 861px) { .tagline .tl { display: block; white-space: nowrap; } }
+
+
+  /* Content (white) */
+  .content { padding: 120px 0 128px; background: #ffffff; color: var(--ink); }
+  .section-title {
+    margin: 0 0 22px; font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.02;
+    background: linear-gradient(100deg, #3a0f7a 0%, #6a1fb0 55%, #c2338f 100%) 0 0 / 1300px 100% no-repeat;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .section-lead { margin: 0; max-width: 44ch; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; color: #4b3d63; }
+
+  .practices-title { margin-bottom: 44px; }
+
+  /* Practices */
+  .practices { margin-top: 140px; }
+  .practice-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, auto); grid-auto-flow: column; gap: 20px; align-items: start; }
+  .practice {
+    padding: 28px 32px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
+  }
+  .practice h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
+
+  .search-report { margin-top: 140px; }
+  .duo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+
+  .categories { margin-top: 140px; }
+  .hcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+  .hcard { border-radius: 20px; overflow: hidden; border: 1px solid #ebdff9; background: #ffffff; box-shadow: 0 24px 50px -40px rgba(70, 20, 140, 0.45); }
+  .hcard h3 { margin: 0; padding: 20px 26px; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: #ffffff;
+    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%); }
+  .hcard ul { list-style: none; margin: 0; padding: 6px 26px 12px; }
+  .hcard li { padding: 13px 0; font-size: 1.05rem; color: #4b3d63; }
+  .hcard li + li { border-top: 1px solid #efe6f8; }
+
+  .parties { margin-top: 140px; }
+  .standards { margin-top: 140px; }
+  .security { margin-top: 140px; }
+  .stat-band {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: 24px; overflow: hidden;
+    background: linear-gradient(160deg, #faf6ff 0%, #f1e7fc 100%); border: 1px solid #ebdff9;
+  }
+  .stat-cell { padding: 44px 36px; }
+  .stat-cell + .stat-cell { border-left: 1px solid #e3d5f4; }
+  .stat-big {
+    margin: 0 0 14px; font-size: clamp(2.4rem, 3.6vw, 2.9rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1;
+    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%) 0 0 / 220px 100% no-repeat;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-cell h3 { margin: 0 0 6px; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .stat-cell p:last-child { margin: 0; font-size: 1.02rem; line-height: 1.55; color: #4b3d63; }
+  .early { margin-top: 140px; scroll-margin-top: 110px; }
+  .early-panel {
+    position: relative; overflow: hidden; text-align: center; color: #ffffff;
+    padding: 88px 32px 80px; border-radius: 28px; background: var(--brand-bg);
+    box-shadow: 0 40px 80px -50px rgba(60, 10, 120, 0.7);
+  }
+  .early-title {
+    margin: 0 0 14px; font-size: clamp(2.6rem, 5vw, 4.25rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 45%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .early-sub { margin: 0 0 34px; font-size: clamp(1.15rem, 1.8vw, 1.4rem); font-weight: 500; color: rgba(255,255,255,0.9); }
+  .early-btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 16px 34px; border-radius: 12px;
+    font-size: 1.05rem; font-weight: 600; text-decoration: none; color: #3d0f7a; background: #ffffff;
+    box-shadow: 0 14px 30px -12px rgba(20, 0, 50, 0.6); transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .early-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(20, 0, 50, 0.7); }
+  .early-note { margin: 18px 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+  .std-table { margin: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
+  .std-row { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
+  .std-row + .std-row { border-top: 1px solid #ddd2ea; }
+  .std-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .std-row dd { margin: 0; font-size: 1.1rem; line-height: 1.55; color: #4b3d63; }
+  .party-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .party {
+    display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: start; padding: 22px 24px; border-radius: 18px;
+    background: #ffffff; border: 1px solid #ebdff9; box-shadow: 0 20px 40px -34px rgba(70, 20, 140, 0.5);
+  }
+  .party h3 { margin: 1px 0 4px; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .party p { margin: 0; font-size: 1rem; line-height: 1.5; color: #4b3d63; }
+  .party .nw { white-space: nowrap; }
+  .party .dot { color: #c4a4e0; }
+
+  /* Access */
+  .access { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+  .req-card {
+    padding: 16px 34px; border-radius: 20px;
+    background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
+    border: 1px solid #ebdff9;
+    box-shadow: 0 30px 60px -40px rgba(70, 20, 140, 0.45);
+  }
+  .req-title { margin: 14px 0 4px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .req-list { list-style: none; margin: 0; padding: 0; }
+  .req-list li { display: flex; align-items: center; gap: 18px; padding: 18px 0; }
+  .req-list li + li { border-top: 1px solid #e6d9f6; }
+  .req-icon {
+    flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; color: #ffffff;
+    background: linear-gradient(135deg, #5a1a9a 0%, #a12aa0 60%, #e2489a 100%);
+    box-shadow: 0 10px 20px -10px rgba(120, 30, 160, 0.7);
+  }
+  .req-icon svg { width: 24px; height: 24px; }
+  .req-text { font-size: 1.2rem; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
+
+  /* Brands + footer */
+  .site-foot { position: relative; color: var(--white); background: var(--brand-bg); }
+  .brands { padding: 72px 0 56px; border-bottom: 1px solid var(--rule); }
+  .brands h2 { font-weight: 600; line-height: 1.2; font-size: 1.05rem; letter-spacing: 0; margin: 0 0 6px; }
+  .brands p { color: var(--faint); font-size: 0.9rem; margin: 0; }
+  .brand-row { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .brand-row li + li { border-left: 1px solid var(--rule); }
+  .brand-row a { display: flex; align-items: center; justify-content: center; height: 100px; padding: 16px; text-decoration: none; font-weight: 600; }
+  .brand-row a:hover { background: rgba(255,255,255,0.05); }
+  .brand-row a { gap: 10px; }
+  .brand-row .brand-full { height: 28px; width: auto; max-width: 100%; }
+  .brand-row .brand-badge { width: 68px; height: 68px; object-fit: contain; }
+  .brand-name { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand-name sup { font-size: 0.55em; font-weight: 500; }
+  .brand-findex { font-size: 1.5rem; letter-spacing: -0.02em; color: #ffffff; }
+  .copy { margin: 0; padding: 28px 0 44px; color: var(--faint); font-size: 0.85rem; }
+  .copy .sep { margin: 0 0.6em; opacity: 0.6; }
+  .copy a { color: inherit; text-decoration: none; }
+  .copy a:hover { color: #ffffff; text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .hero { padding: calc(110px + 8vh) 0 14vh; }
+    .content { padding: 72px 0 80px; }
+    .access { grid-template-columns: 1fr; gap: 40px; }
+    .practices { margin-top: 88px; }
+    .search-report { margin-top: 88px; }
+    .categories { margin-top: 88px; }
+    .hcards { grid-template-columns: 1fr; gap: 14px; }
+    .hcard h3 { padding: 16px 22px; }
+    .hcard ul { padding: 4px 22px 8px; }
+    .parties { margin-top: 88px; }
+    .standards { margin-top: 88px; }
+    .security { margin-top: 88px; }
+    .stat-band { grid-template-columns: 1fr; }
+    .stat-cell { padding: 30px 24px; }
+    .stat-cell + .stat-cell { border-left: 0; border-top: 1px solid #e3d5f4; }
+    .early { margin-top: 88px; scroll-margin-top: 90px; }
+    .early-panel { padding: 60px 22px 56px; border-radius: 22px; }
+    .std-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+    .party-list { grid-template-columns: 1fr; gap: 12px; }
+    .party { padding: 18px 20px; }
+          .duo { grid-template-columns: 1fr; gap: 14px; }
+    .practices-title { margin-bottom: 28px; }
+    .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
+    .practice { padding: 24px 22px; }
+    .req-card { padding: 10px 22px; }
+    .brands { padding: 56px 0 40px; }
+    .brand-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .brand-row li + li { border-left: 0; }
+    .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
+    .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 480px) {
+      .wordmark { font-size: 1.75rem; }
+    .nav-actions { gap: 6px; }
+    .nav-btn { padding: 8px 13px; font-size: 0.8rem; }
+    .wrap { padding: 0 18px; }
+    .brand-row a { padding: 12px 8px; gap: 7px; height: 76px; }
+    .brand-row .brand-full { height: 20px; }
+    .brand-row .brand-badge { width: 56px; height: 56px; }
+    .brand-name { font-size: 0.92rem; }
+    .brand-findex { font-size: 1.2rem; }
+  }
+  @media (max-width: 360px) {
+    .wordmark { font-size: 1.5rem; }
+    .nav-btn { padding: 7px 11px; font-size: 0.75rem; }
+  }
+  /* Privacy page */
+  .hero-sm { padding: calc(130px + 6vh) 0 72px; }
+  .hero-sm + .content { padding-top: 64px; }
+  .hero-sm h1 { font-size: clamp(2.6rem, 6vw, 4.75rem); }
+  .hero-sm .tagline { margin-top: 18px; font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: rgba(255,255,255,0.85); }
+  .hero-sm .tsep { margin: 0 0.6em; opacity: 0.6; }
+  .m-dark { background: rgba(255,255,255,0.18); color: #ffffff; padding: 0 0.3em; border-radius: 4px; }
+  .draft-note { max-width: 760px; margin: 0 0 48px; padding: 16px 20px; border-radius: 14px; background: #f6f0fd; border: 1px solid #ebdff9; color: #4b3d63; font-size: 0.98rem; }
+  .draft-note strong { color: var(--ink); }
+  .prose { max-width: 760px; color: #4b3d63; font-size: 1.05rem; line-height: 1.7; }
+  .prose h2 { margin: 56px 0 14px; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: #45138c; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 { margin: 32px 0 8px; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+  .prose p { margin: 0 0 16px; }
+  .prose ul { margin: 0 0 16px; padding-left: 1.25em; }
+  .prose li { margin: 0 0 8px; }
+  .prose li::marker { color: #b47fdc; }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .prose mark { background: #fbe7f3; color: #7a1f5c; padding: 0 0.25em; border-radius: 4px; }
+  @media (max-width: 860px) { .hero-sm { padding: calc(100px + 4vh) 0 48px; } }
+
+</style>
+</head>
+<body>
+
+<div class="wrap topwrap">
+  <header class="top">
+    <a href="./" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
+    <nav class="nav-actions" aria-label="Account">
+      <a class="nav-btn nav-btn-solid" href="index.html#early-access">Request Access</a>
+      <a class="nav-btn nav-btn-ghost" href="#">Sign In</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <section class="hero hero-sm" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <h1 id="hero-title">Privacy Policy</h1>
+      <p class="tagline">Draft for review<span class="tsep">·</span>Last updated <mark class="m-dark">[Date]</mark></p>
+    </div>
+  </section>
+
+  <div class="content">
+    <div class="wrap">
+      <div class="draft-note" role="note"><strong>Draft.</strong> This policy is being finalized and is subject to change. Highlighted items are still being confirmed.</div>
+      <article class="prose">
+<h2>1. Who we are</h2>
+<p>FinDex ("FinDex," "we," "us," "our") operates a business-only reporting database for the commercial finance industry, including brokers, funders, lenders, software providers and lead providers. FinDex is operated by <mark>[Legal entity name]</mark>, located in San Francisco, California.</p>
+<p>This policy explains what information we collect, how we use and share it, how we protect it, and the rights available to people and businesses whose information appears in FinDex.</p>
+<h2>2. Who this policy covers</h2>
+<p>This policy applies to:</p>
+<ul>
+<li><strong>Visitors</strong> to our website.</li>
+<li><strong>Member organizations</strong>: approved companies with a FinDex account, and the authorized users who act on their behalf.</li>
+<li><strong>Reported parties</strong>: individuals (such as employees and contractors), companies, and merchants who are the subject of a report in FinDex.</li>
+</ul>
+<h2>3. Information we collect</h2>
+<h3>3.1 Member organizations</h3>
+<p>To approve and maintain a business account, we collect:</p>
+<ul>
+<li>Company name, business registration details, and company website</li>
+<li>Business email address and contact details of the authorized account owner and users</li>
+<li>Information needed to verify the business and the authorized users</li>
+<li>Account activity, including searches performed and the stated purpose for each search</li>
+<li><mark>[If applicable]</mark> Billing information. Payments are processed by Stripe; FinDex does not store full card numbers.</li>
+</ul>
+<p>FinDex is business-only. We do not offer personal accounts, and each company may hold one account.</p>
+<h3>3.2 Reports and evidence</h3>
+<p>When a member submits a report, we collect the report details and supporting documentation (for example, records, communications, or recordings). Reports must relate to a reportable category, such as theft, fraud, merchant deception, data mishandling, slow pay, or defaults, and fall within the past 7 years.</p>
+<h3>3.3 Reported parties</h3>
+<p>A report may include information about the reported individual, company, or merchant, such as name, business affiliation, and the facts and dates of the reported incident.</p>
+<h3>3.4 Disputes and requests</h3>
+<p>If you dispute a report, appeal, or request a copy of reports about you, we collect the information you provide, including your contact details and any supporting documents.</p>
+<h3>3.5 Website visitors</h3>
+<p>Our website is a static site. <mark>[Confirm: we do not use analytics or advertising cookies.]</mark> Fonts and other site assets are served from our own site; the site does not load third-party fonts or scripts. Our website host may log basic technical information, such as IP address and browser type, to deliver and secure the site.</p>
+<h2>4. How we use information</h2>
+<p>We use information to:</p>
+<ul>
+<li>Verify and approve member organizations and their authorized users</li>
+<li>Operate the FinDex database, including accepting, reviewing, and publishing reports</li>
+<li>Provide search results to members with a permissible purpose</li>
+<li>Notify reported parties before publication and process disputes and appeals</li>
+<li>Maintain the accuracy and integrity of records</li>
+<li>Secure our systems, prevent misuse, and enforce our terms</li>
+<li>Comply with legal obligations</li>
+</ul>
+<p>We do not sell personal information.</p>
+<h2>5. Permissible purpose and FCRA</h2>
+<p>FinDex is built around responsible reporting practices and in accordance with the Fair Credit Reporting Act (FCRA).</p>
+<ul>
+<li><strong>Permissible purpose.</strong> Every search requires a stated, authorized purpose, such as underwriting, employment screening, or partner due diligence. Searches without a permissible purpose are not allowed.</li>
+<li><strong>Consent for employment searches.</strong> Searches on individuals for hiring purposes require the individual's signed consent.</li>
+<li><strong>Accuracy.</strong> Reports require supporting documentation and are independently reviewed before publication. Inaccurate, incomplete, or unverifiable information is not published.</li>
+<li><strong>Notice.</strong> Individuals and businesses are notified of reports about them before publication.</li>
+</ul>
+<h2>6. How evidence is handled</h2>
+<ul>
+<li><strong>PII redaction.</strong> Personal information contained in evidence is redacted before the evidence is stored.</li>
+<li><strong>Secure infrastructure.</strong> Evidence is stored with service providers that maintain SOC 2 Type II reports. <mark>[Confirm which providers store evidence, e.g. Supabase.]</mark></li>
+<li><strong>Retention and deletion.</strong> Evidence is permanently deleted after 7 years.</li>
+</ul>
+<h2>7. How we share information</h2>
+<p>We share information only as described here:</p>
+<ul>
+<li><strong>With members</strong>, when they search with a permissible purpose. Members see published records only.</li>
+<li><strong>With reported parties</strong>, who may request reports about themselves.</li>
+<li><strong>With service providers</strong> that help us operate FinDex under contract, such as hosting, database and storage, and payment processing. Current providers include <mark>[Supabase, Render, GitHub (website hosting), and Stripe (payments) — confirm list]</mark>.</li>
+<li><strong>For legal reasons</strong>, when required by law, subpoena, or court order, or to protect the rights, safety, and security of FinDex, our members, or others.</li>
+<li><strong>In a business transfer</strong>, such as a merger or acquisition, subject to this policy.</li>
+</ul>
+<p>Members may not redistribute, resell, scrape, or bulk-export FinDex records.</p>
+<h2>8. Your rights if you are on record</h2>
+<p>If you are an individual, company, or merchant named in a report, you can:</p>
+<ul>
+<li><strong>Request access</strong> to reports about you</li>
+<li><strong>Dispute</strong> the accuracy or completeness of information</li>
+<li><strong>Appeal</strong> a decision</li>
+</ul>
+<p>These requests are free, and you do not need an account. Disputed reports are unpublished while under review. Information found to be inaccurate, incomplete, or unverifiable is corrected or removed.</p>
+<p>To make a request, contact <mark>[disputes email]</mark>.</p>
+<h2>9. Your privacy rights under state law</h2>
+<p>Depending on where you live, you may have additional rights, such as the right to know, delete, or correct personal information. To exercise these rights, contact <mark>[privacy email]</mark>. We will not discriminate against you for exercising them.</p>
+<h2>10. Security</h2>
+<p>We use administrative, technical, and physical safeguards designed to protect information, including access controls for members, redaction of personal information in evidence, and storage with SOC 2 Type II audited providers. No system is completely secure, and we cannot guarantee absolute security.</p>
+<h2>11. Data retention</h2>
+<ul>
+<li><strong>Evidence:</strong> permanently deleted after 7 years.</li>
+<li><strong>Reports:</strong> incidents older than 7 years are not eligible for reporting. <mark>[Confirm how long published report records are kept.]</mark></li>
+<li><strong>Member account data:</strong> kept while the account is active and for <mark>[period]</mark> afterward, unless a longer period is required by law.</li>
+<li><strong>Dispute and request records:</strong> <mark>[period]</mark>.</li>
+</ul>
+<h2>12. Children</h2>
+<p>FinDex is a business-only service and is not directed to children under 18. We do not knowingly collect information from children.</p>
+<h2>13. Changes to this policy</h2>
+<p>We may update this policy from time to time. We will post the updated version on this page and change the "Last updated" date. <mark>[If material changes: describe how members and reported parties will be notified.]</mark></p>
+<h2>14. Contact us</h2>
+<p><mark>[Legal entity name]</mark>
+San Francisco, CA
+Privacy questions: <mark>[privacy email]</mark>
+Disputes and record requests: <mark>[disputes email]</mark></p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <section class="brands" aria-labelledby="brands-title">
+      <h2 id="brands-title">Family of Brands</h2>
+      <p>Supporting a more transparent and accountable FinTech.</p>
+      <ul class="brand-row" id="brand-row">
+        <li><a href="https://aquamark.io" aria-label="Aquamark homepage"><img class="brand-full" src="logos/aquamark.png" alt="Aquamark"></a></li>
+        <li><a href="https://securebroker.org" aria-label="Secure Broker homepage"><img class="brand-badge" src="logos/secure-broker-badge.png" alt="Secure Broker certified badge"></a></li>
+        <li><a href="https://securefunder.org" aria-label="Secure Funder homepage"><img class="brand-badge" src="logos/secure-funder-badge.png" alt="Secure Funder certified badge"></a></li>
+        <li><a href="https://joinfindex.com" aria-label="FinDex homepage"><span class="brand-name brand-findex">FinDex</span></a></li>
+      </ul>
+    </section>
+    <p class="copy">&copy; 2026 FinDex<span class="sep">|</span>San Francisco, CA<span class="sep">|</span><a href="privacy.html">Privacy &amp; Security</a></p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.querySelector('.topwrap');
+    if (!nav) return;
+    var update = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('load', update);
+  })();
+</script>
+</body>
+</html>

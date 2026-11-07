@@ -9,6 +9,9 @@ Pre-launch landing page. The Request Access and Sign In buttons are not yet conn
 ## Files
 
 - `index.html`: landing page
+- `privacy.html`: privacy policy (draft, marked as such on the page; `noindex`)
+- `_drafts/privacy-policy.md`: source draft with internal review notes (not published)
+- `fonts/`: self-hosted Inter font
 - `favicon.svg`: site icon
 - `logos/`: brand logos used in the Family of Brands footer (white versions)
 
@@ -18,4 +21,4 @@ Logos live in `logos/` and appear in the Family of Brands footer in `index.html`
 
 ## Not yet started
 
-Privacy, terms and reporting policy pages have not been written yet. The footer's "Privacy & Security" text is not linked until a privacy page exists.
+Terms and reporting policy pages have not been written yet. The privacy policy is a draft pending legal review.
