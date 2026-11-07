@@ -1,20 +1,21 @@
 # findex-site
 
-Public site for FinDex (joinfindex.com). Single static HTML file (styles inline), deployed by Vercel from `main`.
+Public site for FinDex (joinfindex.com). Single static HTML file (styles inline), deployed by GitHub Pages from `main`.
 
 ## Current state
 
-Coming-soon landing page. Apply, sign-in and subject actions (respond, request record, dispute) are shown as disabled until the portal launches.
+Pre-launch landing page. The Request Access and Sign In buttons are not yet connected to a form or portal.
 
 ## Files
 
 - `index.html`: landing page
-- `logos/`: approved brand logos (to be added)
+- `favicon.svg`: site icon
+- `logos/`: brand logos used in the Family of Brands footer (white versions)
 
-## Our Brands
+## Family of Brands
 
-Logos go in `logos/` and replace the brand names in the Our Brands list in `index.html`. Order stays Aquamark, Secure Broker, Secure Funder, FinDex.
+Logos live in `logos/` and appear in the Family of Brands footer in `index.html`. Order stays Aquamark, Secure Broker, Secure Funder, FinDex.
 
-## Not yet published
+## Not yet started
 
-The Compliance & Your Rights page, privacy, terms and reporting policy are drafts awaiting legal approval and are not in this repo yet.
+Privacy, terms and reporting policy pages have not been written yet. The footer's "Privacy & Security" text is not linked until a privacy page exists.
