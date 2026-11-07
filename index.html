@@ -181,36 +181,34 @@
     background: linear-gradient(100deg, #6a1fb0 0%, #c2338f 100%);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
   }
-  /* Check Your Own Record: copy + record preview */
-  .record { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
-  .rec-ticks { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
-  .rec-ticks li { display: flex; align-items: center; gap: 12px; font-size: 1.08rem; font-weight: 500; color: var(--ink); }
-  .rec-tick { flex: none; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; color: #6a1fb0; background: #f3e9fd; }
-  .rec-tick svg { width: 17px; height: 17px; }
-  .rec-shot { border-radius: 20px; background: #ffffff; border: 1px solid #ebdff9; box-shadow: 0 40px 80px -40px rgba(70, 20, 140, 0.45); overflow: hidden; transform: rotate(-1.2deg); }
-  .rec-bar { display: flex; align-items: center; gap: 6px; padding: 12px 16px; background: linear-gradient(100deg, #45138c 0%, #a12aa0 70%, #e2489a 100%); }
-  .rec-bar span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); }
-  .rec-bar em { margin-left: 10px; color: #ffffff; font-style: normal; font-weight: 600; font-size: 0.88rem; }
-  .rec-body { padding: 22px; display: grid; gap: 14px; }
-  .rec-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #ebdff9; border-radius: 14px; }
-  .rec-row strong { display: block; font-size: 0.98rem; color: var(--ink); }
-  .rec-row small { color: #7a6c92; font-size: 0.84rem; }
-  .rec-row.faded { opacity: 0.6; }
-  .rec-pill { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-  .rec-pill.amber { background: #fff4e5; color: #b54708; }
-  .rec-pill.green { background: #ecfdf3; color: #067647; }
-  .rec-note { font-size: 0.92rem; color: #4b3d63; background: #faf6ff; border-radius: 12px; padding: 12px 14px; }
-  .rec-note b { color: var(--ink); }
-  .rec-actions { display: flex; gap: 10px; }
-  .rec-a { padding: 9px 16px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; border: 1px solid #d9c8f0; color: #3d0f7a; }
-  .rec-a.solid { background: #3d0f7a; color: #ffffff; border-color: #3d0f7a; }
-  @media (max-width: 860px) {
-    .record { grid-template-columns: 1fr; gap: 40px; }
-    .rec-shot { transform: none; }
+  /* Check Your Own Record: gradient panel */
+  .rec-panel {
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center;
+    padding: 64px 56px; border-radius: 28px; background: var(--brand-bg); color: #ffffff;
+    box-shadow: 0 40px 80px -50px rgba(60, 10, 120, 0.7);
   }
-  @media (max-width: 420px) {
-    .rec-body { padding: 16px; gap: 12px; }
-    .rec-row { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 14px; }
+  .rec-panel .section-title {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.55) 100%);
+    -webkit-background-clip: text; background-clip: text;
+  }
+  .rec-panel .section-lead { color: rgba(255, 255, 255, 0.88); }
+  .rec-panel .no-cost { background: none; -webkit-text-fill-color: #ffd2ec; color: #ffd2ec; }
+  .rec-btn {
+    display: inline-flex; align-items: center; justify-content: center; margin-top: 28px; padding: 14px 26px; border-radius: 12px;
+    font-weight: 600; text-decoration: none; color: #3d0f7a; background: #ffffff;
+    box-shadow: 0 14px 30px -14px rgba(20, 0, 50, 0.6); transition: transform 0.2s ease;
+  }
+  .rec-btn:hover { transform: translateY(-1px); }
+  .rec-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .rec-steps li {
+    display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .rec-n { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #ffffff; color: #5a1a9a; font-weight: 700; }
+  .rec-steps h3 { margin: 2px 0 2px; font-size: 1.1rem; font-weight: 600; color: #ffffff; }
+  .rec-steps p { margin: 0; color: rgba(255, 255, 255, 0.82); font-size: 0.95rem; line-height: 1.5; }
+  @media (max-width: 860px) {
+    .rec-panel { grid-template-columns: 1fr; gap: 32px; padding: 40px 22px; }
   }
 
   /* Hero */
@@ -484,23 +482,17 @@
         </div>
       </section>
       <section class="record" id="check-record" aria-labelledby="record-title">
-        <div class="rec-copy">
-          <h2 id="record-title" class="section-title">Check Your Own Record</h2>
-          <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at <strong class="no-cost">no&nbsp;cost</strong>.</p>
-          <ul class="rec-ticks">
-            <li><span class="rec-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="4"/><path d="M2 21a8 8 0 0 1 13.3-6"/><path d="M19 15v6M16 18h6"/></svg></span>Free Account</li>
-            <li><span class="rec-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.3 8.3-8 9-4.7-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>Identity Verification</li>
-            <li><span class="rec-tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>Your Records Only</li>
-          </ul>
-        </div>
-        <div class="rec-shot" aria-hidden="true">
-          <div class="rec-bar"><span></span><span></span><span></span><em>Your FinDex Record</em></div>
-          <div class="rec-body">
-            <div class="rec-row"><div><strong>Partner report</strong><small>Source: Example Capital LLC</small></div><span class="rec-pill amber">Notice sent</span></div>
-            <div class="rec-note">You have <b>10 days</b> to respond before publication.</div>
-            <div class="rec-actions"><span class="rec-a solid">View report</span><span class="rec-a">Dispute</span></div>
-            <div class="rec-row faded"><div><strong>Payment report</strong><small>Source: Example Funding Co.</small></div><span class="rec-pill green">Removed</span></div>
+        <div class="rec-panel">
+          <div class="rec-copy">
+            <h2 id="record-title" class="section-title">Check Your Own Record</h2>
+            <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at <strong class="no-cost">no&nbsp;cost</strong>.</p>
+            <a class="rec-btn" href="#">Check Your Own Record</a>
           </div>
+          <ol class="rec-steps" aria-label="How it works">
+            <li><span class="rec-n" aria-hidden="true">1</span><div><h3>Free Account</h3><p>Sign up as an individual, company, or funded business.</p></div></li>
+            <li><span class="rec-n" aria-hidden="true">2</span><div><h3>Identity Verification</h3><p>We confirm who you are before granting access.</p></div></li>
+            <li><span class="rec-n" aria-hidden="true">3</span><div><h3>Your Records Only</h3><p>You see only reports about you or your business.</p></div></li>
+          </ol>
         </div>
       </section>
 
@@ -567,7 +559,7 @@
           </li>
           <li class="party">
             <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01M12 10h.01"/></svg></span>
-            <div><h3>Partners</h3><p><span class="nw">Brokers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Lenders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Funders</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Software</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Leads</span></p></div>
+            <div><h3>Partners</h3><p><span class="nw">Brokers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Providers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Vendors</span></p></div>
           </li>
           <li class="party">
             <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
