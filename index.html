@@ -112,6 +112,70 @@
   .nav-link:hover, .nav-link:focus-visible { color: #ffffff; }
   .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
 
+  /* Mobile menu (hamburger + glass dropdown) */
+  .menu-toggle { display: none; }
+  @media (max-width: 640px) {
+    .top { position: relative; }
+    .menu-toggle {
+      display: inline-flex; align-items: center; justify-content: center; flex: none;
+      width: 46px; height: 46px; padding: 0; cursor: pointer; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.38); background: rgba(255,255,255,0.08);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .menu-toggle:hover, .menu-toggle[aria-expanded="true"] { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.6); }
+    .menu-toggle:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+    .menu-bars { position: relative; width: 20px; height: 14px; }
+    .menu-bars span {
+      position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: #ffffff;
+      transition: transform 0.35s cubic-bezier(.65,0,.35,1), opacity 0.2s ease, top 0.35s cubic-bezier(.65,0,.35,1);
+    }
+    .menu-bars span:nth-child(1) { top: 0; }
+    .menu-bars span:nth-child(2) { top: 6px; }
+    .menu-bars span:nth-child(3) { top: 12px; }
+    .menu-toggle[aria-expanded="true"] .menu-bars span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-bars span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
+    .menu-toggle[aria-expanded="true"] .menu-bars span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+    .nav-actions {
+      position: absolute; top: calc(100% - 6px); left: 0; right: 0; z-index: 5;
+      flex-direction: column; align-items: stretch; gap: 2px; padding: 8px;
+      border-radius: 20px; border: 1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(160deg, #4e1892 0%, #2c0b4a 100%);
+      box-shadow: 0 30px 60px -24px rgba(20,0,45,0.75);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transform: translateY(-10px) scale(0.97); transform-origin: top right;
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(.2,.8,.2,1), visibility 0s linear 0.35s;
+    }
+    .topwrap.menu-open .nav-actions {
+      opacity: 1; visibility: visible; pointer-events: auto; transform: none;
+      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(.2,.8,.2,1), visibility 0s;
+    }
+    .nav-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 16px; border-radius: 13px; font-size: 1.08rem; color: #ffffff;
+      opacity: 0; transform: translateY(-6px);
+      transition: opacity 0.25s ease, transform 0.3s ease, background 0.2s ease;
+    }
+    .nav-link::after {
+      content: "\2192"; position: static; height: auto; width: auto; background: none; border-radius: 0;
+      transform: translateX(-4px); opacity: 0.6; transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .nav-link:hover, .nav-link:focus-visible { background: rgba(255,255,255,0.1); outline: none; }
+    .nav-link:hover::after, .nav-link:focus-visible::after { transform: translateX(0); opacity: 1; }
+    .topwrap.menu-open .nav-link { opacity: 1; transform: none; }
+    .topwrap.menu-open .nav-link:nth-child(1) { transition-delay: 0.06s; }
+    .topwrap.menu-open .nav-link:nth-child(2) { transition-delay: 0.11s; }
+    .topwrap.menu-open .nav-link:nth-child(3) { transition-delay: 0.16s; }
+    .topwrap.menu-open {
+      background-color: rgba(58, 16, 122, 0.66);
+      -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+    }
+  }
+  @media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+    .menu-bars span, .nav-actions, .nav-link, .topwrap.menu-open .nav-link { transition: none !important; transition-delay: 0s !important; }
+  }
+
   /* Hero */
   .hero {
     position: relative; overflow: hidden; text-align: left;
@@ -299,18 +363,6 @@
     .brand-row li:nth-child(even) { border-left: 1px solid var(--rule); }
     .brand-row li:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
-  @media (max-width: 560px) {
-    /* Three nav links don't fit beside the wordmark on phones: give them their own row. */
-    .top { flex-wrap: wrap; row-gap: 6px; padding: 22px 0 14px; }
-    .topwrap.is-scrolled .top { padding: 12px 0 10px; }
-    .nav-actions { width: 100%; gap: 22px; }
-    .nav-link { font-size: 0.9rem; padding: 4px 0; }
-    .hero { padding-top: calc(140px + var(--announce-h) + 6vh); }
-  }
-  @media (max-width: 360px) {
-    .nav-actions { gap: 16px; }
-    .nav-link { font-size: 0.84rem; }
-  }
   @media (max-width: 480px) {
       .wordmark { font-size: 1.75rem; }
     .wrap { padding: 0 18px; }
@@ -336,7 +388,10 @@
 <div class="wrap topwrap">
   <header class="top">
     <a href="./" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
-    <nav class="nav-actions" aria-label="Account">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="nav-actions" id="site-nav" aria-label="Account">
       <a class="nav-link" href="#">Check My Record</a>
       <a class="nav-link" href="#early-access">Request Access</a>
       <a class="nav-link" href="#">Sign In</a>
@@ -606,6 +661,30 @@
     update();
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('load', update);
+  })();
+  (function () {
+    var wrap = document.querySelector('.topwrap');
+    var btn = document.querySelector('.menu-toggle');
+    var menu = document.getElementById('site-nav');
+    if (!wrap || !btn || !menu) return;
+    var mq = window.matchMedia('(max-width: 640px)');
+    var setOpen = function (open) {
+      wrap.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    var isOpen = function () { return wrap.classList.contains('menu-open'); };
+    btn.addEventListener('click', function () {
+      setOpen(!isOpen());
+      if (isOpen()) { var first = menu.querySelector('a'); if (first) first.focus({ preventScroll: true }); }
+    });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('click', function (e) { if (isOpen() && !wrap.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); }
+    });
+    var onChange = function () { if (!mq.matches) setOpen(false); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange); else mq.addListener(onChange);
   })();
 </script>
 </body>
