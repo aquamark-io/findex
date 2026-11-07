@@ -240,6 +240,7 @@
   .hcard li + li { border-top: 1px solid #efe6f8; }
 
   .parties { margin-top: 140px; }
+  .record { margin-top: 140px; scroll-margin-top: calc(110px + var(--announce-h)); }
   .standards { margin-top: 140px; }
   .security { margin-top: 140px; }
   .stat-band {
@@ -342,6 +343,7 @@
     .hcard h3 { padding: 16px 22px; }
     .hcard ul { padding: 4px 22px 8px; }
     .parties { margin-top: 88px; }
+    .record { margin-top: 88px; scroll-margin-top: calc(90px + var(--announce-h)); }
     .standards { margin-top: 88px; }
     .security { margin-top: 88px; }
     .stat-band { grid-template-columns: 1fr; }
@@ -392,7 +394,7 @@
       <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
     <nav class="nav-actions" id="site-nav" aria-label="Account">
-      <a class="nav-link" href="#">Check My Record</a>
+      <a class="nav-link" href="#check-record">Check My Record</a>
       <a class="nav-link" href="#early-access">Request Access</a>
       <a class="nav-link" href="#">Sign In</a>
     </nav>
@@ -424,7 +426,7 @@
       <section class="access" aria-labelledby="access-title">
         <div class="access-copy">
           <h2 id="access-title" class="section-title">Restricted Access</h2>
-          <p class="section-lead">Business-only platform. Access is limited to verified organizations. One account per company.</p>
+          <p class="section-lead">Searching and reporting are limited to verified organizations. One account per company.</p>
         </div>
         <div class="req-card">
           <h3 class="req-title">Requirements</h3>
@@ -440,6 +442,29 @@
             <li>
               <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
               <span class="req-text">Business Email Address</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="access record" id="check-record" aria-labelledby="record-title">
+        <div class="access-copy">
+          <h2 id="record-title" class="section-title">Check Your Record</h2>
+          <p class="section-lead">Individuals, companies, and funded businesses can view, dispute, or appeal any report about themselves at no cost.</p>
+        </div>
+        <div class="req-card">
+          <h3 class="req-title">How It Works</h3>
+          <ul class="req-list">
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="4"/><path d="M2 21a8 8 0 0 1 13.3-6"/><path d="M19 15v6M16 18h6"/></svg></span>
+              <span class="req-text">Free Account</span>
+            </li>
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.3 8.3-8 9-4.7-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+              <span class="req-text">Identity Verification</span>
+            </li>
+            <li>
+              <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span class="req-text">Your Records Only</span>
             </li>
           </ul>
         </div>
@@ -512,7 +537,7 @@
           </li>
           <li class="party">
             <span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v9h14v-9"/><path d="M10 21v-5h4v5"/></svg></span>
-            <div><h3>Funded Businesses</h3><p><span class="nw">Customers</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Small Businesses</span></p></div>
+            <div><h3>Funded Businesses</h3><p><span class="nw">Merchants</span> <span class="dot" aria-hidden="true">·</span> <span class="nw">Sole Proprietors</span></p></div>
           </li>
         </ul>
       </section>
