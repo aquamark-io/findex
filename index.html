@@ -186,14 +186,8 @@
     background: linear-gradient(180deg, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.55) 100%);
     -webkit-background-clip: text; background-clip: text;
   }
-  .rec-link {
-    display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; padding-bottom: 3px;
-    font-size: 1.15rem; font-weight: 600; color: #ffffff; text-decoration: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.45); transition: border-color 0.2s ease;
-  }
-  .rec-link span { transition: transform 0.2s ease; }
-  .rec-link:hover, .rec-link:focus-visible { border-bottom-color: #ffffff; outline: none; }
-  .rec-link:hover span, .rec-link:focus-visible span { transform: translateX(4px); }
+  .rec-signup { color: #ffffff; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.5); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+  .rec-signup:hover, .rec-signup:focus-visible { text-decoration-color: #ffffff; outline: none; }
   .rec-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .rec-steps li {
     display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; border-radius: 16px;
@@ -476,10 +470,9 @@
         <div class="rec-panel">
           <div class="rec-copy">
             <h2 id="record-title" class="section-title">Check Your Own Record for Free</h2>
-            <a class="rec-link" href="#">Check Now <span aria-hidden="true">&rarr;</span></a>
           </div>
           <ol class="rec-steps" aria-label="How it works">
-            <li><span class="rec-n" aria-hidden="true">1</span><div><h3>Free Account</h3><p>Sign up as an individual, company, or funded business.</p></div></li>
+            <li><span class="rec-n" aria-hidden="true">1</span><div><h3>Free Account</h3><p><a class="rec-signup" href="#">Sign up</a> as an individual, company, or funded business.</p></div></li>
             <li><span class="rec-n" aria-hidden="true">2</span><div><h3>Identity Verification</h3><p>We confirm who you are before granting access.</p></div></li>
             <li><span class="rec-n" aria-hidden="true">3</span><div><h3>Your Records Only</h3><p>You see only reports about you or your business.</p></div></li>
           </ol>
