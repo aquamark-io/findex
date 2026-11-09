@@ -325,9 +325,9 @@
   .early-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(20, 0, 50, 0.7); }
   .early-note { margin: 18px 0 0; font-size: 0.9rem; color: rgba(255,255,255,0.72); }
   .std-table { margin: 0; border-top: 1px solid #ddd2ea; border-bottom: 1px solid #ddd2ea; }
-  .std-row { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: 24px; align-items: baseline; padding: 26px 0; }
+  .std-row { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: 24px; align-items: center; padding: 26px 0; }
   .std-row + .std-row { border-top: 1px solid #ddd2ea; }
-  .std-row dt { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+  .std-row dt { display: flex; align-items: center; gap: 16px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .std-row dd { margin: 0; font-size: 1.1rem; line-height: 1.55; color: #4b3d63; }
   .party-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   .party {
@@ -556,9 +556,9 @@
       <section class="standards" aria-labelledby="std-title">
         <h2 id="std-title" class="section-title practices-title">Reporting Standards</h2>
         <dl class="std-table">
-          <div class="std-row"><dt>Eligible</dt><dd>Incidents within 7 years, evidence required.</dd></div>
-          <div class="std-row"><dt>Verifiable</dt><dd>Not verifiable? Not published.</dd></div>
-          <div class="std-row"><dt>Fair</dt><dd>Disputed reports withheld during review.</dd></div>
+          <div class="std-row"><dt><span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m9 15.5 2 2 4-4"/></svg></span>Eligible</dt><dd>Incidents within 7 years, evidence required.</dd></div>
+          <div class="std-row"><dt><span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="m8 11 2 2 4-4"/></svg></span>Verifiable</dt><dd>Not verifiable? Not published.</dd></div>
+          <div class="std-row"><dt><span class="req-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10"/><path d="M5 7h14"/><path d="m5 7-3 6a3 3 0 0 0 6 0z"/><path d="m19 7-3 6a3 3 0 0 0 6 0z"/></svg></span>Fair</dt><dd>Disputed reports withheld during review.</dd></div>
         </dl>
       </section>
 
