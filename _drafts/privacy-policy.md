@@ -41,7 +41,7 @@ FinDex is business-only. We do not offer personal accounts, and each company may
 
 ### 3.2 Reports and evidence
 
-When a member submits a report, we collect the report details and supporting documentation (for example, records, communications, or recordings). Reports must relate to a reportable category, such as theft, fraud, merchant deception, data mishandling, slow pay, or defaults, and fall within the past 7 years.
+When a member submits a report, we collect the report details and supporting documentation (for example, records, communications, or recordings). Reports must relate to a reportable category, such as theft, fraud, misleading statements, data mishandling, slow pay, or defaults, and fall within the past 7 years.
 
 ### 3.3 Reported parties
 
