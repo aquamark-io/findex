@@ -272,6 +272,8 @@
     background: linear-gradient(160deg, #faf6ff 0%, #f4ecfd 100%);
     border: 1px solid #ebdff9;
   }
+  #practices-title { margin-bottom: 14px; }
+  .search-lead { margin: 0 0 40px; max-width: 760px; }
   .practice-list.three { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: none; grid-auto-flow: row; }
   .practice h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
@@ -417,6 +419,7 @@
     .practices-title { margin-bottom: calc(28px - 0.12em); }
     .practice-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; gap: 14px; }
     .practice-list.three { grid-template-columns: 1fr; }
+    .search-lead { margin-bottom: 26px; }
     .practice { padding: 24px 22px; }
     .req-card { padding: 10px 22px; }
     .brands { padding: 56px 0 40px; }
@@ -541,21 +544,22 @@
 
       <section class="practices" aria-labelledby="practices-title">
         <h2 id="practices-title" class="section-title practices-title">How Search Works</h2>
+        <p class="section-lead search-lead">To protect privacy and prevent solicitation, searches require an exact match. FinDex doesn&rsquo;t display lists of reported companies.</p>
         <ol class="practice-list three">
           <li class="practice">
             <span class="fcra-badge yes">Subject to FCRA</span>
             <h3>Individuals</h3>
-            <p>Only verified companies can search FinDex for employment screening. Before running a search, the company must upload the individual&rsquo;s signed authorization for the background check.</p>
+            <p>Verified companies can screen individuals for employment after uploading the individual&rsquo;s signed background check authorization.</p>
           </li>
           <li class="practice">
             <span class="fcra-badge no">Not subject to FCRA</span>
             <h3>Partners</h3>
-            <p>Verified companies can use FinDex to vet potential business partners for reported misconduct. Search by company name or website. To protect privacy and prevent solicitation, FinDex requires an exact match and does not offer a list of reported companies.</p>
+            <p>Verified companies can vet potential partners for reported misconduct using a company name or website.</p>
           </li>
           <li class="practice">
             <span class="fcra-badge no">Not subject to FCRA</span>
             <h3>Funded Businesses</h3>
-            <p>Funders and lenders can check whether a business has a reported default before funding. Search by EIN, also available by API. To protect privacy and prevent solicitation, FinDex requires an exact match and does not offer a list of reported businesses.</p>
+            <p>Funders and lenders can check for reported defaults before funding. Search by EIN in FinDex or via API.</p>
           </li>
         </ol>
       </section>
