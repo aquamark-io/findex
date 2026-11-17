@@ -274,6 +274,7 @@
   }
   .practice h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
   .practice p { margin: 0; font-size: 1.02rem; line-height: 1.6; color: #4b3d63; }
+  .practice p strong { color: var(--ink); font-weight: 600; }
 
 
   .categories { margin-top: 140px; }
@@ -515,23 +516,23 @@
       </section>
 
       <section class="practices" aria-labelledby="practices-title">
-        <h2 id="practices-title" class="section-title practices-title">FCRA-Compliant</h2>
+        <h2 id="practices-title" class="section-title practices-title">Who Can Search</h2>
         <ol class="practice-list">
           <li class="practice">
-            <h3>Permissible Purpose</h3>
-            <p>Employment screening, partner diligence, underwriting.</p>
+            <h3>Individuals</h3>
+            <p><strong>Subject to the FCRA.</strong> Verified companies only, with a permissible purpose: employment screening, partner diligence, or underwriting.</p>
           </li>
           <li class="practice">
-            <h3>Notice</h3>
-            <p>Reported parties notified and receive CFPB Summary of Rights.</p>
-          </li>
-           <li class="practice">
-            <h3>Accuracy</h3>
-            <p>Supporting documentation required and independently reviewed.</p>
+            <h3>Partners</h3>
+            <p><strong>Not subject to the FCRA.</strong> Verified companies search by company name or website. Exact matches only, no lists.</p>
           </li>
           <li class="practice">
-            <h3>Dispute</h3>
-            <p>Reported parties have opportunity to dispute at no cost.</p>
+            <h3>Funded Businesses</h3>
+            <p><strong>Not subject to the FCRA.</strong> Verified companies search by EIN, also available by API. Exact matches only, no lists.</p>
+          </li>
+          <li class="practice">
+            <h3>Every Report</h3>
+            <p>Evidence independently reviewed. Reported parties notified before publication and can dispute at no cost.</p>
           </li>
         </ol>
       </section>
@@ -591,78 +592,47 @@
         <div class="faq-list">
           <details class="faq-item" name="faq">
             <summary>Why is FinDex free?</summary>
-<div class="faq-a"><p>FinDex is the first evidence-based reporting database built for FinTech, and a reliable record has to be built from the start. Free access invites verified organizations to contribute verifiable incidents, not attestations. Checking and disputing your own record will always be free. As the database grows, so will the cost of maintaining it. Any future pricing will be announced well in advance, with affordability and accessibility remaining priorities.</p></div>
+            <div class="faq-a"><p>FinDex is building the first evidence-based reporting database for FinTech, and free access encourages verified companies to contribute. Checking and disputing your own record will always be free. Any future pricing will be announced well in advance.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>Who can search FinDex?</summary>
+            <div class="faq-a"><p>Verified FinTech companies: brokers, funders, lenders, and software and lead providers. One account per company. Searches of individuals are subject to the FCRA and require a permissible purpose. Searches of partners and funded businesses are not.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>Can I browse a list of reported merchants or companies?</summary>
+            <div class="faq-a"><p>No. Searches are exact matches only, such as a funded business&rsquo;s EIN. FinDex does not provide lists, to protect privacy and prevent solicitation.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>Is there an API?</summary>
             <div class="faq-a"><p>Yes. The API is available exclusively for merchant default searches. Use a merchant&rsquo;s EIN to check whether they have a default on record in FinDex.</p></div>
           </details>
           <details class="faq-item" name="faq">
-            <summary>Who can search for other parties on FinDex?</summary>
-            <div class="faq-a"><p>Verified organizations in FinTech (brokers, funders, lenders, software and lead providers) with a permissible purpose: Employment screening, partner diligence, underwriting. One account per company.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>Can I see what&rsquo;s been reported about me or my business?</summary>
-            <div class="faq-a"><p>Yes. Create a free account and verify your identity. You&rsquo;ll only see incidents about you or your business.</p></div>
+            <summary>Can I see and dispute what&rsquo;s been reported about me?</summary>
+            <div class="faq-a"><p>Yes. Select &ldquo;Check My Record&rdquo; to create a free account and verify your identity. You can view and dispute reports about you or your business at no cost. Disputed reports are withheld while we review the evidence, and inaccurate or unverifiable information is corrected or removed.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>Will I be told if I&rsquo;m reported?</summary>
-            <div class="faq-a"><p>Yes. Companies must provide your email address when they report an incident. You&rsquo;ll receive an email naming the company that submitted the report, and you&rsquo;ll have 10&nbsp;days to respond before it&rsquo;s published.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>How do I dispute a report?</summary>
-            <div class="faq-a"><p>Create an account by selecting "Check My Record" and dispute it at no cost. Disputed reports are withheld while we review the evidence, and inaccurate or unverifiable information is corrected or removed.</p></div>
+            <div class="faq-a"><p>Yes. You&rsquo;ll receive an email naming the company that submitted the report, and you&rsquo;ll have 10&nbsp;days to respond before it&rsquo;s published.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>What can be reported?</summary>
-            <div class="faq-a"><ul><li><strong>Individuals</strong> (employees and contractors): data theft or backdooring, document manipulation, impersonation, and misleading statements to merchants.</li><li><strong>Partners</strong>: data theft or backdooring, impersonation, mishandling of your data, and misleading statements to merchants or partners.</li><li><strong>Funded Businesses</strong>: Document manipulation, impersonation (such as identity theft to obtain funding), and defaults. Only funders and lenders may report defaults.</li></ul></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>What counts as evidence?</summary>
-            <div class="faq-a"><p>Evidence must be documented and verifiable. Attestations are not accepted on their own. Every submission undergoes an independent and human review before publication. Submission of evidence does not guarantee publication. Examples of evidence include:</p></div>
-</p>
-<ul><li><strong>Backdooring &amp; Data Theft:</strong> Evidence showing company or merchant information was sent outside your organization, such as an email with attachments sent to an external address, file transfer records, or export logs, with an explanation of what was shared, where it was sent, and why you believe the reported party was responsible. Do not submit the sensitive data itself, only evidence of its unauthorized disclosure.</li>
-<li><strong>Misleading Statements:</strong> The misleading statement or communication and who received it, with an explanation of why you believe the reported party was responsible. Emails, messages, or recorded phone calls may be submitted. For phone calls, provide the call log and recording or transcript exported directly from your phone system (not a manually typed document), plus evidence linking the reported party to their phone number and the recipient&rsquo;s number to the merchant or business, such as user profiles, CRM records, or directory listings. Calls must have been lawfully recorded.</li>
-<li><strong>Document Manipulation:</strong> Evidence showing what was altered or falsified and linking it to the reported party, with an explanation of why you believe they are responsible. Email correspondence, fraud-detection results, or original and altered versions of the document may be submitted as supporting evidence.</li>
-<li><strong>Impersonation:</strong> Communication or activity showing someone falsely representing themselves as another person or company, with an explanation of who was impersonated, how it occurred, and why you believe the reported party is responsible. Emails, messages, call recordings, or phone system records may be submitted as supporting evidence.</li>
-<li><strong>Partner Data Mishandling:</strong> Evidence showing your data was accessed, shared, exposed, or used without authorization, with an explanation of how the partner or vendor mishandled it and why you believe they were responsible. Emails, messages, breach notifications, access logs, or recorded phone calls may be submitted. Do not submit the sensitive data itself.</li>
-<li><strong>Defaults:</strong> A copy of the formal default notice sent to the merchant, identifying the merchant and the date of default, and proof that it was sent, such as a sent email, delivery confirmation, or system-generated notification log. This helps ensure reports are based on actual repayment records rather than unsubstantiated claims.</li></ul>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>What do searchers see?</summary>
-            <div class="faq-a"><p>Published reports only: the incident date, category, reporting company, description, and evidence. Report details never show date of birth, SSN, or EIN, and reporters must redact full Social Security and bank account numbers from evidence.</p></div>
+            <div class="faq-a"><ul><li><strong>Individuals:</strong> data theft or backdooring, document manipulation, impersonation, and misleading statements to merchants.</li><li><strong>Partners:</strong> data theft or backdooring, impersonation, mishandling of your data, and misleading statements.</li><li><strong>Funded businesses:</strong> document manipulation, impersonation, and defaults. Only funders and lenders may report defaults.</li></ul><p>Reports must be supported by documented, verifiable evidence, such as emails, file transfer logs, call recordings, or default notices. Attestations alone are not accepted, and every report is independently reviewed before publication.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>What happens if a company submits a false report?</summary>
-            <div class="faq-a"><p>Companies must certify that every report is accurate and supported by evidence. Reports found to contain false or falsified information are removed. Companies that repeatedly submit falsified reports may lose access to FinDex and become subject to an evidence-based misconduct report themselves.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>Can I report incidents from the past?</summary>
-            <div class="faq-a"><p>Yes. Incidents, including data theft, document manipulation, impersonation, misleading statements, or defaults, may be reported up to 7 years after they occurred. All reports must be supported by evidence, regardless of when the incident occurred.</p></div>
+            <div class="faq-a"><p>Reports found to contain false information are removed. Companies that repeatedly submit falsified reports may lose access and be reported themselves.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>How long are records kept?</summary>
-            <div class="faq-a"><p>Seven years. After that, records and evidence are permanently deleted (unless actively in dispute).</p></div>
+            <div class="faq-a"><p>Incidents can be reported up to 7&nbsp;years after they occurred. Records and evidence are permanently deleted after 7&nbsp;years, unless in dispute.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>Is my information secure?</summary>
-            <div class="faq-a"><p>Identity details such as date of birth, SSN, and EIN are encrypted and masked everywhere they appear, and never included in emails. Evidence is kept on SOC&nbsp;2 Type&nbsp;II infrastructure. Our reviewers may use AI tools to summarize reporting; every publication decision is made by a person.</p></div>
+            <div class="faq-a"><p>Date of birth, SSN, and EIN are encrypted, masked everywhere they appear, and never shown to searchers or included in emails. Evidence is kept on SOC&nbsp;2 Type&nbsp;II infrastructure. Every publication decision is made by a person.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary>How does FinDex comply with the FCRA?</summary>
-            <div class="faq-a"><ul>
-<li><strong>Permissible purpose:</strong> Every search records its purpose. Employment screening requires the employer&rsquo;s certification and the individual&rsquo;s signed authorization.</li>
-<li><strong>Accuracy:</strong> Evidence is independently reviewed before publication, and unverifiable information is not published.</li>
-<li><strong>Notice:</strong> Reported parties are notified, with the reporting company named and the CFPB Summary of Rights included, 10&nbsp;days before publication.</li>
-<li><strong>Disputes:</strong> Disputed reports are withheld during review and reinvestigated within 30&nbsp;days.</li>
-<li><strong>Access logs:</strong> Every search is logged (who, when, and why), and you can see who accessed your record in your account.</li>
-<li><strong>Member obligations:</strong> Participating organizations receive the CFPB Notice to Users and Notice to Furnishers.</li>
-<li><strong>Your own record:</strong> Viewing and disputing your record is always free.</li>
-</ul></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary>What does &ldquo;independently administered by Aquamark&rdquo; mean?</summary>
-            <div class="faq-a"><p>Aquamark is responsible for operating FinDex, establishing reporting standards, reviewing submitted evidence, verifying participating organizations, and overseeing the accuracy and integrity of records.</p><p>FinDex operates under its own policies and procedures, with reporting decisions based on documented evidence rather than unverified allegations or attestations.</p></div>
+            <div class="faq-a"><p>For individuals, every search requires and logs a permissible purpose, and employment screening requires the individual&rsquo;s signed authorization. Reported individuals are notified with the CFPB Summary of Rights before publication, disputes are reinvestigated within 30&nbsp;days, and you can see who accessed your record. Partner and funded-business reports are not covered by the FCRA but follow the same evidence, notice, and dispute standards.</p></div>
           </details>
         </div>
       </section>
