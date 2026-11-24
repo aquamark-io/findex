@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="Check funded businesses for defaults and document tampering from your own systems, by EIN or by legal name and state.">
 <meta name="twitter:image" content="https://joinfindex.com/og-image.png?v=3">
 <link rel="preload" href="../fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/site.css?v=11">
+<link rel="stylesheet" href="../css/site.css?v=12">
 </head>
 <body>
 
@@ -59,7 +59,7 @@
     <section class="card option" aria-labelledby="opt1">
       <h2 class="card-band" id="opt1">Option 1: Defaults</h2>
       <div class="card-body">
-        <p>Is there a reported default on record for this business?</p>
+        <p>Is there a reported default on record?</p>
         <p class="card-label">Request</p>
         <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
 Authorization: Bearer fdx_your_key
@@ -94,7 +94,7 @@ Content-Type: application/json
     <section class="card option" aria-labelledby="opt2">
       <h2 class="card-band" id="opt2">Option 2: Document Tampering</h2>
       <div class="card-body">
-        <p>Is there a reported incident of document tampering on record for this business?</p>
+        <p>Is there a reported incident of document tampering on record?</p>
         <p class="card-label">Request</p>
         <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
 Authorization: Bearer fdx_your_key
@@ -175,12 +175,12 @@ Content-Type: application/json
 
     <h2>What the response means</h2>
     <dl class="fields">
-      <dt>on_record</dt><dd>True when at least one published report of that type is on record.</dd>
-      <dt>reports</dt><dd>Each published report: when it happened, when it was published, and the company that reported it.</dd>
-      <dt>recent_searches</dt><dd>Searches of this business by other companies in the last 30&nbsp;days. A count only, never which companies.</dd>
-      <dt>results_url</dt><dd>The full results in the portal for 7&nbsp;days, including each report&rsquo;s description and evidence, when signed in to your company&rsquo;s account.</dd>
+      <dt>on_record</dt><dd>True when at least one report is on record.</dd>
+      <dt>reports</dt><dd>Each published report: incident and publishing dates, and reporting company.</dd>
+      <dt>recent_searches</dt><dd>Number of searches by other companies in the last 30&nbsp;days.</dd>
+      <dt>results_url</dt><dd>Link to the full record in the portal.</dd>
     </dl>
-    <p class="note">Only published reports are returned. Reports in their 10-day notice period or under dispute are not included.</p>
+    <p class="note spaced">Only published reports are returned. Reports in their 10-day notice period or under dispute are not included.</p>
 
     <h2>Errors</h2>
     <dl class="fields">

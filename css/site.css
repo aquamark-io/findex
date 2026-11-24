@@ -192,3 +192,4 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
 .card.option .card-label { margin: 18px 0 6px; }
 .card.option .code { margin: 0; }
 .card.option .note { margin: 10px 0 0; }
+.note.spaced { margin-top: 28px; }
