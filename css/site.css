@@ -33,7 +33,7 @@ p { margin: 0 0 14px; }
 /* Header */
 .header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--line); background: #fff; }
 .header .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px; padding-top: 18px; padding-bottom: 18px; }
-.wordmark { font-weight: 750; font-size: 1.7rem; letter-spacing: -0.025em; line-height: 1; color: var(--plum); text-decoration: none; }
+.wordmark { font-weight: 750; font-size: 1.85rem; letter-spacing: -0.025em; line-height: 1; color: var(--plum); text-decoration: none; }
 .wordmark span { color: var(--pink); }
 .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 26px; font-size: 0.95rem; }
 .nav a { color: var(--body); text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
@@ -122,7 +122,7 @@ main { flex: 1; }
 @media (max-width: 760px) {
   .inner { padding: 0 16px; }
   .header .inner { padding-top: 14px; padding-bottom: 14px; }
-  .wordmark { font-size: 1.5rem; }
+  .wordmark { font-size: 1.62rem; }
   .menu-toggle {
     display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0;
     border: 1px solid var(--line); border-radius: 6px; background: #fff; cursor: pointer;
