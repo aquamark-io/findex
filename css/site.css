@@ -44,8 +44,8 @@ p { margin: 0 0 14px; }
 /* Hero */
 main { flex: 1; }
 .home { max-width: 1000px; margin: 0 auto; padding: 72px 24px 96px; }
-.hero { text-align: center; margin: 0 auto 48px; max-width: 780px; }
-.hero h1 { margin: 0 0 12px; font-size: 2rem; line-height: 1.25; font-weight: 650; color: var(--plum); }
+.hero { text-align: center; margin: 0 auto 48px; }
+.hero h1 { margin: 0 0 12px; font-size: 2rem; line-height: 1.25; font-weight: 650; color: var(--plum); text-wrap: balance; }
 .hero p { margin: 0 auto; color: var(--muted); font-size: 1.15rem; line-height: 1.6; text-wrap: balance; }
 
 /* The two cards */
@@ -117,7 +117,8 @@ main { flex: 1; }
 .operator { margin: 24px 0 0; font-size: 0.78rem; color: rgba(255,255,255,0.56); }
 .operator a { color: inherit; text-decoration: underline; }
 
-@media (min-width: 761px) { .hero p { white-space: nowrap; } }
+/* Subtitle on one line wherever it fits beside the two cards; balanced over two lines on smaller screens. */
+@media (min-width: 900px) { .hero p { white-space: nowrap; } }
 @media (max-width: 760px) {
   .inner { padding: 0 16px; }
   .header .inner { padding-top: 14px; padding-bottom: 14px; }
@@ -136,8 +137,7 @@ main { flex: 1; }
   .page { padding: 40px 16px 64px; }
   .page h1 { font-size: 1.6rem; }
   .hero { margin-bottom: 32px; }
-  /* One line at any phone width: sized to the screen, capped. */
-  .hero h1 { font-size: min(1.85rem, calc((100vw - 32px) / 12.8)); white-space: nowrap; }
+  .hero h1 { font-size: 1.6rem; }
   .hero p { font-size: 1.08rem; }
   .cards { grid-template-columns: 1fr; gap: 24px; }
   .card-band { padding: 14px 20px 12px; font-size: 0.88rem; letter-spacing: 0.1em; }
