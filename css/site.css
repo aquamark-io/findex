@@ -207,3 +207,4 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
 .info-box h2 { margin-top: 20px; }
 .info-box p:last-child { margin-bottom: 0; }
 @media (max-width: 760px) { .info-box { padding: 2px 16px 16px; } }
+.fields + .info-box { margin-top: 56px; }
