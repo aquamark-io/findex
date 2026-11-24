@@ -203,3 +203,7 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
   .fields dd { padding: 0 0 12px; margin-bottom: 0; }
 }
 @media (min-width: 761px) { .fields { column-gap: 0; } .fields dd { padding-left: 40px; } }
+.info-box { margin: 32px 0 0; padding: 4px 24px 20px; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; }
+.info-box h2 { margin-top: 20px; }
+.info-box p:last-child { margin-bottom: 0; }
+@media (max-width: 760px) { .info-box { padding: 2px 16px 16px; } }
