@@ -193,3 +193,13 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
 .card.option .code { margin: 0; }
 .card.option .note { margin: 10px 0 0; }
 .note.spaced { margin-top: 28px; }
+/* Field and error lists: roomier columns with light gridlines */
+.fields { gap: 0; column-gap: 40px; border-top: 1px solid #ece8f2; }
+.fields dt, .fields dd { padding: 12px 0; border-bottom: 1px solid #ece8f2; }
+.fields dd { margin: 0; }
+@media (max-width: 760px) {
+  .fields { column-gap: 0; }
+  .fields dt { padding: 12px 0 2px; border-bottom: 0; }
+  .fields dd { padding: 0 0 12px; margin-bottom: 0; }
+}
+@media (min-width: 761px) { .fields { column-gap: 0; } .fields dd { padding-left: 40px; } }
