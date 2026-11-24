@@ -137,8 +137,10 @@ main { flex: 1; }
   .page { padding: 40px 16px 64px; }
   .page h1 { font-size: 1.6rem; }
   .hero { margin-bottom: 32px; }
-  .hero h1 { font-size: 1.6rem; }
-  .hero p { font-size: 1.08rem; }
+  /* Phones: title and subtitle are each exactly two lines, sized to the screen (capped). */
+  .hero .hl { display: block; white-space: nowrap; }
+  .hero h1 { font-size: min(2.1rem, calc((100vw - 32px) / 11.6)); }
+  .hero p { font-size: min(1.08rem, calc((100vw - 32px) / 24.6)); }
   .cards { grid-template-columns: 1fr; gap: 24px; }
   .card-band { padding: 14px 20px 12px; font-size: 0.88rem; letter-spacing: 0.1em; }
   .card-body { padding: 20px 20px 24px; }
