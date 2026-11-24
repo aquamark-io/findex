@@ -109,7 +109,8 @@ main { flex: 1; }
 .footer-head { margin: 0 0 4px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; }
 .brands { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.16); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
 .brands p { margin: 0; }
-.brand-row { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 32px; }
+.brand-row { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; align-items: center; gap: 32px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .brand-row a { display: flex; align-items: center; }
 .brand-row a:hover { text-decoration: none; opacity: 0.85; }
 .brand-row .brand-full { height: 22px; width: auto; }
@@ -145,7 +146,8 @@ main { flex: 1; }
   .card-body { padding: 20px 20px 24px; }
   .faq-a { padding-right: 0; }
   .footer .inner { padding-top: 40px; }
-  .brands { flex-direction: column; align-items: flex-start; }
+  .brands { flex-direction: column; align-items: center; }
+  .brand-row { margin: 0; }
   .operator { text-align: center; }
 }
 /* Mobile menu: dark when open so it stands apart from the page (as on CSBFP). */
