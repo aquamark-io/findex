@@ -173,3 +173,10 @@ main { flex: 1; }
   .fields { grid-template-columns: 1fr; gap: 2px; }
   .fields dd { margin-bottom: 10px; }
 }
+.table-wrap { overflow-x: auto; }
+.options { width: 100%; border-collapse: collapse; margin: 8px 0 8px; font-size: 0.95rem; }
+.options th { text-align: left; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--plum); padding: 0 16px 10px 0; border-bottom: 1.5px solid var(--plum); }
+.options td { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.options td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; width: 34%; }
+.options code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86rem; color: var(--ink); }
+@media (max-width: 760px) { .options td:first-child { white-space: normal; } }
