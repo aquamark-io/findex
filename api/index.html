@@ -48,12 +48,14 @@
 
 <main>
   <div class="page">
-    <h1>Funded Business API</h1>
-    <p class="lead">Check funded businesses for defaults, document tampering, or both, from your own systems. Same matching and privacy as a search in the portal.</p>
+    <h1>API: Check Funded Businesses</h1>
+    <p class="lead">Check for defaults, document tampering, or both. Only published reports are returned.</p>
 
     <h2>Access</h2>
-    <p>Approved FinDex companies can request API access from their <a href="https://app.joinfindex.com/dashboard">dashboard</a>. Once your request is approved, you create and revoke your own keys there. Each key is shown once when it is created. Keep it on your server, never in a browser or app.</p>
-    <p>Search by EIN, as shown below, or by legal name and state of registration: <code>"name": "Joe's Cafe LLC", "state": "TX"</code> in place of <code>"ein"</code>. Names are matched exactly, ignoring case, punctuation, and endings like LLC or Inc. An EIN match is the most reliable.</p>
+    <p>Approved FinDex companies can request API access from their <a href="https://app.joinfindex.com/dashboard">dashboard</a>.</p>
+
+    <h2>What to send</h2>
+    <p>Send what you have: the EIN, the legal name and state of registration, or all three. FinDex matches on each, and every report shows what it matched on.</p>
 
     <div class="options-list">
     <section class="card option" aria-labelledby="opt1">
@@ -67,17 +69,20 @@ Content-Type: application/json
 
 {
   "ein": "12-3456789",
+  "name": "Joe's Cafe LLC",
+  "state": "TX",
   "checks": ["default"]
 }</code></pre>
         <p class="card-label">Response</p>
         <pre class="code"><code>{
   "search_id": "3f1c…",
-  "searched_by": "ein",
+  "searched_by": ["ein", "name_state"],
   "checks": {
     "default": {
       "on_record": true,
       "reports": [
         {
+          "matched_on": ["ein", "name_state"],
           "incident_date": "2026-09-15",
           "published_on": "2026-10-01",
           "reported_by": "Acme Funding LLC"
@@ -102,17 +107,20 @@ Content-Type: application/json
 
 {
   "ein": "12-3456789",
+  "name": "Joe's Cafe LLC",
+  "state": "TX",
   "checks": ["document_tampering"]
 }</code></pre>
         <p class="card-label">Response</p>
         <pre class="code"><code>{
   "search_id": "3f1c…",
-  "searched_by": "ein",
+  "searched_by": ["ein", "name_state"],
   "checks": {
     "document_tampering": {
       "on_record": true,
       "reports": [
         {
+          "matched_on": ["ein", "name_state"],
           "incident_date": "2026-08-01",
           "published_on": "2026-08-20",
           "reported_by": "Best Capital Inc"
@@ -137,18 +145,21 @@ Content-Type: application/json
 
 {
   "ein": "12-3456789",
+  "name": "Joe's Cafe LLC",
+  "state": "TX",
   "checks": ["default", "document_tampering"]
 }</code></pre>
         <p class="note">Or leave <code>checks</code> out to run both.</p>
         <p class="card-label">Response</p>
         <pre class="code"><code>{
   "search_id": "3f1c…",
-  "searched_by": "ein",
+  "searched_by": ["ein", "name_state"],
   "checks": {
     "default": {
       "on_record": true,
       "reports": [
         {
+          "matched_on": ["ein", "name_state"],
           "incident_date": "2026-09-15",
           "published_on": "2026-10-01",
           "reported_by": "Acme Funding LLC"
@@ -159,6 +170,7 @@ Content-Type: application/json
       "on_record": true,
       "reports": [
         {
+          "matched_on": ["ein", "name_state"],
           "incident_date": "2026-08-01",
           "published_on": "2026-08-20",
           "reported_by": "Best Capital Inc"
@@ -177,10 +189,10 @@ Content-Type: application/json
     <dl class="fields">
       <dt>on_record</dt><dd>True when at least one report is on record.</dd>
       <dt>reports</dt><dd>Each published report: incident and publishing dates, and reporting company.</dd>
+      <dt>matched_on</dt><dd>What the report matched: the EIN, the legal name and state, or both.</dd>
       <dt>recent_searches</dt><dd>Number of searches by other companies in the last 30&nbsp;days.</dd>
       <dt>results_url</dt><dd>Link to the full record in the portal.</dd>
     </dl>
-    <p class="note spaced">Only published reports are returned. Reports in their 10-day notice period or under dispute are not included.</p>
 
     <h2>Errors</h2>
     <dl class="fields">
