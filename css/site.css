@@ -31,7 +31,7 @@ p { margin: 0 0 14px; }
 .inner { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
 /* Header */
-.header { border-bottom: 1px solid var(--line); background: #fff; }
+.header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--line); background: #fff; }
 .header .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 28px; padding-top: 18px; padding-bottom: 18px; }
 .wordmark { font-weight: 750; font-size: 1.7rem; letter-spacing: -0.025em; line-height: 1; color: var(--plum); text-decoration: none; }
 .wordmark span { color: var(--pink); }
@@ -46,7 +46,7 @@ main { flex: 1; }
 .home { max-width: 1000px; margin: 0 auto; padding: 72px 24px 96px; }
 .hero { text-align: center; margin: 0 auto 48px; max-width: 780px; }
 .hero h1 { margin: 0 0 12px; font-size: 2rem; line-height: 1.25; font-weight: 650; color: var(--plum); }
-.hero p { margin: 0 auto; color: var(--muted); font-size: 1.05rem; line-height: 1.6; text-wrap: balance; }
+.hero p { margin: 0 auto; color: var(--muted); font-size: 1.15rem; line-height: 1.6; text-wrap: balance; }
 
 /* The two cards */
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -136,8 +136,9 @@ main { flex: 1; }
   .page { padding: 40px 16px 64px; }
   .page h1 { font-size: 1.6rem; }
   .hero { margin-bottom: 32px; }
-  .hero h1 { font-size: 1.5rem; }
-  .hero p { font-size: 1rem; }
+  /* One line at any phone width: sized to the screen, capped. */
+  .hero h1 { font-size: min(1.85rem, calc((100vw - 32px) / 12.8)); white-space: nowrap; }
+  .hero p { font-size: 1.08rem; }
   .cards { grid-template-columns: 1fr; gap: 24px; }
   .card-band { padding: 14px 20px 12px; font-size: 0.88rem; letter-spacing: 0.1em; }
   .card-body { padding: 20px 20px 24px; }
@@ -145,5 +146,18 @@ main { flex: 1; }
   .footer .inner { padding-top: 40px; }
   .brands { flex-direction: column; align-items: flex-start; }
   .operator { text-align: center; }
+}
+/* Mobile menu: dark when open so it stands apart from the page (as on CSBFP). */
+@media (max-width: 760px) {
+  .menu-toggle { background: var(--plum); border-color: var(--plum); }
+  .menu-bars span { background: #fff; }
+  .header.menu-open { background: var(--plum); border-bottom-color: var(--plum); box-shadow: 0 8px 24px rgba(28, 15, 46, 0.3); }
+  .header.menu-open .wordmark { color: #fff; }
+  .header.menu-open .wordmark span { color: #ff9ad0; }
+  .header.menu-open .menu-toggle { background: transparent; border-color: rgba(255, 255, 255, 0.4); }
+  .header.menu-open .nav { border-top-color: rgba(255, 255, 255, 0.18); }
+  .header.menu-open .nav a { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.14); }
+  .header.menu-open .nav a:hover, .header.menu-open .nav a.active { color: #fff; background: rgba(255, 255, 255, 0.06); border-bottom-color: rgba(255, 255, 255, 0.14); }
+  .header.menu-open .nav a:last-child { border-bottom: 0; }
 }
 @media print { .header, .footer { display: none; } }
