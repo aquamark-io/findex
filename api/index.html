@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API | FinDex</title>
+<meta name="description" content="Search for merchant defaults in FinDex from your own systems, by EIN or by legal name and state.">
+<link rel="icon" href="../favicon.ico?v=3" sizes="48x48">
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="icon" href="../favicon-96.png?v=3" type="image/png" sizes="96x96">
+<link rel="icon" href="../icon-192.png?v=3" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=3">
+<link rel="canonical" href="https://joinfindex.com/api/">
+<meta name="theme-color" content="#45138c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FinDex">
+<meta property="og:url" content="https://joinfindex.com/api/">
+<meta property="og:title" content="API | FinDex">
+<meta property="og:description" content="Search for merchant defaults in FinDex from your own systems, by EIN or by legal name and state.">
+<meta property="og:image" content="https://joinfindex.com/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FinDex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="API | FinDex">
+<meta name="twitter:description" content="Search for merchant defaults in FinDex from your own systems, by EIN or by legal name and state.">
+<meta name="twitter:image" content="https://joinfindex.com/og-image.png?v=3">
+<link rel="preload" href="../fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css?v=6">
+</head>
+<body>
+
+<header class="header">
+  <div class="inner">
+    <a href="../" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="https://app.joinfindex.com/search">Search</a>
+      <a href="../api/" class="active" aria-current="page">API</a>
+      <a href="../about/">About</a>
+      <a href="../faq/">FAQ</a>
+      <a href="https://app.joinfindex.com/login">Sign In</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page">
+    <h1>Search for Merchant Defaults via API</h1>
+    <p class="lead">Check whether a funded business has a default on record in FinDex, from your own systems. Same matching and privacy as a search in the portal.</p>
+
+    <h2>Access</h2>
+    <p>API access is available to approved FinDex companies on request. Each key is shown once when it is created. Keep it on your server, never in a browser or app.</p>
+
+    <h2>Request</h2>
+    <p>Send the EIN, or the business&rsquo;s legal name and state of registration.</p>
+    <pre class="code"><code>POST https://app.joinfindex.com/api/v1/defaults
+Authorization: Bearer fdx_your_key
+Content-Type: application/json
+
+{ "ein": "12-3456789" }</code></pre>
+    <p>Or by legal name and state:</p>
+    <pre class="code"><code>{ "name": "Joe's Cafe LLC", "state": "TX" }</code></pre>
+    <p class="note">Names are matched exactly, ignoring case, punctuation, and endings like LLC or Inc. An EIN match is the most reliable.</p>
+
+    <h2>Response</h2>
+    <pre class="code"><code>{
+  "search_id": "3f1c…",
+  "searched_by": "ein",
+  "has_default": true,
+  "defaults": [
+    {
+      "incident_date": "2026-09-15",
+      "published_on": "2026-10-01",
+      "reported_by": "Acme Funding LLC"
+    }
+  ],
+  "other_reports": 0,
+  "recent_searches": { "days": 30, "companies": 2, "searches": 3 },
+  "results_url": "https://app.joinfindex.com/search/results/3f1c…"
+}</code></pre>
+    <dl class="fields">
+      <dt>has_default</dt><dd>True when at least one published default is on record.</dd>
+      <dt>defaults</dt><dd>Each published default: when it happened, when it was published, and the company that reported it.</dd>
+      <dt>other_reports</dt><dd>Published reports of other kinds, such as document manipulation. Open <code>results_url</code> to read them.</dd>
+      <dt>recent_searches</dt><dd>Searches of this business by other companies in the last 30&nbsp;days.</dd>
+      <dt>results_url</dt><dd>The full results in the portal for 7&nbsp;days, when signed in to your company&rsquo;s account.</dd>
+    </dl>
+    <p class="note">Only published reports are returned. Reports in their 10-day notice period or under dispute are not included.</p>
+
+    <h2>Errors</h2>
+    <dl class="fields">
+      <dt>401 invalid_key</dt><dd>Missing, invalid, or revoked key.</dd>
+      <dt>422 invalid_request</dt><dd>The EIN, name, or state is missing or invalid. The message says which.</dd>
+      <dt>429 rate_limited</dt><dd>More than 300 lookups in an hour for this key.</dd>
+    </dl>
+
+    <h2>Records and privacy</h2>
+    <p>Every lookup is logged as a search by your company and appears in your search history. FinDex never stores the EIN you send, only a one-way key used for matching and for counting recent searches. Use the results only for underwriting decisions, under the member terms you accepted.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="inner">
+    <div class="footer-main">
+      <div class="footer-about">
+        <a href="../" class="wordmark" aria-label="FinDex home">Fin<span>Dex</span></a>
+        <p>Evidence-based reporting for commercial finance.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <p class="footer-head">FinDex</p>
+          <a href="../about/">About</a>
+          <a href="../api/">API</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../privacy/">Privacy &amp; Security</a>
+        </div>
+        <div>
+          <p class="footer-head">Account</p>
+          <a href="https://app.joinfindex.com/request-access">Request Access</a>
+          <a href="https://app.joinfindex.com/check-my-record">Check My Record</a>
+          <a href="https://app.joinfindex.com/login">Sign In</a>
+        </div>
+      </div>
+    </div>
+    <section class="brands" aria-labelledby="brands-title">
+      <p id="brands-title">Building a Better Future for Commercial Finance.</p>
+      <ul class="brand-row">
+        <li><a href="https://aquamark.io" target="_blank" rel="noopener noreferrer"><img class="brand-full" src="../logos/aquamark.png" alt="Aquamark"></a></li>
+        <li><a href="https://securebroker.org" target="_blank" rel="noopener noreferrer"><img class="brand-badge" src="../logos/secure-broker-badge.png" alt="Secure Broker"></a></li>
+        <li><a href="https://securefunder.org" target="_blank" rel="noopener noreferrer"><img class="brand-badge" src="../logos/secure-funder-badge.png" alt="Secure Funder"></a></li>
+      </ul>
+    </section>
+    <p class="operator">&copy; 2026 FinDex &middot; San Francisco, CA &middot; Independently administered</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var header = document.querySelector('.header');
+    var btn = document.querySelector('.menu-toggle');
+    if (!header || !btn) return;
+    var setOpen = function (open) {
+      header.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    btn.addEventListener('click', function () { setOpen(!header.classList.contains('menu-open')); });
+    document.getElementById('site-nav').addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+  (function () {
+    // One FAQ answer open at a time (fallback for browsers without <details name>).
+    var items = document.querySelectorAll('.faq-list details');
+    items.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        items.forEach(function (o) { if (o !== d && o.open) o.open = false; });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
