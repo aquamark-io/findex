@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="Check funded businesses for defaults and document tampering from your own systems, by EIN or by legal name and state.">
 <meta name="twitter:image" content="https://joinfindex.com/og-image.png?v=3">
 <link rel="preload" href="../fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/site.css?v=10">
+<link rel="stylesheet" href="../css/site.css?v=11">
 </head>
 <body>
 
@@ -47,44 +47,91 @@
 </header>
 
 <main>
-  <div class="page page-wide">
+  <div class="page">
     <h1>Funded Business API</h1>
     <p class="lead">Check funded businesses for defaults, document tampering, or both, from your own systems. Same matching and privacy as a search in the portal.</p>
 
-    <div class="cards three">
-      <section class="card" aria-labelledby="opt1">
-        <h2 class="card-band" id="opt1">Option 1: Defaults</h2>
-        <div class="card-body">
-          <p>Has this business defaulted with another lender?</p>
-          <p class="card-label">Send</p>
-          <code class="send">"checks": ["default"]</code>
-        </div>
-      </section>
-      <section class="card" aria-labelledby="opt2">
-        <h2 class="card-band" id="opt2">Option 2: Document Tampering</h2>
-        <div class="card-body">
-          <p>Has this business sent altered or falsified documents?</p>
-          <p class="card-label">Send</p>
-          <code class="send">"checks": ["document_tampering"]</code>
-        </div>
-      </section>
-      <section class="card" aria-labelledby="opt3">
-        <h2 class="card-band" id="opt3">Option 3: Both</h2>
-        <div class="card-body">
-          <p>Run both checks in one request.</p>
-          <p class="card-label">Send</p>
-          <code class="send">"checks": ["default", "document_tampering"]</code>
-          <p class="note">Or leave <code>checks</code> out.</p>
-        </div>
-      </section>
-    </div>
-
     <h2>Access</h2>
     <p>Approved FinDex companies can request API access from their <a href="https://app.joinfindex.com/dashboard">dashboard</a>. Once your request is approved, you create and revoke your own keys there. Each key is shown once when it is created. Keep it on your server, never in a browser or app.</p>
+    <p>Search by EIN, as shown below, or by legal name and state of registration: <code>"name": "Joe's Cafe LLC", "state": "TX"</code> in place of <code>"ein"</code>. Names are matched exactly, ignoring case, punctuation, and endings like LLC or Inc. An EIN match is the most reliable.</p>
 
-    <h2>Request</h2>
-    <p>Send the EIN, or the business&rsquo;s legal name and state of registration, with the checks you want.</p>
-    <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+    <div class="options-list">
+    <section class="card option" aria-labelledby="opt1">
+      <h2 class="card-band" id="opt1">Option 1: Defaults</h2>
+      <div class="card-body">
+        <p>Has this business defaulted with another lender?</p>
+        <p class="card-label">Request</p>
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+Authorization: Bearer fdx_your_key
+Content-Type: application/json
+
+{
+  "ein": "12-3456789",
+  "checks": ["default"]
+}</code></pre>
+        <p class="card-label">Response</p>
+        <pre class="code"><code>{
+  "search_id": "3f1c…",
+  "searched_by": "ein",
+  "checks": {
+    "default": {
+      "on_record": true,
+      "reports": [
+        {
+          "incident_date": "2026-09-15",
+          "published_on": "2026-10-01",
+          "reported_by": "Acme Funding LLC"
+        }
+      ]
+    }
+  },
+  "recent_searches": { "days": 30, "companies": 2, "searches": 3 },
+  "results_url": "https://app.joinfindex.com/search/results/3f1c…"
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="card option" aria-labelledby="opt2">
+      <h2 class="card-band" id="opt2">Option 2: Document Tampering</h2>
+      <div class="card-body">
+        <p>Has this business sent altered or falsified documents?</p>
+        <p class="card-label">Request</p>
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+Authorization: Bearer fdx_your_key
+Content-Type: application/json
+
+{
+  "ein": "12-3456789",
+  "checks": ["document_tampering"]
+}</code></pre>
+        <p class="card-label">Response</p>
+        <pre class="code"><code>{
+  "search_id": "3f1c…",
+  "searched_by": "ein",
+  "checks": {
+    "document_tampering": {
+      "on_record": true,
+      "reports": [
+        {
+          "incident_date": "2026-08-01",
+          "published_on": "2026-08-20",
+          "reported_by": "Best Capital Inc"
+        }
+      ]
+    }
+  },
+  "recent_searches": { "days": 30, "companies": 2, "searches": 3 },
+  "results_url": "https://app.joinfindex.com/search/results/3f1c…"
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="card option" aria-labelledby="opt3">
+      <h2 class="card-band" id="opt3">Option 3: Both</h2>
+      <div class="card-body">
+        <p>Run both checks in one request.</p>
+        <p class="card-label">Request</p>
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
 Authorization: Bearer fdx_your_key
 Content-Type: application/json
 
@@ -92,12 +139,9 @@ Content-Type: application/json
   "ein": "12-3456789",
   "checks": ["default", "document_tampering"]
 }</code></pre>
-    <p>Or by legal name and state, defaults only:</p>
-    <pre class="code"><code>{ "name": "Joe's Cafe LLC", "state": "TX", "checks": ["default"] }</code></pre>
-    <p class="note">Names are matched exactly, ignoring case, punctuation, and endings like LLC or Inc. An EIN match is the most reliable.</p>
-
-    <h2>Response</h2>
-    <pre class="code"><code>{
+        <p class="note">Or leave <code>checks</code> out to run both.</p>
+        <p class="card-label">Response</p>
+        <pre class="code"><code>{
   "search_id": "3f1c…",
   "searched_by": "ein",
   "checks": {
@@ -112,15 +156,25 @@ Content-Type: application/json
       ]
     },
     "document_tampering": {
-      "on_record": false,
-      "reports": []
+      "on_record": true,
+      "reports": [
+        {
+          "incident_date": "2026-08-01",
+          "published_on": "2026-08-20",
+          "reported_by": "Best Capital Inc"
+        }
+      ]
     }
   },
   "recent_searches": { "days": 30, "companies": 2, "searches": 3 },
   "results_url": "https://app.joinfindex.com/search/results/3f1c…"
 }</code></pre>
+      </div>
+    </section>
+    </div>
+
+    <h2>What the response means</h2>
     <dl class="fields">
-      <dt>checks</dt><dd>One entry for each check you asked for.</dd>
       <dt>on_record</dt><dd>True when at least one published report of that type is on record.</dd>
       <dt>reports</dt><dd>Each published report: when it happened, when it was published, and the company that reported it.</dd>
       <dt>recent_searches</dt><dd>Searches of this business by other companies in the last 30&nbsp;days. A count only, never which companies.</dd>

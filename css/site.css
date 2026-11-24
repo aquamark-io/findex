@@ -187,3 +187,8 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
 @media (max-width: 900px) { .cards.three { grid-template-columns: 1fr; } }
 .page .card-band { margin: 0; }
 @media (min-width: 901px) { .cards.three .card-band { box-sizing: content-box; min-height: 2.6em; display: flex; align-items: center; } }
+.options-list { display: grid; gap: 28px; margin: 36px 0 8px; }
+.card.option .card-body > p:first-child { font-size: 1.02rem; color: var(--ink); }
+.card.option .card-label { margin: 18px 0 6px; }
+.card.option .code { margin: 0; }
+.card.option .note { margin: 10px 0 0; }
