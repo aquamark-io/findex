@@ -140,7 +140,7 @@ main { flex: 1; }
   /* Phones: title and subtitle are each exactly two lines, sized to the screen (capped). */
   .hero .hl { display: block; white-space: nowrap; }
   .hero h1 { font-size: min(2.1rem, calc((100vw - 32px) / 11.6)); }
-  .hero p { font-size: min(1rem, calc((100vw - 32px) / 19.9)); }
+  .hero p { font-size: min(1rem, calc((100vw - 32px) / 21.5)); }
   .cards { grid-template-columns: 1fr; gap: 24px; }
   .card-band { padding: 14px 20px 12px; font-size: 0.88rem; letter-spacing: 0.1em; }
   .card-body { padding: 20px 20px 24px; }
