@@ -76,8 +76,8 @@ main { flex: 1; }
 .has-banner .header { top: 38px; }
 @media (max-width: 760px) {
   /* Phones: one line, sized to the screen */
-  .top-banner { height: 30px; padding: 7px 12px; line-height: 16px; font-size: min(0.88rem, calc((100vw - 24px) / 28.5)); }
-  .has-banner .header { top: 30px; }
+  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.88rem, calc((100vw - 24px) / 28.5)); }
+  .has-banner .header { top: 38px; }
 }
 
 /* Home: plum banner with the two cards overlapping its bottom edge */
