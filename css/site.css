@@ -168,6 +168,8 @@ main { flex: 1; }
   .brands { flex-direction: column; align-items: center; }
   .brand-row { margin: 0; }
   .operator { text-align: center; }
+  .operator .op-sep { display: none; }
+  .operator .op-line { display: block; }
 }
 /* Mobile menu: opens inside the dark navy header. */
 @media (max-width: 760px) {
