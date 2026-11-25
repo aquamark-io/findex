@@ -79,11 +79,11 @@ main { flex: 1; }
 .card-note { font-size: 0.88rem; color: var(--muted); }
 
 /* Home: light gray message strip above the nav */
-.top-banner { position: sticky; top: 0; z-index: 51; box-sizing: border-box; height: 38px; padding: 9px 16px; background: #e9edf4; color: var(--navy-dark); border-bottom: 1px solid var(--line); text-align: center; font-size: 0.88rem; font-weight: 500; line-height: 20px; white-space: nowrap; overflow: hidden; }
+.top-banner { position: sticky; top: 0; z-index: 51; box-sizing: border-box; height: 38px; padding: 9px 16px; background: #e9edf4; color: var(--navy-dark); border-bottom: 1px solid var(--line); text-align: center; font-family: var(--serif); font-size: 0.95rem; font-weight: 400; line-height: 20px; white-space: nowrap; overflow: hidden; }
 .has-banner .header { top: 38px; }
 @media (max-width: 760px) {
   /* Phones: one line, sized to the screen */
-  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.88rem, calc((100vw - 24px) / 28.5)); }
+  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.95rem, calc((100vw - 24px) / 25.5)); }
   .has-banner .header { top: 38px; }
 }
 
@@ -164,6 +164,8 @@ main { flex: 1; }
   /* Phones: title on one line, sized to the screen (capped); subtitle wraps evenly if it must. */
   .hero h1, .home-hero h1 { font-size: min(2.1rem, calc((100vw - 40px) / 13)); white-space: nowrap; }
   .home-hero { padding: 36px 20px 32px; }
+  /* Subtitle: two balanced lines, sized to the screen. */
+  .home-hero p { font-size: min(1.12rem, calc((100vw - 40px) / 23)); }
   .home.tiles { padding: 32px 16px 64px; }
   .tile .card-body { padding: 0 20px 24px; }
   .tile-title { margin: 0 -20px 18px; padding: 12px 20px; font-size: 1.25rem; }
