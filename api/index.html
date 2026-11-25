@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>API | FinDex</title>
-<meta name="description" content="Check funded businesses for defaults and document tampering from your own systems, by EIN or by legal name and state.">
+<meta name="description" content="Check merchants for defaults and document tampering from your own systems, by EIN or by legal name and state.">
 <link rel="icon" href="../favicon.ico?v=3" sizes="48x48">
 <link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="../favicon-32.png?v=3" type="image/png" sizes="32x32">
@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="FinDex">
 <meta property="og:url" content="https://joinfindex.com/api/">
 <meta property="og:title" content="API | FinDex">
-<meta property="og:description" content="Check funded businesses for defaults and document tampering from your own systems, by EIN or by legal name and state.">
+<meta property="og:description" content="Check merchants for defaults and document tampering from your own systems, by EIN or by legal name and state.">
 <meta property="og:image" content="https://joinfindex.com/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="FinDex">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="API | FinDex">
-<meta name="twitter:description" content="Check funded businesses for defaults and document tampering from your own systems, by EIN or by legal name and state.">
+<meta name="twitter:description" content="Check merchants for defaults and document tampering from your own systems, by EIN or by legal name and state.">
 <meta name="twitter:image" content="https://joinfindex.com/og-image.png?v=3">
 <link rel="preload" href="../fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/site.css?v=25">
@@ -49,7 +49,7 @@
 
 <main>
   <div class="page">
-    <h1>API: Check Funded Businesses</h1>
+    <h1>API: Check Merchants</h1>
     <p class="lead">Check for defaults, document tampering, or both. Only published reports are returned.</p>
 
     <div class="info-box">
@@ -66,7 +66,7 @@
       <div class="card-body">
         <p>Is there a reported default on record?</p>
         <p class="card-label">Request</p>
-        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/merchant
 Authorization: Bearer fdx_your_key
 Content-Type: application/json
 
@@ -104,7 +104,7 @@ Content-Type: application/json
       <div class="card-body">
         <p>Is there a reported incident of document tampering on record?</p>
         <p class="card-label">Request</p>
-        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/merchant
 Authorization: Bearer fdx_your_key
 Content-Type: application/json
 
@@ -142,7 +142,7 @@ Content-Type: application/json
       <div class="card-body">
         <p>Run both checks in one request.</p>
         <p class="card-label">Request</p>
-        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/funded-business
+        <pre class="code"><code>POST https://app.joinfindex.com/api/v1/merchant
 Authorization: Bearer fdx_your_key
 Content-Type: application/json
 
