@@ -81,7 +81,6 @@ main { flex: 1; }
 .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* FAQ */
-.faq-list { border-top: 1.5px solid var(--plum); }
 .faq-list details { border-bottom: 1px solid var(--line); }
 .faq-list summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; cursor: pointer; list-style: none; font-weight: 600; color: var(--ink); }
 .faq-list summary::-webkit-details-marker { display: none; }
