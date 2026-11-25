@@ -8,6 +8,10 @@
   src: url("../fonts/source-serif-4-latin-400-normal.woff2") format("woff2");
 }
 @font-face {
+  font-family: "Source Serif 4"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("../fonts/source-serif-4-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
   font-family: "Source Serif 4"; font-style: normal; font-weight: 600 700; font-display: swap;
   src: url("../fonts/source-serif-4-latin-600-normal.woff2") format("woff2");
 }
@@ -78,12 +82,12 @@ main { flex: 1; }
 .button.secondary:hover { background: var(--soft); color: var(--navy-dark); border-color: var(--muted); }
 .card-note { font-size: 0.88rem; color: var(--muted); }
 
-/* Home: light gray message strip above the nav */
-.top-banner { position: sticky; top: 0; z-index: 51; box-sizing: border-box; height: 38px; padding: 9px 16px; background: #e9edf4; color: var(--navy-dark); border-bottom: 1px solid var(--line); text-align: center; font-family: var(--serif); font-size: 0.95rem; font-weight: 400; line-height: 20px; white-space: nowrap; overflow: hidden; }
+/* Home: motto line above the nav, in serif italics on the header navy */
+.top-banner { position: sticky; top: 0; z-index: 51; box-sizing: border-box; height: 38px; padding: 9px 16px; background: var(--navy-dark); color: #dfe6f3; border-bottom: 1px solid rgba(255, 255, 255, 0.18); text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.95rem; font-weight: 400; line-height: 20px; white-space: nowrap; overflow: hidden; }
 .has-banner .header { top: 38px; }
 @media (max-width: 760px) {
   /* Phones: one line, sized to the screen */
-  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.95rem, calc((100vw - 24px) / 24.3)); }
+  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.95rem, calc((100vw - 24px) / 22.3)); }
   .has-banner .header { top: 38px; }
 }
 
