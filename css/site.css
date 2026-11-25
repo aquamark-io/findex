@@ -72,7 +72,13 @@ main { flex: 1; }
 .card-note { font-size: 0.88rem; color: var(--muted); }
 
 /* Home: soft lavender message above the nav */
-.top-banner { background: #efe8f8; color: var(--plum); text-align: center; font-size: 0.88rem; font-weight: 550; line-height: 1.4; padding: 9px 16px; text-wrap: balance; }
+.top-banner { position: sticky; top: 0; z-index: 51; box-sizing: border-box; height: 38px; padding: 9px 16px; background: #efe8f8; color: var(--plum); text-align: center; font-size: 0.88rem; font-weight: 550; line-height: 20px; white-space: nowrap; overflow: hidden; }
+.has-banner .header { top: 38px; }
+@media (max-width: 760px) {
+  /* Phones: one line, sized to the screen */
+  .top-banner { height: 30px; padding: 7px 12px; line-height: 16px; font-size: min(0.88rem, calc((100vw - 24px) / 33)); }
+  .has-banner .header { top: 30px; }
+}
 
 /* Home: plum banner with the two cards overlapping its bottom edge */
 .home-hero { background: var(--plum); text-align: center; padding: 64px 24px 132px; }
