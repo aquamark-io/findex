@@ -211,3 +211,11 @@ code.send { display: block; padding: 10px 12px; background: var(--soft); border:
 .info-box p:last-child { margin-bottom: 0; }
 @media (max-width: 760px) { .info-box { padding: 2px 16px 16px; } }
 .fields + .info-box { margin-top: 56px; }
+
+/* Terms of Use and Privacy Policy */
+.legal .legal-meta { margin: 0 0 8px; color: var(--muted, #6b6280); font-size: 0.9rem; }
+.legal h2 { margin-top: 32px; }
+.legal p, .legal li { line-height: 1.7; }
+.legal ul { margin: 0 0 12px; padding-left: 22px; }
+.legal li { margin: 4px 0; }
+.legal li ul { margin: 4px 0; }
