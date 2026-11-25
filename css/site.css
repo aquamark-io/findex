@@ -83,7 +83,7 @@ main { flex: 1; }
 .has-banner .header { top: 38px; }
 @media (max-width: 760px) {
   /* Phones: one line, sized to the screen */
-  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.95rem, calc((100vw - 24px) / 25.5)); }
+  .top-banner { height: 38px; padding: 11px 12px; line-height: 16px; font-size: min(0.95rem, calc((100vw - 24px) / 24.3)); }
   .has-banner .header { top: 38px; }
 }
 
