@@ -155,8 +155,8 @@ main { flex: 1; }
   /* Phones: title on one line, sized to the screen (capped); subtitle wraps evenly if it must. */
   .hero h1, .home-hero h1 { font-size: min(2.1rem, calc((100vw - 40px) / 13)); white-space: nowrap; }
   .home-hero { padding: 36px 20px 32px; }
-  /* Subtitle: two balanced lines, sized to the screen. */
-  .home-hero p { font-size: min(1.12rem, calc((100vw - 40px) / 23)); }
+  /* Subtitle: two balanced lines on phones. */
+  .home-hero p { font-size: 1.05rem; }
   .home.tiles { padding: 32px 16px 64px; }
   .tile .card-body { padding: 0 20px 24px; }
   .tile-title { margin: 0 -20px 18px; padding: 12px 20px; font-size: 1.25rem; }
